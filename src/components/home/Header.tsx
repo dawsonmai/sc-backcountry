@@ -5,7 +5,7 @@ const Header = () => {
 
             <div className=" flex text-sm gap-5 items-center">
                 <p>About</p>
-                <p>School</p>
+                <p>Game</p>
                 <p>Projects</p>
                 <button className="bg-stone-800 text-white px-4 py-1 rounded-full">Contact</button>
             </div>
