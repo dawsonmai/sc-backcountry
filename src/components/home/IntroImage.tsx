@@ -1,7 +1,7 @@
 const IntroImage = () => {
 	return (
 		<div className="flex flex-col flex-grow bg-gray-300 w-full rounded-3xl p-10">
-			<h1 className="text-7xl font-semibold">
+			<h1 className="text-7xl font-medium">
 				Welcome to the <br />
 				SOCAL BACKCOUNTRY
 			</h1>
@@ -9,7 +9,7 @@ const IntroImage = () => {
 			<div className="flex flex-row">
 				<div className="bg-white rounded-full w-96 h-16 flex items-center justify-between pl-8 pr-2">
 					<h2 className="text-black font-medium text-left uppercase text-xl">Explore</h2>
-					<button className="bg-black rounded-full text-white rounded-full h-10 w-10 text-center font-bold text-xl">-&gt;</button>
+					<button className="bg-black rounded-full text-white h-10 w-10 text-center font-bold text-xl">-&gt;</button>
 				</div>
 				<div className="bg-white rounded-3xl w-52 h-60">
 					<div className="bg-gray-300 w-full h-1/5 rounded-t-3xl flex items-center p-3 gap-6">
