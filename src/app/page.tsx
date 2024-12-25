@@ -1,4 +1,4 @@
-import Header from "../components/home/Header";
+import Header from "../components/global/Header";
 import IntroImage from "@/components/home/IntroImage";
 import AreaData from "@/components/home/AreaData";
 import TransitionImage from "@/components/home/TransitionText";

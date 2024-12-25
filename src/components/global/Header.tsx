@@ -10,7 +10,7 @@ const Header = () => {
 			</Link>
 
 			<div className=" flex text-sm gap-5 items-center">
-				<p>Routes</p>
+				<Link href="/routes">Routes</Link>
 				<p>Conditions</p>
 				<p>Education</p>
 				<p>About</p>

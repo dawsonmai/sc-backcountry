@@ -12,7 +12,7 @@ const ExploreArea = () => {
 							<h3 className="w-full h-full font-normal text-2xl">San Gorgonio Mountains</h3>
 						</div>
 						<div className="w-1/3 h-full flex items-center justify-center">
-							<button className="bg-black rounded-full text-white rounded-full h-10 w-10 text-center font-semibold text-xl">-&gt;</button>
+							<button className="bg-black rounded-full text-white h-10 w-10 text-center font-semibold text-xl">-&gt;</button>
 						</div>
 					</div>
 				</div>
@@ -24,7 +24,7 @@ const ExploreArea = () => {
 							<h3 className="w-full h-full font-normal text-2xl">San Jacinto Mountains</h3>
 						</div>
 						<div className="w-1/3 h-full flex items-center justify-center">
-							<button className="bg-black rounded-full text-white rounded-full h-10 w-10 text-center font-semibold text-xl">-&gt;</button>
+							<button className="bg-black rounded-full text-white h-10 w-10 text-center font-semibold text-xl">-&gt;</button>
 						</div>
 					</div>
 				</div>
@@ -36,7 +36,7 @@ const ExploreArea = () => {
 							<h3 className="w-full h-full font-normal text-2xl">San Gabriel Mountains</h3>
 						</div>
 						<div className="w-1/3 h-full flex items-center justify-center">
-							<button className="bg-black rounded-full text-white rounded-full h-10 w-10 text-center font-semibold text-xl">-&gt;</button>
+							<button className="bg-black rounded-full text-white h-10 w-10 text-center font-semibold text-xl">-&gt;</button>
 						</div>
 					</div>
 				</div>
