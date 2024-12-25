@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  background-color: #fffffff7;
+@layer components {
+	.debug {
+		@apply border border-red-500;
+	}
+}
+
+body {
+	background-color: #fffffff7;
 }
