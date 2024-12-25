@@ -27,15 +27,15 @@ const AreaData = () => {
 			<div className="flex flex-col sm:flex-row w-full py-12 px-6 justify-center items-center gap-10 sm:gap-5 lg:gap-24">
 				<div className="w-52 md:w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-4 md:p-6">
 					<h2 className="text-5xl lg:text-7xl text-center w-full font-medium font-mono">123</h2>
-					<h3 className="text-xl text-center w-full font-medium">square miles of terrain</h3>
+					<h3 className="text-xl text-center w-full">square miles of terrain</h3>
 				</div>
 				<div className="w-52 md:w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-4 md:p-6">
 					<h2 className="text-5xl lg:text-7xl text-center w-full font-medium font-mono">456</h2>
-					<h3 className="text-xl text-center w-full font-medium">mountain ranges</h3>
+					<h3 className="text-xl text-center w-full">mountain ranges</h3>
 				</div>
 				<div className="w-52 md:w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-4 md:p-6">
 					<h2 className="text-5xl lg:text-7xl text-center w-full font-medium font-mono">789</h2>
-					<h3 className="text-xl text-center w-full font-medium">peaks taller than 10,000 ft</h3>
+					<h3 className="text-xl text-center w-full">peaks taller than 10,000 ft</h3>
 				</div>
 			</div>
 		</div>
