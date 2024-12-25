@@ -12,7 +12,7 @@ export default function Home() {
 				<IntroImage />
 			</div>
 			<AreaData />
-			<TransitionImage />
+			{/* <TransitionImage /> */}
 			<ExploreArea />
 			<ConditionsPreview />
 		</div>

@@ -5,7 +5,7 @@ const IntroImage = () => {
 		<div className="flex flex-col flex-grow bg-gray-700 w-full rounded-3xl p-10 justify-between">
 			<h1 className="inline text-7xl font-medium text-white">
 				Welcome to the <br />
-				Southern California Backcountry <MountainSnow className="inline size-12" />
+				Southern California Backcountry <MountainSnow strokeWidth={1.5} className="inline size-12" />
 			</h1>
 
 			<div className="flex flex-row justify-between items-end">
@@ -16,8 +16,8 @@ const IntroImage = () => {
 					</button>
 				</div>
 				<div className="bg-white rounded-2xl w-1/4">
-					<div className="flex flex-row bg-gray-300 w-full h-1/5 rounded-t-2xl items-center p-3 gap-3">
-						<CircleAlert className="text-rose-600 size-6" />
+					<div className="flex flex-row bg-gray-200 w-full h-1/5 rounded-t-2xl items-center p-3 gap-3">
+						<CircleAlert strokeWidth={2.5} className="text-rose-600 size-6" />
 						<h2 className="text-black font-medium text-lg uppercase">Caution</h2>
 					</div>
 					<div className="h-4/5 w-full rounded-b-2xl bg-white px-4 py-3">
