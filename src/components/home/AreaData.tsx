@@ -18,7 +18,7 @@ const AnimatedNumber = ({ value }: { value: number }) => {
 	}, [inView, motionValue, value]);
 
 	return (
-		<motion.h2 ref={ref} className="text-5xl lg:text-7xl text-center w-full font-medium font-mono">
+		<motion.h2 ref={ref} className="inline text-5xl lg:text-7xl text-center w-full font-medium font-mono">
 			{rounded}
 		</motion.h2>
 	);
@@ -56,7 +56,9 @@ const AreaData = () => {
 					viewport={{ once: true }}
 					transition={{ duration: 0.5 }}
 				>
-					<AnimatedNumber value={123} />
+					<span className="text-5xl lg:text-7xl text-center w-full font-medium font-mono">
+						<AnimatedNumber value={123} />k
+					</span>
 					<h3 className="text-xl text-center w-full">square miles of terrain</h3>
 				</motion.div>
 
