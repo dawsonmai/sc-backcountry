@@ -4,7 +4,7 @@ import { ArrowRight, Snowflake } from "lucide-react";
 
 const AnimatedNumber = ({ value }: { value: number }) => {
 	const ref = useRef(null);
-	const inView = useInView(ref, { once: true });
+	const inView = useInView(ref);
 	const motionValue = useMotionValue(0);
 	const rounded = useTransform(motionValue, (latest) => Math.round(latest));
 
@@ -14,6 +14,8 @@ const AnimatedNumber = ({ value }: { value: number }) => {
 				duration: 1,
 				ease: "easeOut",
 			});
+		} else {
+			animate(motionValue, 0, { duration: 0 });
 		}
 	}, [inView, motionValue, value]);
 
@@ -53,7 +55,7 @@ const AreaData = () => {
 					className="w-52 md:w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-4 md:p-6"
 					initial={{ scale: 0.8, opacity: 0 }}
 					whileInView={{ scale: 1, opacity: 1 }}
-					viewport={{ once: true }}
+					viewport={{ margin: "-100px" }}
 					transition={{ duration: 0.5 }}
 				>
 					<span className="text-5xl lg:text-7xl text-center w-full font-medium font-mono">
@@ -66,7 +68,7 @@ const AreaData = () => {
 					className="w-52 md:w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-4 md:p-6"
 					initial={{ scale: 0.8, opacity: 0 }}
 					whileInView={{ scale: 1, opacity: 1 }}
-					viewport={{ once: true }}
+					viewport={{ margin: "-100px" }}
 					transition={{ duration: 0.5, delay: 0.2 }}
 				>
 					<AnimatedNumber value={456} />
@@ -77,7 +79,7 @@ const AreaData = () => {
 					className="w-52 md:w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-4 md:p-6"
 					initial={{ scale: 0.8, opacity: 0 }}
 					whileInView={{ scale: 1, opacity: 1 }}
-					viewport={{ once: true }}
+					viewport={{ margin: "-100px" }}
 					transition={{ duration: 0.5, delay: 0.4 }}
 				>
 					<AnimatedNumber value={789} />
