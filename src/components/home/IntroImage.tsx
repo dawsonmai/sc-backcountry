@@ -11,7 +11,7 @@ const IntroImage = () => {
 			<div className="flex flex-row justify-between items-end">
 				<div className="bg-white rounded-full w-96 h-16 flex items-center justify-between pl-8 pr-2">
 					<h2 className="text-black font-medium text-left uppercase text-lg">Explore</h2>
-					<button className="bg-black rounded-full text-white p-3 justify-center items-center text-center font-bold text-xl">
+					<button className="bg-black rounded-full text-white p-3 justify-center items-center text-center font-semibold text-xl">
 						<ArrowRight color="white" size={26} />
 					</button>
 				</div>
