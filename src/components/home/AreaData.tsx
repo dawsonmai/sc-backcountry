@@ -2,19 +2,19 @@ import { ArrowRight, Snowflake } from "lucide-react";
 
 const AreaData = () => {
 	return (
-		<header className="bg-white w-full h-screen">
-			<div className="w-full py-10 flex">
-				<div className="w-1/3 h-full">
-					<h2 className="uppercase font-semibold text-xl tracking-wider">Explore The Area</h2>
+		<div className="bg-white w-full pb-6">
+			<div className="flex flex-col md:flex-row w-full py-10 gap-5">
+				<div className="w-full md:w-1/3 h-full">
+					<h2 className="uppercase font-semibold text-lg sm:text-xl tracking-wider">Explore The Area</h2>
 				</div>
-				<div className="w-2/3 h-full">
-					<h3 className="text-4xl">
+				<div className="w-full md:w-2/3 h-full">
+					<h3 className="text-3xl sm:text-4xl">
 						Southern California may be know for its warm weather and beautiful beaches, but during its winter, the SoCal backcountry receives tons of snow, allowing for perfect climbing
 						and skiing conditions.
 					</h3>
 				</div>
 			</div>
-			<div className="w-full flex items-center">
+			<div className="flex flex-row w-full items-center gap-5">
 				<div className="h-full w-1/6 items-center flex justify-start">
 					<Snowflake strokeWidth={1} className="inline size-12" />
 				</div>
@@ -24,21 +24,21 @@ const AreaData = () => {
 					</button>
 				</div>
 			</div>
-			<div className="flex w-full p-12 justify-center gap-24">
-				<div className="w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-6">
-					<h2 className="text-7xl text-center w-full font-medium font-mono">123</h2>
+			<div className="flex flex-col sm:flex-row w-full py-12 px-6 justify-center items-center gap-10 sm:gap-5 lg:gap-24">
+				<div className="w-52 md:w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-4 md:p-6">
+					<h2 className="text-5xl lg:text-7xl text-center w-full font-medium font-mono">123</h2>
 					<h3 className="text-xl text-center w-full font-medium">square miles of terrain</h3>
 				</div>
-				<div className="w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-6">
-					<h2 className="text-7xl text-center w-full font-medium font-mono">456</h2>
+				<div className="w-52 md:w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-4 md:p-6">
+					<h2 className="text-5xl lg:text-7xl text-center w-full font-medium font-mono">456</h2>
 					<h3 className="text-xl text-center w-full font-medium">mountain ranges</h3>
 				</div>
-				<div className="w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-6">
-					<h2 className="text-7xl text-center w-full font-medium font-mono">789</h2>
+				<div className="w-52 md:w-72 aspect-square rounded-full bg-gray-200 flex flex-col justify-center items-center p-4 md:p-6">
+					<h2 className="text-5xl lg:text-7xl text-center w-full font-medium font-mono">789</h2>
 					<h3 className="text-xl text-center w-full font-medium">peaks taller than 10,000 ft</h3>
 				</div>
 			</div>
-		</header>
+		</div>
 	);
 };
 
