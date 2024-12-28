@@ -10,9 +10,11 @@ const IntroImage = () => {
 			<div className="flex flex-col md:flex-row justify-between md:items-end gap-5">
 				<div className="bg-white rounded-full w-full md:w-96 py-2 flex items-center justify-between pl-6 pr-2">
 					<h2 className="text-black font-medium text-left uppercase sm:text-lg">Explore</h2>
-					<button className="bg-black rounded-full text-white p-3 justify-center items-center text-center font-semibold text-xl">
-						<ArrowRight color="white" size={26} />
-					</button>
+					<a href="/routes">
+						<button className="bg-black rounded-full text-white p-3 justify-center items-center text-center font-semibold text-xl">
+							<ArrowRight color="white" size={26} />
+						</button>
+					</a>
 				</div>
 				<div className="bg-white rounded-2xl md:w-1/4">
 					<div className="flex flex-row bg-gray-200 w-full h-1/5 rounded-t-2xl items-center p-3 gap-3">

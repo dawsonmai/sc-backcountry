@@ -11,8 +11,8 @@ const Header = () => {
 
 			<div className=" flex text-sm gap-5 items-center">
 				<Link href="/routes">Routes</Link>
-				<p>Conditions</p>
-				<p>Education</p>
+				<Link href="/conditions">Conditions</Link>
+				<Link href="/education">Education</Link>
 				<p>About</p>
 				<button className="bg-stone-800 text-white px-4 py-1 rounded-full">Contact</button>
 			</div>
