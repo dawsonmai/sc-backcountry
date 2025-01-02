@@ -1,9 +1,9 @@
 const AreaList = () => {
     return (
         <div>
-            <div className="py-6 border-b-2 border-black flex">
-                <div className="bg-gray-700 h-72 w-6/12 rounded-2xl"></div>
-                    <div className="w-full px-10 flex flex-col justify-end">
+            <div className="py-6 border-b-2 border-black flex flex-col md:flex-row">
+                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"></div>
+                    <div className="w-full md:px-10 flex flex-col justify-center text-center md:justify-end md:text-left">
                     <div>
                         <h3 className="text-3xl font-semibold mb-2">San Gabriel Mountains</h3>
                         <p className="text-xl mb-5">
@@ -13,9 +13,9 @@ const AreaList = () => {
                     <button className="border-2 border-black rounded-full py-1 px-5 text-l font-semibold self-start max-w-fit">EXPLORE</button>
                 </div>
             </div>
-            <div className="py-6 border-b-2 border-black flex">
-                <div className="bg-gray-700 h-72 w-6/12 rounded-2xl"></div>
-                    <div className="w-full px-10 flex flex-col justify-end">
+            <div className="py-6 border-b-2 border-black flex flex-col md:flex-row">
+                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"></div>
+                    <div className="w-full md:px-10 flex flex-col justify-center text-center md:justify-end md:text-left">
                     <div>
                         <h3 className="text-3xl font-semibold mb-2">San Bernardino Mountains</h3>
                         <p className="text-xl mb-5">
@@ -25,9 +25,9 @@ const AreaList = () => {
                     <button className="border-2 border-black rounded-full py-1 px-5 text-l font-semibold self-start max-w-fit">EXPLORE</button>
                 </div>
             </div>
-            <div className="py-6 border-b-2 border-black flex">
-                <div className="bg-gray-700 h-72 w-6/12 rounded-2xl"></div>
-                    <div className="w-full px-10 flex flex-col justify-end">
+            <div className="py-6 border-b-2 border-black flex flex-col md:flex-row">
+                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"></div>
+                    <div className="w-full md:px-10 flex flex-col justify-center text-center md:justify-end md:text-left">
                     <div>
                         <h3 className="text-3xl font-semibold mb-2">San Jacinto Mountains</h3>
                         <p className="text-xl mb-5">
