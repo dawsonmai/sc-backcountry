@@ -25,7 +25,7 @@ const AreaList = () => {
                     <button className="border-2 border-black rounded-full py-1 px-5 text-l font-semibold self-start max-w-fit">EXPLORE</button>
                 </div>
             </div>
-            <div className="py-6 border-b-2 border-black flex flex-col md:flex-row">
+            <div className="py-6 flex flex-col md:flex-row">
                 <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"></div>
                     <div className="w-full md:px-10 flex flex-col justify-center text-center md:justify-end md:text-left">
                     <div>
