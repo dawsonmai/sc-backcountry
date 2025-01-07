@@ -5,3 +5,5 @@ const sangabriel = () => {
         </div>
     );
 };
+
+export default sangabriel;
