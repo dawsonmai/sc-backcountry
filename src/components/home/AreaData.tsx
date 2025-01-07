@@ -59,7 +59,7 @@ const AreaData = () => {
 					transition={{ duration: 0.5 }}
 				>
 					<span className="text-5xl lg:text-7xl text-center w-full font-medium font-mono">
-						<AnimatedNumber value={123} />k
+						<AnimatedNumber value={4.5} />k
 					</span>
 					<h3 className="text-xl text-center w-full">square miles of terrain</h3>
 				</motion.div>
@@ -71,8 +71,8 @@ const AreaData = () => {
 					viewport={{ margin: "-100px" }}
 					transition={{ duration: 0.5, delay: 0.2 }}
 				>
-					<AnimatedNumber value={456} />
-					<h3 className="text-xl text-center w-full">mountain ranges</h3>
+					<AnimatedNumber value={3} />
+					<h3 className="text-xl text-center w-full">large & snowy mountain ranges</h3>
 				</motion.div>
 
 				<motion.div
@@ -82,7 +82,7 @@ const AreaData = () => {
 					viewport={{ margin: "-100px" }}
 					transition={{ duration: 0.5, delay: 0.4 }}
 				>
-					<AnimatedNumber value={789} />
+					<AnimatedNumber value={22} />
 					<h3 className="text-xl text-center w-full">peaks taller than 10,000 ft</h3>
 				</motion.div>
 			</div>
