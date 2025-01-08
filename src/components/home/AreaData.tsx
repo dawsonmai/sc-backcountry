@@ -59,7 +59,7 @@ const AreaData = () => {
 					transition={{ duration: 0.5 }}
 				>
 					<span className="text-5xl lg:text-7xl text-center w-full font-medium font-mono">
-						<AnimatedNumber value={4.5} />k
+						<AnimatedNumber value={4500} />
 					</span>
 					<h3 className="text-xl text-center w-full">square miles of terrain</h3>
 				</motion.div>

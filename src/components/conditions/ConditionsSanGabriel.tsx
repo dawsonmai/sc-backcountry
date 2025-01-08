@@ -1,6 +1,34 @@
+"use client"
 import { Info, ChevronDown, CloudSun, MountainSnow, MoveVertical, Wind, MoveDown, WindArrowDown, Droplets, Eye, Thermometer, Radio } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+  } from "@/components/ui/popover";
+
+  import { Button } from "@/components/ui/button";
+
+import * as React from "react";
+  
+  const elevations = [
+    {
+      value: "4000",
+      label: "4000 ft",
+    },
+    {
+      value: "6000",
+      label: "6000 ft",
+    },
+    {
+      value: "10000",
+      label: "10000 ft",
+    },
+  ];
+
 const ConditionsSanGabriel = () => {
+    const [open, setOpen] = React.useState(false);
+    const [value, setValue] = React.useState("");
     return (
         <div className="flex flex-col justify-between pb-2">
             <div className="p-2 flex md:flex-row justify-between">
@@ -28,20 +56,23 @@ const ConditionsSanGabriel = () => {
                             <MoveVertical size={65} strokeWidth={1} />
                         </div>
                     </div>
-                    <RadioGroup defaultValue="4000 ft" className="flex flex-col justify-between items-center p-5">
-                    <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="1000 ft" id="r1" />
-                        <h3 className="text-xl text-gray-500 ">10000 ft</h3>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="6000 ft" id="r1" />
-                        <h3 className="text-xl text-gray-500 ">6000 ft</h3>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="4000 ft" id="r1" />
-                        <h3 className="text-xl text-gray-500 ">4000 ft</h3>
-                    </div>
-                    </RadioGroup>
+                    <Popover open={open} onOpenChange={setOpen}>
+                        <PopoverTrigger asChild>
+                            <Button
+                            variant="outline"
+                            role="combobox"
+                            aria-expanded={open}
+                            className="w-full justify-between"
+                            >
+                            {value
+                                ? elevations.find((elevation) => elevation.value === value)?.label
+                                : "Select elevation..."}
+                            <ChevronDown className="opacity-50" />
+                            </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-full p-0">
+                        </PopoverContent>
+                    </Popover>
                 </div>
             </div>
             <div className="p-2 flex flex-row">
