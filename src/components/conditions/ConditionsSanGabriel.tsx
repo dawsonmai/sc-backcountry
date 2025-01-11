@@ -77,29 +77,29 @@ const ConditionsSanGabriel = () => {
             <div className="w-1/2 flex flex-col justify-between">
                 <div className="flex flex-col items-start">
                     <h2 className="flex justify-center text-xl text-gray-600"><Wind className="mr-2" strokeWidth={1.5}/> Wind Speed: </h2>
-                    <p className="text-3xl font-medium">12 mph</p>
+                    <p className="text-3xl font-medium font-mono">12 mph</p>
                 </div>
                 <div className="flex flex-col items-start">
                     <h2 className="flex justify-center text-xl text-gray-600"><MoveDown className="mr-2" strokeWidth={1.5} /> Wind Direction: </h2>
-                    <p className="text-3xl font-medium">North</p>
+                    <p className="text-3xl font-medium font-mono">North</p>
                 </div>
                 <div className="flex flex-col items-start">
                     <h2 className="flex justify-center text-xl text-gray-600"><WindArrowDown className="mr-2" strokeWidth={1.5} /> Barometer: </h2>
-                    <p className="text-3xl font-medium">29.88 in</p>
+                    <p className="text-3xl font-medium font-mono">29.88 in</p>
                 </div>
             </div>
             <div className="w-1/2 flex flex-col justify-between">
                 <div className="flex flex-col items-start p-2">
                     <h2 className="flex justify-center text-xl text-gray-600"><Droplets className="mr-2" strokeWidth={1.5} /> Humidity: </h2>
-                    <p className="text-3xl font-medium">14%</p>
+                    <p className="text-3xl font-medium font-mono">14%</p>
                 </div>
                 <div className="flex flex-col items-start p-2">
                     <h2 className="flex justify-center text-xl text-gray-600"><Eye className="mr-2" strokeWidth={1.5} /> Visibility: </h2>
-                    <p className="text-3xl font-medium">N/A</p>
+                    <p className="text-3xl font-medium font-mono">N/A</p>
                 </div>
                 <div className="flex flex-col items-start p-2">
                     <h2 className="flex justify-center text-xl text-gray-600"><Thermometer className="mr-2" strokeWidth={1.5} /> Dewpoint: </h2>
-                    <p className="text-3xl font-medium">11&deg; F</p>
+                    <p className="text-3xl font-medium font-mono">11&deg; F</p>
                 </div>
             </div>
             </>
@@ -109,29 +109,29 @@ const ConditionsSanGabriel = () => {
                 <div className="w-1/2 flex flex-col justify-between">
                     <div className="flex flex-col items-start">
                         <h2 className="flex justify-center text-xl text-gray-600"><Wind className="mr-2" strokeWidth={1.5}/> Wind Speed: </h2>
-                        <p className="text-3xl font-medium">5 mph</p>
+                        <p className="text-3xl font-medium font-mono">5 mph</p>
                     </div>
                     <div className="flex flex-col items-start">
                         <h2 className="flex justify-center text-xl text-gray-600"><MoveUp className="mr-2" strokeWidth={1.5} /> Wind Direction: </h2>
-                        <p className="text-3xl font-medium">South</p>
+                        <p className="text-3xl font-medium font-mono">South</p>
                     </div>
                     <div className="flex flex-col items-start">
                         <h2 className="flex justify-center text-xl text-gray-600"><WindArrowDown className="mr-2" strokeWidth={1.5} /> Barometer: </h2>
-                        <p className="text-3xl font-medium">13.09 in</p>
+                        <p className="text-3xl font-medium font-mono">13.09 in</p>
                     </div>
                 </div>
                 <div className="w-1/2 flex flex-col justify-between">
                     <div className="flex flex-col items-start p-2">
                         <h2 className="flex justify-center text-xl text-gray-600"><Droplets className="mr-2" strokeWidth={1.5} /> Humidity: </h2>
-                        <p className="text-3xl font-medium">2%</p>
+                        <p className="text-3xl font-medium font-mono">2%</p>
                     </div>
                     <div className="flex flex-col items-start p-2">
                         <h2 className="flex justify-center text-xl text-gray-600"><Eye className="mr-2" strokeWidth={1.5} /> Visibility: </h2>
-                        <p className="text-3xl font-medium">9 mi</p>
+                        <p className="text-3xl font-medium font-mono">9 mi</p>
                     </div>
                     <div className="flex flex-col items-start p-2">
                         <h2 className="flex justify-center text-xl text-gray-600"><Thermometer className="mr-2" strokeWidth={1.5} /> Dewpoint: </h2>
-                        <p className="text-3xl font-medium">98&deg; F</p>
+                        <p className="text-3xl font-medium font-mono">98&deg; F</p>
                     </div>
                 </div>
                 </>
@@ -141,29 +141,29 @@ const ConditionsSanGabriel = () => {
                 <div className="w-1/2 flex flex-col justify-between">
                     <div className="flex flex-col items-start">
                         <h2 className="flex justify-center text-xl text-gray-600"><Wind className="mr-2" strokeWidth={1.5}/> Wind Speed: </h2>
-                        <p className="text-3xl font-medium">35 mph</p>
+                        <p className="text-3xl font-medium font-mono">35 mph</p>
                     </div>
                     <div className="flex flex-col items-start">
                         <h2 className="flex justify-center text-xl text-gray-600"><MoveDown className="mr-2" strokeWidth={1.5} /> Wind Direction: </h2>
-                        <p className="text-3xl font-medium">North</p>
+                        <p className="text-3xl font-medium font-mono">North</p>
                     </div>
                     <div className="flex flex-col items-start">
                         <h2 className="flex justify-center text-xl text-gray-600"><WindArrowDown className="mr-2" strokeWidth={1.5} /> Barometer: </h2>
-                        <p className="text-3xl font-medium">29.18 in</p>
+                        <p className="text-3xl font-medium font-mono">29.18 in</p>
                     </div>
                 </div>
                 <div className="w-1/2 flex flex-col justify-between">
                     <div className="flex flex-col items-start p-2">
                         <h2 className="flex justify-center text-xl text-gray-600"><Droplets className="mr-2" strokeWidth={1.5} /> Humidity: </h2>
-                        <p className="text-3xl font-medium">18%</p>
+                        <p className="text-3xl font-medium font-mono">18%</p>
                     </div>
                     <div className="flex flex-col items-start p-2">
                         <h2 className="flex justify-center text-xl text-gray-600"><Eye className="mr-2" strokeWidth={1.5} /> Visibility: </h2>
-                        <p className="text-3xl font-medium">0.1 mi</p>
+                        <p className="text-3xl font-medium font-mono">0.1 mi</p>
                     </div>
                     <div className="flex flex-col items-start p-2">
                         <h2 className="flex justify-center text-xl text-gray-600"><Thermometer className="mr-2" strokeWidth={1.5} /> Dewpoint: </h2>
-                        <p className="text-3xl font-medium">-4&deg; F</p>
+                        <p className="text-3xl font-medium font-mono">-4&deg; F</p>
                     </div>
                 </div>
                 </>
@@ -223,8 +223,8 @@ const ConditionsSanGabriel = () => {
                     </div>
                     <div className="flex flex-row justify-between">
                             <div className="flex flex-col justify-end">
-                                <h2 className="font-bold text-5xl">70&deg; F</h2>
-                                <p className="text-md text-gray-600">Feels Like: 60&deg; F</p>
+                                <h2 className="font-bold text-5xl"><span className="font-mono">70</span>&deg; F</h2>
+                                <p className="text-md text-gray-600">Feels Like: <span className="font-mono">60&deg; F</span></p>
                             </div>
                             <div className="flex flex-col justify-center items-center px-10">
                                 <CloudSun strokeWidth={1.5} size={70} />
@@ -247,7 +247,7 @@ const ConditionsSanGabriel = () => {
                             variant="outline"
                             role="combobox"
                             aria-expanded={openElv}
-                            className="justify-center text-2xl"
+                            className="justify-center text-2xl font-mono"
                             >
                             {valueElv
                                 ? elevations.find((elevation) => elevation.value === valueElv)?.label
@@ -269,7 +269,7 @@ const ConditionsSanGabriel = () => {
                                             }
                                             setOpenElv(false);
                                           }}
-                                          className="text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                                          className="text-sm font-medium font-mono text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                                         >
                                           {elevation.label}
                                         <Check
