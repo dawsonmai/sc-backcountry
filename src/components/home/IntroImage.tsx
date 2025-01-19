@@ -2,7 +2,11 @@ import { ArrowRight, CircleAlert, MountainSnow } from "lucide-react";
 
 const IntroImage = () => {
 	return (
-		<div className="flex flex-col flex-grow bg-gray-700 w-full rounded-3xl p-6 sm:p-10 justify-between">
+		<div className="flex flex-col flex-grow w-full rounded-3xl p-6 sm:p-10 justify-between" style={{
+			backgroundImage: "url(mtBaldy.jpeg)",
+			backgroundSize: "cover",
+			backgroundPosition: "center",
+		  }}>
 			<h1 className="inline text-4xl sm:text-6xl md:text-7xl font-medium text-white hyphens-manual lg:hyphens-none lg:w-2/3">
 				Welcome to the Southern California Back&shy;country <MountainSnow strokeWidth={1.5} className="inline size-12" />
 			</h1>

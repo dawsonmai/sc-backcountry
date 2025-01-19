@@ -2,7 +2,11 @@ import { Thermometer, Snowflake, Wind, MoveUpLeft, Eye, Cloudy, CloudSun, MoveDo
 
 const ConditionsPreview = () => {
 	return (
-		<div className="w-full h-[50vh] bg-gray-700 rounded-3xl p-6">
+		<div className="w-full h-[50vh] rounded-3xl p-6"style={{
+			backgroundImage: "url(sunny.jpeg)",
+			backgroundSize: "cover",
+			backgroundPosition: "center",
+		  }}>
 			<h2 className="uppercase font-medium text-4xl text-white">Conditions</h2>
 			
 			<div className="items-center text-center text-white pb-1">
