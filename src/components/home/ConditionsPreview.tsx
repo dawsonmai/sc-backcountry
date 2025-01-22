@@ -2,8 +2,8 @@ import { Thermometer, Snowflake, Wind, MoveUpLeft, Eye, Cloudy, CloudSun, MoveDo
 
 const ConditionsPreview = () => {
 	return (
-		<div className="w-full h-[50vh] rounded-3xl p-6"style={{
-			backgroundImage: "url(sunny.jpeg)",
+		<div className="w-full h-[50vh] rounded-3xl p-6" style={{
+			backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(ridge.jpeg)",
 			backgroundSize: "cover",
 			backgroundPosition: "center",
 		  }}>

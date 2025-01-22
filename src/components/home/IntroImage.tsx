@@ -3,7 +3,7 @@ import { ArrowRight, CircleAlert, MountainSnow } from "lucide-react";
 const IntroImage = () => {
 	return (
 		<div className="flex flex-col flex-grow w-full rounded-3xl p-6 sm:p-10 justify-between" style={{
-			backgroundImage: "url(mtBaldy.jpeg)",
+			backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), url(bcmtns.jpeg)",
 			backgroundSize: "cover",
 			backgroundPosition: "center",
 		  }}>
