@@ -54,7 +54,7 @@ import * as React from "react";
 
   
 
-const ConditionsSanGabriel = () => {
+const ConditionsData = () => {
     const [openElv, setOpenElv] = React.useState(false);
     const [valueElv, setValueElv] = React.useState("4000");
 
@@ -70,6 +70,14 @@ const ConditionsSanGabriel = () => {
             return <h3 className="text-sm flex flex-row justify-start items-center text-gray-600"><Info size={15} strokeWidth={1.5} className="mr-1"/> Weather of the Mt. San Gorgonio area</h3>;
         }
     };
+
+    function tempChange(forecastElv: number, forecastTemp: number){
+        const altitudeDiff = forecastElv - Number(valueElv);
+        const tempDif = altitudeDiff * 0.00356;
+        const tempAtAlt = forecastTemp - tempDif;
+        return <h2 className="font-bold text-5xl"><span className="font-mono">{tempAtAlt}</span>&deg; F</h2>;
+
+    }
 
     function Conditions(){
         if(valueRange === "San Gabriel"){
@@ -223,7 +231,7 @@ const ConditionsSanGabriel = () => {
                     </div>
                     <div className="flex flex-row justify-between">
                             <div className="flex flex-col justify-end">
-                                <h2 className="font-bold text-5xl"><span className="font-mono">70</span>&deg; F</h2>
+                                {tempChange(Number(valueElv), 70)}
                                 <p className="text-md text-gray-600">Feels Like: <span className="font-mono">60&deg; F</span></p>
                             </div>
                             <div className="flex flex-col justify-center items-center px-10">
@@ -328,4 +336,4 @@ const ConditionsSanGabriel = () => {
     );
 };
 
-export default ConditionsSanGabriel;
+export default ConditionsData;
