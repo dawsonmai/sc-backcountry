@@ -20,22 +20,8 @@ import {
     CommandList,
   } from "@/components/ui/command"
 
-import * as React from "react";
+  import React, { useState, useEffect } from "react";
   
-  const elevations = [
-    {
-      value: "4000",
-      label: "4000 ft",
-    },
-    {
-      value: "6000",
-      label: "6000 ft",
-    },
-    {
-      value: "10000",
-      label: "10000 ft",
-    },
-  ];
 
   const ranges = [
     {
@@ -55,11 +41,11 @@ import * as React from "react";
   
 
 const ConditionsData = () => {
-    const [openElv, setOpenElv] = React.useState(false);
-    const [valueElv, setValueElv] = React.useState("4000");
-
     const [openRange, setOpenRange] = React.useState(false);
     const [valueRange, setValueRange] = React.useState("San Gabriel");
+    
+    const [openElv, setOpenElv] = React.useState(false);
+    const [valueElv, setValueElv] = React.useState("7031");
     
     function dataMountain(){
         if(valueRange === "San Gabriel"){
@@ -72,12 +58,80 @@ const ConditionsData = () => {
     };
 
     function tempChange(forecastElv: number, forecastTemp: number){
-        const altitudeDiff = forecastElv - Number(valueElv);
+        let altitudeDiff;
+        let tempAtAlt;
+        if(forecastElv>Number(valueElv)){
+            altitudeDiff = forecastElv-Number(valueElv);
+        }else{
+            altitudeDiff = Number(valueElv) - forecastElv;
+        }
         const tempDif = altitudeDiff * 0.00356;
-        const tempAtAlt = forecastTemp - tempDif;
-        return <h2 className="font-bold text-5xl"><span className="font-mono">{tempAtAlt}</span>&deg; F</h2>;
+        if(forecastElv>Number(valueElv)){
+            tempAtAlt = forecastTemp + tempDif;
+        }else{
+            tempAtAlt = forecastTemp - tempDif;
+        }
+        return <h2 className="font-bold text-5xl"><span className="font-mono">{Math.round(tempAtAlt)}</span>&deg; F</h2>;
 
     }
+
+    function elvDrop(){
+         if(valueRange === "San Gabriel"){
+            return [
+                {
+                value: "4000",
+                label: "4000 ft",
+                },
+                {
+                value: "7031",
+                label: "7031 ft",
+                },
+                {
+                value: "10064",
+                label: "10064 ft",
+                },
+            ];
+        } else if(valueRange==="San Jacinto"){
+            return [
+                {
+                value: "2000",
+                label: "2000 ft",
+                },
+                {
+                value: "6000",
+                label: "6000 ft",
+                },
+                {
+                value: "10800",
+                label: "10800 ft",
+                },
+            ];
+        } else if(valueRange==="San Bernardino"){
+            return [
+                {
+                value: "6000",
+                label: "6000 ft",
+                },
+                {
+                value: "9800",
+                label: "9800 ft",
+                },
+                {
+                value: "11500",
+                label: "11500 ft",
+                },
+            ];
+        }
+        return []
+    }
+    
+    const elevations = elvDrop();
+
+    useEffect(() => {
+        if (elevations.length > 0) {
+            setValueElv(elevations[1].value);
+        }
+    }, [valueRange]);
 
     function Conditions(){
         if(valueRange === "San Gabriel"){
@@ -181,7 +235,9 @@ const ConditionsData = () => {
 
     async function fetchData(){
         try{
-            const response = await fetch("https://api.weather.gov/gridpoints/SGX/52,85"); //for Mt. Baldy
+            const response = await fetch("https://api.weather.gov/gridpoints/LOX/174,44"); //for Mt. Baldy
+            //https://api.weather.gov/gridpoints/SGX/77,79 San Gorgonio
+            //https://api.weather.gov/gridpoints/SGX/81,56 San Jacinto
             return response
         }catch(error){
             console.log("Error" + error);
@@ -242,7 +298,7 @@ const ConditionsData = () => {
                     </div>
                     <div className="flex flex-row justify-between">
                             <div className="flex flex-col justify-end">
-                                {tempChange(Number(valueElv), 70)}
+                                {tempChange(5397, 35)}
                                 <p className="text-md text-gray-600">Feels Like: <span className="font-mono">60&deg; F</span></p>
                             </div>
                             <div className="flex flex-col justify-center items-center px-10">
@@ -262,46 +318,49 @@ const ConditionsData = () => {
                     
                     <Popover open={openElv} onOpenChange={setOpenElv}>
                         <PopoverTrigger asChild>
-                            <Button
+                        <Button
                             variant="outline"
                             role="combobox"
                             aria-expanded={openElv}
                             className="justify-center text-2xl font-mono"
-                            >
+                        >
                             {valueElv
-                                ? elevations.find((elevation) => elevation.value === valueElv)?.label
-                                : "Select Elevation"}
-                            <ChevronDown className="opacity-50"/>
-                            </Button>
+                            ? elevations.find((elevation) => elevation.value === valueElv)?.label
+                            : "Select Elevation"}
+                            <ChevronDown className="opacity-50" />
+                        </Button>
                         </PopoverTrigger>
                         <PopoverContent className="w-[200px] p-0">
-                            <Command>
-                                <CommandList>
-                                    <CommandGroup>
-                                    {elevations.map((elevation) => (
-                                        <CommandItem
-                                        key={elevation.value}
-                                        value={elevation.value}
-                                        onSelect={(currentValue) => {
-                                            if (currentValue !== valueElv) {
-                                              setValueElv(currentValue);
-                                            }
-                                            setOpenElv(false);
-                                          }}
-                                          className="text-sm font-medium font-mono text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                                        >
-                                          {elevation.label}
-                                        <Check
-                                            className={cn(
-                                            "ml-auto",
-                                            valueElv === elevation.value ? "opacity-100" : "opacity-0"
-                                            )}
-                                        />
-                                        </CommandItem>
-                                    ))}
-                                    </CommandGroup>
-                                </CommandList>
-                            </Command>
+                        <Command>
+                            <CommandList>
+                            <CommandGroup>
+                                {elevations.map((elevation) => (
+                               <CommandItem
+                               key={elevation.value}
+                               value={elevation.value.toString()} // Ensure value is passed as a string
+                               onSelect={(currentValue) => {
+                                   const selectedValue = parseInt(currentValue, 10); // Convert string to number
+                                   if (parseInt(valueElv) !== selectedValue) {
+                                       setValueElv(selectedValue.toString()); // Update elevation
+                                   }
+                                   setOpenElv(false); // Close the popover
+                               }}
+                               className="text-sm font-medium font-mono text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                             >
+                                 {elevation.label}
+                                 <Check
+                                     className={cn(
+                                       "ml-auto",
+                                       valueElv === elevation.value ? "opacity-100" : "opacity-0"
+                                     )}
+                                 />
+                             </CommandItem>
+                             
+                             
+                                ))}
+                            </CommandGroup>
+                            </CommandList>
+                        </Command>
                         </PopoverContent>
                     </Popover>
 
