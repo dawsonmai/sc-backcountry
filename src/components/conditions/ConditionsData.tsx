@@ -178,6 +178,17 @@ const ConditionsData = () => {
                 );
         }
     };
+
+    async function fetchData(){
+        try{
+            const response = await fetch("https://api.weather.gov/gridpoints/SGX/52,85"); //for Mt. Baldy
+            return response
+        }catch(error){
+            console.log("Error" + error);
+        }
+    };
+
+    console.log(fetchData());
     return (
         <div className="flex flex-col justify-between pb-2">
             <div className="p-2 flex md:flex-row justify-between">
