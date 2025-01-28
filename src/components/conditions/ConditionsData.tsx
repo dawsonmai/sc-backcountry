@@ -252,16 +252,21 @@ const ConditionsData = () => {
 
     async function fetchData(){
         try{
-            const response = await fetch("https://api.weather.gov/gridpoints/LOX/174,44"); //for Mt. Baldy
-            //https://api.weather.gov/gridpoints/SGX/77,79 San Gorgonio
-            //https://api.weather.gov/gridpoints/SGX/81,56 San Jacinto
+            let URI = "";
+            if(valueRange==="San Gabriel"){
+                URI = "https://api.weather.gov/gridpoints/LOX/174,44" //for Mt. Baldy
+            } else if(valueRange==="San Bernardino"){
+                URI = "https://api.weather.gov/gridpoints/SGX/77,79" //for San Gorgonio
+            } else if (valueRange==="San Jacinto"){
+                URI = "https://api.weather.gov/gridpoints/SGX/81,56" //for San Jacinto
+            }
+            const response = await fetch(URI)
             return response
         }catch(error){
             console.log("Error" + error);
         }
     };
 
-    console.log(fetchData());
     return (
         <div className="flex flex-col justify-between pb-2">
             <div className="p-2 flex md:flex-row justify-between">
