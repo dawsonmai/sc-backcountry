@@ -71,6 +71,7 @@ const ConditionsData = () => {
         }else{
             tempAtAlt = forecastTemp - tempDif;
         }
+        console.log(tempAtAlt)
         return Math.round(tempAtAlt);
 
     }
@@ -78,7 +79,6 @@ const ConditionsData = () => {
     function heatIndex(temp: number, humidity: number){
         const humidityRatio = humidity/100;
         const feelsLike = -42.397+(2.04901523 * temp) + (10.14333127 * humidityRatio) - (0.22475541 * temp * humidityRatio) - (0.00683783 * (temp**2)) - (0.05481717 * (humidityRatio**2)) + (0.00122874 * (temp**2) * humidityRatio) + (0.00085282 * temp * (humidityRatio**2)) - (0.00000199 * (temp**2) * (humidityRatio**2));
-        console.log(feelsLike)
         return <p className="text-md text-gray-600">Feels Like: <span className="font-mono">{Math.round(Number(feelsLike))}&deg; F</span></p>
     }
 
@@ -250,23 +250,37 @@ const ConditionsData = () => {
         }
     };
 
-    async function fetchData(){
+    async function fetchData(dataType: String){
         try{
             let URI = "";
             if(valueRange==="San Gabriel"){
-                URI = "https://api.weather.gov/gridpoints/LOX/174,44" //for Mt. Baldy
+                URI = "https://api.weather.gov/stations/CMOC1/observations/latest"
+                //URI = "https://api.weather.gov/gridpoints/LOX/174,44" //for Mt. Baldy
             } else if(valueRange==="San Bernardino"){
-                URI = "https://api.weather.gov/gridpoints/SGX/77,79" //for San Gorgonio
+                //URI = "https://api.weather.gov/gridpoints/SGX/77,79" //for San Gorgonio
+                URI = "https://api.weather.gov/stations/KL35/observations/latest"
             } else if (valueRange==="San Jacinto"){
-                URI = "https://api.weather.gov/gridpoints/SGX/81,56" //for San Jacinto
+                URI = "https://api.weather.gov/stations/KNWC1/observations/latest"
+                //URI = "https://api.weather.gov/gridpoints/SGX/81,56" //for San Jacinto
             }
+
             const response = await fetch(URI)
-            return response
+            const data = await response.json()
+
+            const temperature = Math.round((Number(data.properties.temperature.value)*(9/5))+32)
+            const elevation = Math.round(Number(data.properties.elevation.value) * 3.280839895)
+            console.log(temperature)
+            console.log(elevation)
+            if(dataType === "Temp"){
+                return temperature
+            }else if(dataType === "Elv"){
+                return elevation
+            }
         }catch(error){
             console.log("Error" + error);
         }
     };
-
+    
     return (
         <div className="flex flex-col justify-between pb-2">
             <div className="p-2 flex md:flex-row justify-between">
@@ -320,7 +334,7 @@ const ConditionsData = () => {
                     </div>
                     <div className="flex flex-row justify-between">
                             <div className="flex flex-col justify-end">
-                                <h2 className="font-bold text-5xl"><span className="font-mono">{tempChange(1645, 45)}</span>&deg; F</h2>
+                                <h2 className="font-bold text-5xl"><span className="font-mono">{tempChange(Number(fetchData("Elv")), Number(fetchData("Temp")))}</span>&deg; F</h2>
                                 {heatIndex(Number(tempChange(1645, 45)), 98)}
                             </div>
                             <div className="flex flex-col justify-center items-center px-10">
