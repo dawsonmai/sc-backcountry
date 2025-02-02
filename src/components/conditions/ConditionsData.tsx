@@ -21,7 +21,34 @@ import {
   } from "@/components/ui/command"
 
   import React, { useState, useEffect } from "react";
-  
+
+  interface ObservationProperties {
+    properties: {
+        textDescription: string;
+        elevation: {
+            value: number;
+        };
+        temperature: {
+            value: number;
+        };
+        dewpoint: {
+            value: number;
+        };
+        windDirection: {
+            value: number;
+        };
+        windSpeed: {
+            value: number;
+        };
+        barometricPressure: {
+            value: number;
+        };
+        relativeHumidity: {
+            value: number;
+        };
+
+    }
+  };
 
   const ranges = [
     {
@@ -46,34 +73,66 @@ const ConditionsData = () => {
     
     const [openElv, setOpenElv] = React.useState(false);
     const [valueElv, setValueElv] = React.useState("7031");
+
+    const [weather, setWeather] = React.useState<ObservationProperties | null>(null);
+    const [calculatedTemp, setCalculatedTemp] = React.useState<number | null>(null);
+
+    const fetchData = async (URI: string) => {
+        try {
+          const response = await fetch(URI);
+          if (!response.ok) throw new Error("Failed to fetch weather data");
+          const data = await response.json();
     
-    function dataMountain(){
-        if(valueRange === "San Gabriel"){
-            return <h3 className="text-sm flex flex-row justify-start items-center text-gray-600"><Info size={15} strokeWidth={1.5} className="mr-1"/> Weather of the Mt. Baldy area</h3>;
-        }else if(valueRange==="San Jacinto"){
-            return <h3 className="text-sm flex flex-row justify-start items-center text-gray-600"><Info size={15} strokeWidth={1.5} className="mr-1"/> Weather of the Mt. San Jacinto area</h3>;
-        }else if(valueRange==="San Bernardino"){
-            return <h3 className="text-sm flex flex-row justify-start items-center text-gray-600"><Info size={15} strokeWidth={1.5} className="mr-1"/> Weather of the Mt. San Gorgonio area</h3>;
+          setWeather(data);
+          const tempAtAlt = tempChange(data);
+          setCalculatedTemp(tempAtAlt);
+        } catch (error) {
+          console.log("Error" + error);
         }
-    };
+      };
+    
+      // Now useEffect can just call fetchData
+      useEffect(() => {
+        if (valueRange) {
+          let URI = "";
+          if (valueRange === "San Gabriel") {
+            URI = "https://api.weather.gov/stations/KCCB/observations/latest";
+          } else if (valueRange === "San Bernardino") {
+            URI = "https://api.weather.gov/stations/KL35/observations/latest";
+          } else if (valueRange === "San Jacinto") {
+            URI = "https://api.weather.gov/stations/KNWC1/observations/latest";
+          }
+    
+          // Call the fetchData function
+          fetchData(URI);
+        }
+      }, [valueRange]);
+    
 
-    function tempChange(forecastElv: number, forecastTemp: number){
-        let altitudeDiff;
-        let tempAtAlt;
-        if(forecastElv>Number(valueElv)){
-            altitudeDiff = forecastElv-Number(valueElv);
-        }else{
-            altitudeDiff = Number(valueElv) - forecastElv;
+    function tempChange(data: ObservationProperties): number | null {
+        if (data && data.properties) {
+          const { elevation, temperature } = data.properties;
+    
+          // Make sure both elevation and temperature values are defined
+          if (elevation?.value !== undefined && temperature?.value !== undefined) {
+            const forecastElv = Math.round(elevation.value * 3.280839895); // Convert elevation to feet
+            const forecastTemp = Math.round((temperature.value * 9) / 5 + 32); // Convert temperature to °F
+    
+            let altitudeDiff = Math.abs(forecastElv - Number(valueElv)); // Ensure difference is positive
+            const tempDif = altitudeDiff * 0.00356; // Calculate temperature difference per altitude
+    
+            let tempAtAlt = forecastTemp;
+            if (forecastElv > Number(valueElv)) {
+              tempAtAlt += tempDif; // If forecast elevation is higher, increase temp
+            } else {
+              tempAtAlt -= tempDif; // If forecast elevation is lower, decrease temp
+            }
+    
+            console.log("Temperature at " + valueElv + " is " + tempAtAlt);
+            return Math.round(tempAtAlt); // Return the calculated temperature
+          }
         }
-        const tempDif = altitudeDiff * 0.00356;
-        if(forecastElv>Number(valueElv)){
-            tempAtAlt = forecastTemp + tempDif;
-        }else{
-            tempAtAlt = forecastTemp - tempDif;
-        }
-        console.log(tempAtAlt)
-        return Math.round(tempAtAlt);
-
+        return null;
     }
 
     function heatIndex(temp: number, humidity: number){
@@ -92,7 +151,17 @@ const ConditionsData = () => {
         return Math.round(freezeAlt);
     }
 
-    function elvDrop(){
+    function dataMountain(){
+        if(valueRange === "San Gabriel"){
+            return <h3 className="text-sm flex flex-row justify-start items-center text-gray-600"><Info size={15} strokeWidth={1.5} className="mr-1"/> Weather of the Mt. Baldy area</h3>;
+        }else if(valueRange==="San Jacinto"){
+            return <h3 className="text-sm flex flex-row justify-start items-center text-gray-600"><Info size={15} strokeWidth={1.5} className="mr-1"/> Weather of the Mt. San Jacinto area</h3>;
+        }else if(valueRange==="San Bernardino"){
+            return <h3 className="text-sm flex flex-row justify-start items-center text-gray-600"><Info size={15} strokeWidth={1.5} className="mr-1"/> Weather of the Mt. San Gorgonio area</h3>;
+        }
+    };
+
+    function elvDrop(valueRange: string){
          if(valueRange === "San Gabriel"){
             return [
                 {
@@ -142,7 +211,7 @@ const ConditionsData = () => {
         return []
     }
     
-    const elevations = elvDrop();
+    const elevations = elvDrop(valueRange);
 
     useEffect(() => {
         if (elevations.length > 0) {
@@ -164,7 +233,7 @@ const ConditionsData = () => {
                 </div>
                 <div className="flex flex-col items-start">
                     <h2 className="flex justify-center text-xl text-gray-600"> <Thermometer className="mr-2" strokeWidth={1.5} /> Wind Chill: </h2>
-                    <p className="text-3xl font-medium font-mono">{windChill(tempChange(1645, 45), 3)}&deg; F</p>
+                    <p className="text-3xl font-medium font-mono">3&deg; F</p>
                 </div>
             </div>
             <div className="w-1/2 flex flex-col justify-between">
@@ -196,7 +265,7 @@ const ConditionsData = () => {
                 </div>
                 <div className="flex flex-col items-start">
                     <h2 className="flex justify-center text-xl text-gray-600"> <Thermometer className="mr-2" strokeWidth={1.5} /> Wind Chill: </h2>
-                    <p className="text-3xl font-medium font-mono">{windChill(tempChange(1645, 45), 20)}&deg; F</p>
+                    <p className="text-3xl font-medium font-mono">3&deg; F</p>
                 </div>
             </div>
             <div className="w-1/2 flex flex-col justify-between">
@@ -228,7 +297,7 @@ const ConditionsData = () => {
                 </div>
                 <div className="flex flex-col items-start">
                     <h2 className="flex justify-center text-xl text-gray-600"> <Thermometer className="mr-2" strokeWidth={1.5} /> Wind Chill: </h2>
-                    <p className="text-3xl font-medium font-mono">{windChill(tempChange(1645, 45), 8)}&deg; F</p>
+                    <p className="text-3xl font-medium font-mono">3&deg; F</p>
                 </div>
             </div>
             <div className="w-1/2 flex flex-col justify-between">
@@ -250,36 +319,7 @@ const ConditionsData = () => {
         }
     };
 
-    async function fetchData(dataType: String){
-        try{
-            let URI = "";
-            if(valueRange==="San Gabriel"){
-                URI = "https://api.weather.gov/stations/CMOC1/observations/latest"
-                //URI = "https://api.weather.gov/gridpoints/LOX/174,44" //for Mt. Baldy
-            } else if(valueRange==="San Bernardino"){
-                //URI = "https://api.weather.gov/gridpoints/SGX/77,79" //for San Gorgonio
-                URI = "https://api.weather.gov/stations/KL35/observations/latest"
-            } else if (valueRange==="San Jacinto"){
-                URI = "https://api.weather.gov/stations/KNWC1/observations/latest"
-                //URI = "https://api.weather.gov/gridpoints/SGX/81,56" //for San Jacinto
-            }
-
-            const response = await fetch(URI)
-            const data = await response.json()
-
-            const temperature = Math.round((Number(data.properties.temperature.value)*(9/5))+32)
-            const elevation = Math.round(Number(data.properties.elevation.value) * 3.280839895)
-            console.log(temperature)
-            console.log(elevation)
-            if(dataType === "Temp"){
-                return temperature
-            }else if(dataType === "Elv"){
-                return elevation
-            }
-        }catch(error){
-            console.log("Error" + error);
-        }
-    };
+    
     
     return (
         <div className="flex flex-col justify-between pb-2">
@@ -334,8 +374,8 @@ const ConditionsData = () => {
                     </div>
                     <div className="flex flex-row justify-between">
                             <div className="flex flex-col justify-end">
-                                <h2 className="font-bold text-5xl"><span className="font-mono">{tempChange(Number(fetchData("Elv")), Number(fetchData("Temp")))}</span>&deg; F</h2>
-                                {heatIndex(Number(tempChange(1645, 45)), 98)}
+                                <h2 className="font-bold text-5xl"><span className="font-mono">{calculatedTemp !== null ? `${calculatedTemp}` : "N/A"}</span>&deg; F</h2>
+                                
                             </div>
                             <div className="flex flex-col justify-center items-center px-10">
                                 <CloudSun strokeWidth={1.5} size={70} />
