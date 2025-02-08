@@ -1,6 +1,6 @@
 import Header from "@/components/global/Header";
 import WorkInProgress from "@/components/routes/routesOverview/WorkInProgress";
-const sanGabriel = () => {
+const sanBernardino = () => {
     return (
         <div className="flex flex-col px-5">
             <div className="flex flex-col min-h-[calc(100dvh-20px)] pt-5">
@@ -13,4 +13,4 @@ const sanGabriel = () => {
     );
 };
 
-export default sanGabriel;
+export default sanBernardino;

@@ -24,7 +24,9 @@ const AreaList = () => {
                         Home to Southern California&apos;s tallest mountain, Mt. San Gorgonio standing at 11,503 feet, the San Bernardino mountains are great for those looking to reach new heights and ski new lines.
                         </p>
                     </div>
-                    <button className="border-2 border-black rounded-full py-1 px-5 text-l font-semibold self-start max-w-fit">EXPLORE</button>
+                    <a href="/routes/san-bernardino-mountains">
+                        <button className="border-2 border-black rounded-full py-1 px-5 text-l font-semibold self-start max-w-fit">EXPLORE</button>
+                    </a>
                 </div>
             </div>
             <div className="py-6 flex flex-col md:flex-row">
@@ -36,7 +38,9 @@ const AreaList = () => {
                             Rising high above the Palm Desert, the San Jacinto Mountains offer many types of terrain for skiers and climbers, from gladed tree runs to steep continuous chutes, all of which can be easily accessed from the Aerial Tram.
                         </p>
                     </div>
-                    <button className="border-2 border-black rounded-full py-1 px-5 text-l font-semibold self-start max-w-fit">EXPLORE</button>
+                    <a href="/routes/san-jacinto-mountains">
+                        <button className="border-2 border-black rounded-full py-1 px-5 text-l font-semibold self-start max-w-fit">EXPLORE</button>
+                    </a>
                 </div>
             </div>
         </div>
