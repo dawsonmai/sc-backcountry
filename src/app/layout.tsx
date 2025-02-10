@@ -1,44 +1,22 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { GlobalProvider } from "@/context/GlobalContext";
 
-// importing local font
-const anotherSans = localFont({
-	src: [
-		{
-			path: "../assets/font/another-sans.woff2",
-			weight: "100 900",
-			style: "normal",
-		},
-		{
-			path: "../assets/font/another-sans.woff",
-			weight: "100 900",
-			style: "normal",
-		},
-		{
-			path: "../assets/font/another-sans.ttf",
-			weight: "100 900",
-			style: "normal",
-		},
-	],
-	display: "swap",
-	variable: "--font-another-sans",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 // metadata
 export const metadata: Metadata = {
 	title: "SC Backcountry",
-	description: "Guide to backcountry in Southern California",
+	description: "Southern California Backcountry Conditions",
 };
 
-export default function RootLayout({
-	children,
-}: Readonly<{
-	children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en">
-			<body className={anotherSans.className}>{children}</body>
+			<body className={inter.className}>
+				<GlobalProvider>{children}</GlobalProvider>
+			</body>
 		</html>
 	);
 }
