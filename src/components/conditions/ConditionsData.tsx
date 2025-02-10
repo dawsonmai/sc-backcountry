@@ -405,48 +405,47 @@ const ConditionsData = () => {
 						</div>
 					</div>
 				</div>
-				<div className="w-full md:w-1/3 flex flex-row items-center rounded-3xl bg-gray-200 p-3 md:p-5">
-					<div className="flex flex-col">
-						<h2 className="font-medium text-lg md:text-xl text-gray-700 uppercase">Elevation</h2>
+				<div className="flex flex-col w-full md:w-1/3 items-start rounded-3xl bg-gray-200 p-3 md:p-5">
+					<h2 className="font-medium text-lg md:text-xl text-gray-700 uppercase">Elevation</h2>
+					<div className="flex flex-row flex-grow items-center gap-5">
 						<div className="flex flex-row items-center justify-center py-3 md:py-6">
-							<MountainSnow size={80} className="md:h-[110px] md:w-[110px]" strokeWidth={1} />
-							<MoveVertical size={45} className="md:h-[65px] md:w-[65px]" strokeWidth={1} />
+							<MountainSnow size={50} className="md:h-[50px] md:w-[50px]" strokeWidth={1} />
+							<MoveVertical size={35} className="md:h-[40px] md:w-[40px]" strokeWidth={1} />
 						</div>
+						<Popover open={openElv} onOpenChange={setOpenElv}>
+							<PopoverTrigger asChild>
+								<Button variant="outline" role="combobox" aria-expanded={openElv} className="justify-center text-xl md:text-2xl font-mono">
+									{valueElv ? elevations.find((elevation) => elevation.value === valueElv)?.label : "Select Elevation"}
+									<ChevronDown className="opacity-50" />
+								</Button>
+							</PopoverTrigger>
+							<PopoverContent className="w-[200px] p-0">
+								<Command>
+									<CommandList>
+										<CommandGroup>
+											{elevations.map((elevation) => (
+												<CommandItem
+													key={elevation.value}
+													value={elevation.value.toString()}
+													onSelect={(currentValue) => {
+														const selectedValue = parseInt(currentValue, 10);
+														if (parseInt(valueElv) !== selectedValue) {
+															setValueElv(selectedValue.toString());
+														}
+														setOpenElv(false);
+													}}
+													className="text-sm font-medium font-mono text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+												>
+													{elevation.label}
+													<Check className={cn("ml-auto", valueElv === elevation.value ? "opacity-100" : "opacity-0")} />
+												</CommandItem>
+											))}
+										</CommandGroup>
+									</CommandList>
+								</Command>
+							</PopoverContent>
+						</Popover>
 					</div>
-
-					<Popover open={openElv} onOpenChange={setOpenElv}>
-						<PopoverTrigger asChild>
-							<Button variant="outline" role="combobox" aria-expanded={openElv} className="justify-center text-xl md:text-2xl font-mono">
-								{valueElv ? elevations.find((elevation) => elevation.value === valueElv)?.label : "Select Elevation"}
-								<ChevronDown className="opacity-50" />
-							</Button>
-						</PopoverTrigger>
-						<PopoverContent className="w-[200px] p-0">
-							<Command>
-								<CommandList>
-									<CommandGroup>
-										{elevations.map((elevation) => (
-											<CommandItem
-												key={elevation.value}
-												value={elevation.value.toString()}
-												onSelect={(currentValue) => {
-													const selectedValue = parseInt(currentValue, 10);
-													if (parseInt(valueElv) !== selectedValue) {
-														setValueElv(selectedValue.toString());
-													}
-													setOpenElv(false);
-												}}
-												className="text-sm font-medium font-mono text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-											>
-												{elevation.label}
-												<Check className={cn("ml-auto", valueElv === elevation.value ? "opacity-100" : "opacity-0")} />
-											</CommandItem>
-										))}
-									</CommandGroup>
-								</CommandList>
-							</Command>
-						</PopoverContent>
-					</Popover>
 				</div>
 			</div>
 			<div className="p-2 flex flex-col md:flex-row gap-4 md:gap-0">
