@@ -10,10 +10,12 @@ const ExploreArea = () => {
 				<div className="h-96 border-2 border-gray-400 rounded-3xl flex flex-col">
 					<div className="flex-1 bg-gray-400 rounded-2xl" />
 					<div className="flex w-full p-3 justify-between items-center">
-						<h3 className="text-xl md:text-xl lg:text-2xl">San Gorgonio Mountains</h3>
-						<div className="flex items-center justify-center">
-							<ArrowRight className="size-9 text-white bg-black rounded-full p-2" />
-						</div>
+						<h3 className="text-xl md:text-xl lg:text-2xl">San Bernardino Mountains</h3>
+						<a href="/routes/san-bernardino-mountains">
+							<button className="flex items-center justify-center">
+								<ArrowRight className="size-9 text-white bg-black rounded-full p-2" />
+							</button>
+						</a>
 					</div>
 				</div>
 
@@ -21,9 +23,11 @@ const ExploreArea = () => {
 					<div className="flex-1 bg-gray-400 rounded-2xl" />
 					<div className="flex w-full p-3 justify-between items-center">
 						<h3 className="text-xl md:text-xl lg:text-2xl">San Jacinto Mountains</h3>
-						<div className="flex items-center justify-center">
-							<ArrowRight className="size-9 text-white bg-black rounded-full p-2" />
-						</div>
+						<a href="/routes/san-jacinto-mountains">
+							<button className="flex items-center justify-center">
+								<ArrowRight className="size-9 text-white bg-black rounded-full p-2" />
+							</button>
+						</a>
 					</div>
 				</div>
 
@@ -31,9 +35,11 @@ const ExploreArea = () => {
 					<div className="flex-1 bg-gray-400 rounded-2xl" />
 					<div className="flex w-full p-3 justify-between items-center">
 						<h3 className="text-xl md:text-xl lg:text-2xl">San Gabriel Mountains</h3>
-						<div className="flex items-center justify-center">
-							<ArrowRight className="size-9 text-white bg-black rounded-full p-2" />
-						</div>
+						<a href="/routes/san-gabriel-mountains">
+							<button className="flex items-center justify-center">
+								<ArrowRight className="size-9 text-white bg-black rounded-full p-2" />
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
