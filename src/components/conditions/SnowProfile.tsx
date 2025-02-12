@@ -7,7 +7,42 @@ import * as React from "react";
 import { useGlobalContext } from "@/context/GlobalContext";
 
 const SnowProfile = () => {
-	const { observations } = useGlobalContext();
+	const { observations,
+			selectedRange: valueRange,
+			setSelectedRange: setValueRange,
+	 } = useGlobalContext();
+
+	 function setProfileChart(){
+		if(valueRange === "San Gabriel"){
+			return(
+				<div className="w-full h-[50vh] md:h-screen bg-gray-400">San Gabriel Chart</div>
+			);
+		}else if(valueRange === "San Bernardino"){
+			return(
+				<div className="w-full h-[50vh] md:h-screen bg-gray-400">San Bernardino Chart</div>
+			);
+		}else if(valueRange === "San Jacinto"){
+			return(
+				<div className="w-full h-[50vh] md:h-screen bg-gray-400">San Jacinto Chart</div>
+			);
+		}
+	 }
+
+	 function setNotes(){
+		if(valueRange === "San Gabriel"){
+			return(
+				<p className="text-base md:text-lg">No notes</p>
+			);
+		}else if(valueRange === "San Bernardino"){
+			return(
+				<p className="text-base md:text-lg">No notes</p>
+			);
+		}else if(valueRange === "San Jacinto"){
+			return(
+				<p className="text-base md:text-lg">No notes</p>
+			);
+		}
+	 }
 
 	return (
 		<div className="flex flex-col md:flex-row justify-between gap-4 md:gap-0">
@@ -15,7 +50,7 @@ const SnowProfile = () => {
 				<h2 className="uppercase font-medium text-gray-700 text-lg md:text-xl pb-2 flex flex-row items-center">
 					Snow Profile <Info size={18} className="ml-2" />
 				</h2>
-				<div className="w-full h-[50vh] md:h-screen bg-gray-400"></div>
+				{setProfileChart()}
 			</div>
 			<div className="w-full md:w-1/3 flex flex-col gap-4">
 				<div className="bg-gray-200 rounded-3xl p-3 md:p-5 h-[40vh] md:h-2/3">
@@ -39,7 +74,7 @@ const SnowProfile = () => {
 				</div>
 				<div className="rounded-3xl bg-gray-200 h-[20vh] md:h-1/3 p-3 md:p-5">
 					<h2 className="uppercase font-medium text-gray-700 text-lg md:text-xl mb-2">Notes</h2>
-					<p className="text-base md:text-lg">No notes</p>
+					{setNotes()}
 				</div>
 			</div>
 		</div>

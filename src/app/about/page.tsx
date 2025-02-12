@@ -1,16 +1,19 @@
+"use client"
 import Header from "@/components/global/Header";
 import AboutImage from "@/components/about/AboutImage";
 import Mission from "@/components/about/Mission";
 import DropdownInfo from "@/components/about/DropdownInfo";
+import { motion } from "framer-motion";
+
 const About = () => {
 	return (
 		<div className="flex flex-col p-5 px-5">
-			<div className="flex flex-col min-h-[calc(100dvh)] pb-10">
+			<motion.div className="flex flex-col min-h-[calc(100dvh)] pb-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
 				<Header />
-				<div className="flex flex-grow">
+				<motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="flex flex-grow">
 					<AboutImage />
-				</div>
-			</div>
+				</motion.div>
+			</motion.div>
             <Mission />
             <DropdownInfo />
 		</div>

@@ -1,7 +1,17 @@
+"use client"
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+	initial: { opacity: 0, y: 20 },
+	animate: { opacity: 1, y: 0 },
+	transition: { duration: 1.2 },
+};
+
+
 const AreaList = () => {
     return (
         <div>
-            <div className="py-6 border-b-2 border-black flex flex-col md:flex-row">
+            <motion.div className="py-6 border-b-2 border-black flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
                 <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"></div>
                     <div className="w-full md:px-10 flex flex-col justify-center text-center md:justify-between md:text-left">
                     <div>
@@ -14,8 +24,8 @@ const AreaList = () => {
                         <button className="border-2 border-black rounded-full py-1 px-5 text-l font-semibold self-start max-w-fit">EXPLORE</button>
                     </a>
                 </div>
-            </div>
-            <div className="py-6 border-b-2 border-black flex flex-col md:flex-row">
+            </motion.div>
+            <motion.div className="py-6 border-b-2 border-black flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
                 <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"></div>
                     <div className="w-full md:px-10 flex flex-col justify-center text-center md:justify-between md:text-left">
                     <div>
@@ -28,8 +38,8 @@ const AreaList = () => {
                         <button className="border-2 border-black rounded-full py-1 px-5 text-l font-semibold self-start max-w-fit">EXPLORE</button>
                     </a>
                 </div>
-            </div>
-            <div className="py-6 flex flex-col md:flex-row">
+            </motion.div>
+            <motion.div className="py-6 flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
                 <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"></div>
                     <div className="w-full md:px-10 flex flex-col justify-center text-center md:justify-between md:text-left">
                     <div>
@@ -42,7 +52,7 @@ const AreaList = () => {
                         <button className="border-2 border-black rounded-full py-1 px-5 text-l font-semibold self-start max-w-fit">EXPLORE</button>
                     </a>
                 </div>
-            </div>
+            </motion.div>
         </div>
         
         
