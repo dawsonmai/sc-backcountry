@@ -46,6 +46,14 @@ const ConditionsData = () => {
 		setSelectedElevation: setValueElv,
 		weatherData: weather,
 		calculatedTemp,
+		calculatedFreezeLevel,
+		calculatedHeatIndex,
+		calculatedWindChill,
+		humidity,
+		speed,
+		direction,
+		conditions,
+		pressure,
 		fetchWeatherData,
 	} = useGlobalContext();
 
@@ -96,6 +104,7 @@ const ConditionsData = () => {
 		}
 		return null;
 	}
+	
 
 	function heatIndex(temp: number, humidity: number) {
 		const humidityRatio = humidity / 100;
@@ -111,7 +120,7 @@ const ConditionsData = () => {
 			0.00000199 * temp ** 2 * humidityRatio ** 2;
 		return (
 			<p className="text-md text-gray-600">
-				Feels Like: <span className="font-mono">{Math.round(Number(feelsLike))}&deg; F</span>
+				Feels Like: <span className="font-mono">{Math.round(Number(feelsLike))}&deg;F</span>
 			</p>
 		);
 	}
@@ -202,9 +211,10 @@ const ConditionsData = () => {
 
 	useEffect(() => {
 		if (elevations.length > 0) {
-			setValueElv(elevations[1].value);
+			setValueElv(elevations[1]?.value || elevations[0]?.value || "");
 		}
-	}, [valueRange, elevations, setValueElv]);
+	}, [valueRange]);
+	
 
 	function Conditions() {
 		if (valueRange === "San Gabriel") {
@@ -215,7 +225,7 @@ const ConditionsData = () => {
 							<h2 className="flex justify-center text-xl text-gray-600">
 								<Wind className="mr-2" strokeWidth={1.5} /> Wind Speed:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">12 mph</p>
+							<p className="text-3xl font-medium font-mono">{speed !== null ? `${speed}` : "N/A"} mph</p>
 						</div>
 						<div className="flex flex-col items-start">
 							<h2 className="flex justify-center text-xl text-gray-600">
@@ -228,7 +238,7 @@ const ConditionsData = () => {
 								{" "}
 								<Thermometer className="mr-2" strokeWidth={1.5} /> Wind Chill:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">3&deg; F</p>
+							<p className="text-3xl font-medium font-mono">{calculatedWindChill !== null ? `${calculatedWindChill}` : "N/A"}&deg;F</p>
 						</div>
 					</div>
 					<div className="w-1/2 flex flex-col justify-between">
@@ -237,20 +247,20 @@ const ConditionsData = () => {
 								<ThermometerSnowflake className="mr-2" strokeWidth={1.5} />
 								Freezing Level:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">{freezingLevel(45, 1645)} ft</p>
+							<p className="text-3xl font-medium font-mono">{calculatedFreezeLevel !== null ? `${calculatedFreezeLevel}` : "N/A"} ft</p>
 						</div>
 						<div className="flex flex-col items-start p-2">
 							<h2 className="flex justify-center text-xl text-gray-600">
 								<WindArrowDown className="mr-2" strokeWidth={1.5} />
 								Barometer:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">13.09in</p>
+							<p className="text-3xl font-medium font-mono">{pressure !== null ? `${pressure}` : "N/A"} in</p>
 						</div>
 						<div className="flex flex-col items-start p-2">
 							<h2 className="flex justify-center text-xl text-gray-600">
 								<Droplets className="mr-2" strokeWidth={1.5} /> Humidity:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">60%</p>
+							<p className="text-3xl font-medium font-mono">{humidity !== null ? `${humidity}` : "N/A"}%</p>
 						</div>
 					</div>
 				</>
@@ -263,7 +273,7 @@ const ConditionsData = () => {
 							<h2 className="flex justify-center text-xl text-gray-600">
 								<Wind className="mr-2" strokeWidth={1.5} /> Wind Speed:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">12 mph</p>
+							<p className="text-3xl font-medium font-mono">{speed !== null ? `${speed}` : "N/A"} mph</p>
 						</div>
 						<div className="flex flex-col items-start">
 							<h2 className="flex justify-center text-xl text-gray-600">
@@ -276,7 +286,7 @@ const ConditionsData = () => {
 								{" "}
 								<Thermometer className="mr-2" strokeWidth={1.5} /> Wind Chill:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">3&deg; F</p>
+							<p className="text-3xl font-medium font-mono">{calculatedWindChill !== null ? `${calculatedWindChill}` : "N/A"}&deg;F</p>
 						</div>
 					</div>
 					<div className="w-1/2 flex flex-col justify-between">
@@ -285,20 +295,20 @@ const ConditionsData = () => {
 								<ThermometerSnowflake className="mr-2" strokeWidth={1.5} />
 								Freezing Level:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">{freezingLevel(45, 1645)} ft</p>
+							<p className="text-3xl font-medium font-mono">{calculatedFreezeLevel !== null ? `${calculatedFreezeLevel}` : "N/A"} ft</p>
 						</div>
 						<div className="flex flex-col items-start p-2">
 							<h2 className="flex justify-center text-xl text-gray-600">
 								<WindArrowDown className="mr-2" strokeWidth={1.5} />
 								Barometer:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">13.09in</p>
+							<p className="text-3xl font-medium font-mono">{pressure !== null ? `${pressure}` : "N/A"} in</p>
 						</div>
 						<div className="flex flex-col items-start p-2">
 							<h2 className="flex justify-center text-xl text-gray-600">
 								<Droplets className="mr-2" strokeWidth={1.5} /> Humidity:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">60%</p>
+							<p className="text-3xl font-medium font-mono">{humidity !== null ? `${humidity}` : "N/A"}%</p>
 						</div>
 					</div>
 				</>
@@ -311,7 +321,7 @@ const ConditionsData = () => {
 							<h2 className="flex justify-center text-xl text-gray-600">
 								<Wind className="mr-2" strokeWidth={1.5} /> Wind Speed:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">12 mph</p>
+							<p className="text-3xl font-medium font-mono">{speed !== null ? `${speed}` : "N/A"} mph</p>
 						</div>
 						<div className="flex flex-col items-start">
 							<h2 className="flex justify-center text-xl text-gray-600">
@@ -324,7 +334,7 @@ const ConditionsData = () => {
 								{" "}
 								<Thermometer className="mr-2" strokeWidth={1.5} /> Wind Chill:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">3&deg; F</p>
+							<p className="text-3xl font-medium font-mono">{calculatedWindChill !== null ? `${calculatedWindChill}` : "N/A"}&deg;F</p>
 						</div>
 					</div>
 					<div className="w-1/2 flex flex-col justify-between">
@@ -333,20 +343,20 @@ const ConditionsData = () => {
 								<ThermometerSnowflake className="mr-2" strokeWidth={1.5} />
 								Freezing Level:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">{freezingLevel(45, 1645)} ft</p>
+							<p className="text-3xl font-medium font-mono">{calculatedFreezeLevel !== null ? `${calculatedFreezeLevel}` : "N/A"} ft</p>
 						</div>
 						<div className="flex flex-col items-start p-2">
 							<h2 className="flex justify-center text-xl text-gray-600">
 								<WindArrowDown className="mr-2" strokeWidth={1.5} />
 								Barometer:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">13.09in</p>
+							<p className="text-3xl font-medium font-mono">{pressure !== null ? `${pressure}` : "N/A"} in</p>
 						</div>
 						<div className="flex flex-col items-start p-2">
 							<h2 className="flex justify-center text-xl text-gray-600">
 								<Droplets className="mr-2" strokeWidth={1.5} /> Humidity:{" "}
 							</h2>
-							<p className="text-3xl font-medium font-mono">60%</p>
+							<p className="text-3xl font-medium font-mono">{humidity !== null ? `${humidity}` : "N/A"}%</p>
 						</div>
 					</div>
 				</>
@@ -396,12 +406,15 @@ const ConditionsData = () => {
 					<div className="flex flex-row justify-between mt-4 md:mt-0">
 						<div className="flex flex-col justify-end">
 							<h2 className="font-bold text-4xl md:text-5xl">
-								<span className="font-mono">{calculatedTemp !== null ? `${calculatedTemp}` : "N/A"}</span>&deg; F
+								<span className="font-mono">{calculatedTemp !== null ? `${calculatedTemp}` : "N/A"}</span>&deg;F 
 							</h2>
+							<p className="text-md text-gray-600">
+								Feels Like: <span className="font-mono">{calculatedHeatIndex !== null ? `${calculatedHeatIndex}` : "N/A"}&deg;F</span>
+							</p>
 						</div>
 						<div className="flex flex-col justify-center items-center px-4 md:px-10">
 							<CloudSun strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />
-							<h3 className="text-sm md:text-md text-gray-600">Partly Cloudy</h3>
+							<h3 className="text-sm md:text-md text-gray-600">{conditions !== "N/A" ? `${conditions}` : "N/A"}</h3>
 						</div>
 					</div>
 				</div>
@@ -414,27 +427,26 @@ const ConditionsData = () => {
 						</div>
 						<Popover open={openElv} onOpenChange={setOpenElv}>
 							<PopoverTrigger asChild>
-								<Button variant="outline" role="combobox" aria-expanded={openElv} className="justify-center text-xl md:text-2xl font-mono">
+								<Button variant="outline" role="combobox" aria-expanded={openElv} className="justify-start text-2xl md:text-3xl font-medium pr-2 pl-1">
 									{valueElv ? elevations.find((elevation) => elevation.value === valueElv)?.label : "Select Elevation"}
 									<ChevronDown className="opacity-50" />
 								</Button>
 							</PopoverTrigger>
-							<PopoverContent className="w-[200px] p-0">
+							<PopoverContent className="p-0">
 								<Command>
 									<CommandList>
 										<CommandGroup>
 											{elevations.map((elevation) => (
 												<CommandItem
 													key={elevation.value}
-													value={elevation.value.toString()}
+													value={elevation.value}
 													onSelect={(currentValue) => {
-														const selectedValue = parseInt(currentValue, 10);
-														if (parseInt(valueElv) !== selectedValue) {
-															setValueElv(selectedValue.toString());
+														if (currentValue !== valueElv) {
+															setValueElv(currentValue); 
 														}
 														setOpenElv(false);
 													}}
-													className="text-sm font-medium font-mono text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+													className="text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100"
 												>
 													{elevation.label}
 													<Check className={cn("ml-auto", valueElv === elevation.value ? "opacity-100" : "opacity-0")} />
@@ -458,7 +470,7 @@ const ConditionsData = () => {
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 										<Wind className="mr-2" strokeWidth={1.5} /> Wind Speed:{" "}
 									</h2>
-									<p className="text-2xl md:text-3xl font-medium font-mono">12 mph</p>
+									<p className="text-2xl md:text-3xl font-medium font-mono">{speed !== null ? `${speed}` : "N/A"} mph</p>
 								</div>
 								<div className="flex flex-col items-start">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
@@ -471,7 +483,7 @@ const ConditionsData = () => {
 										{" "}
 										<Thermometer className="mr-2" strokeWidth={1.5} /> Wind Chill:{" "}
 									</h2>
-									<p className="text-2xl md:text-3xl font-medium font-mono">3&deg; F</p>
+									<p className="text-2xl md:text-3xl font-medium font-mono">{calculatedWindChill !== null ? `${calculatedWindChill}` : "N/A"}&deg;F</p>
 								</div>
 							</div>
 							<div className="w-full md:w-1/2 flex flex-col justify-between space-y-4 md:space-y-0">
@@ -480,20 +492,20 @@ const ConditionsData = () => {
 										<ThermometerSnowflake className="mr-2" strokeWidth={1.5} />
 										Freezing Level:{" "}
 									</h2>
-									<p className="text-2xl md:text-3xl font-medium font-mono">{freezingLevel(45, 1645)} ft</p>
+									<p className="text-2xl md:text-3xl font-medium font-mono">{calculatedFreezeLevel !== null ? `${calculatedFreezeLevel}` : "N/A"} ft</p>
 								</div>
 								<div className="flex flex-col items-start p-2">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 										<WindArrowDown className="mr-2" strokeWidth={1.5} />
 										Barometer:{" "}
 									</h2>
-									<p className="text-2xl md:text-3xl font-medium font-mono">13.09in</p>
+									<p className="text-2xl md:text-3xl font-medium font-mono">{pressure !== null ? `${pressure}` : "N/A"} in</p>
 								</div>
 								<div className="flex flex-col items-start p-2">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 										<Droplets className="mr-2" strokeWidth={1.5} /> Humidity:{" "}
 									</h2>
-									<p className="text-2xl md:text-3xl font-medium font-mono">60%</p>
+									<p className="text-2xl md:text-3xl font-medium font-mono">{humidity !== null ? `${humidity}` : "N/A"}%</p>
 								</div>
 							</div>
 						</div>
