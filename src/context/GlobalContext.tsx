@@ -1,6 +1,6 @@
 "use client";
 import { text } from "node:stream/consumers";
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode, useRef } from "react";
 
 // Types
 export interface ObservationProperties {
@@ -158,13 +158,23 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	const addObservation = (observation: Observation) => {
 		setObservations((prev) => [observation, ...prev]);
 	};
+	
+	const latestRequestRef = useRef(0);
 
 	const fetchWeatherData = async () => {
+		const requestId = Date.now();
+		latestRequestRef.current = requestId; // Store the latest request
+	
 		try {
+			console.log("Fetching weather data for:", selectedRange);
 			const response = await fetch(`/api/conditions?range=${encodeURIComponent(selectedRange)}`);
 			if (!response.ok) throw new Error("Failed to fetch weather data");
 			const data = await response.json();
-			setWeatherData(data);
+	
+			// Only update state if this is the latest request
+			if (latestRequestRef.current === requestId) {
+				setWeatherData(data);
+			}
 
 			// Calculate temperature at selected elevation
 			if (data && data.properties) {
@@ -203,7 +213,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
 					setHumidity(Math.round(relativeHumidity.value));
 					setWindDirection(Math.round(windDirection.value));
-					setBarometer(barometricPressure.value);
+					setBarometer(Number((barometricPressure.value/3386).toFixed(2)));
 					setWindspeed(Math.round(windSpeed.value));
 					console.log(data.properties.textDescription.value)
 					setConditions(textDescription);
@@ -211,17 +221,18 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 				}
 			}
 		} catch (error) {
-			console.error("Error fetching weather data:", error);
-			setWeatherData(null);
-			setCalculatedTemp(null);
+			if (latestRequestRef.current === requestId) {
+				console.error("Error fetching weather data:", error);
+				setWeatherData(null);
+				setCalculatedTemp(null);
+			}
 		}
 	};
 
 	// Fetch weather data when range changes
 	useEffect(() => {
 		fetchWeatherData();
-	}, [selectedRange, selectedElevation]);
-
+	}, [selectedRange]);
 	const value = {
 		selectedRange,
 		setSelectedRange,

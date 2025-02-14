@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Info, ChevronDown, CloudSun, MountainSnow, MoveVertical, Wind, MoveDown, WindArrowDown, Droplets, Eye, Thermometer, Radio, Check, MoveUp, ThermometerSnowflake } from "lucide-react";
+import { Info, ChevronDown, CloudSun, MountainSnow, MoveVertical, Wind, MoveDown, MoveUp, MoveLeft, MoveRight, MoveDownRight, MoveDownLeft, MoveUpRight, MoveUpLeft, WindArrowDown, Droplets, Eye, Thermometer, Radio, Check, ThermometerSnowflake } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
@@ -133,6 +133,76 @@ const ConditionsData = () => {
 	function freezingLevel(temp: number, tempElv: number) {
 		const freezeAlt = ((temp - 32) * 1000) / 3.5;
 		return Math.round(freezeAlt);
+	}
+
+	function windDirection(angle: number){
+		const directions = ["North", "Northeast", "East", "Southeast", "South", "Southwest", "West", "Northwest", "North"];
+    	let index = Math.round(angle / 45) % 8;
+		let direction = directions[index];
+		if(direction === "North"){
+			return (<div className="flex flex-col items-start">
+				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
+					<MoveDown className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
+				</h2>
+				<p className="text-2xl md:text-3xl font-medium font-mono">{direction}</p>
+			</div>)
+		}else if(direction === "Northeast"){
+			return (<div className="flex flex-col items-start">
+				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
+					<MoveDownLeft className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
+				</h2>
+				<p className="text-2xl md:text-3xl font-medium font-mono">{direction}</p>
+			</div>)
+		}else if(direction === "East"){
+			return (<div className="flex flex-col items-start">
+				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
+					<MoveLeft className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
+				</h2>
+				<p className="text-2xl md:text-3xl font-medium font-mono">{direction}</p>
+			</div>)
+		}else if(direction === "Southeast"){
+			return (<div className="flex flex-col items-start">
+				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
+					<MoveUpLeft className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
+				</h2>
+				<p className="text-2xl md:text-3xl font-medium font-mono">{direction}</p>
+			</div>)
+		}else if(direction === "South"){
+			return (<div className="flex flex-col items-start">
+				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
+					<MoveUp className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
+				</h2>
+				<p className="text-2xl md:text-3xl font-medium font-mono">{direction}</p>
+			</div>)
+		}else if(direction === "Southwest"){
+			return (<div className="flex flex-col items-start">
+				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
+					<MoveUpRight className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
+				</h2>
+				<p className="text-2xl md:text-3xl font-medium font-mono">{direction}</p>
+			</div>)
+		}else if(direction === "West"){
+			return (<div className="flex flex-col items-start">
+				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
+					<MoveRight className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
+				</h2>
+				<p className="text-2xl md:text-3xl font-medium font-mono">{direction}</p>
+			</div>)
+		}else if(direction === "Southwest"){
+			return (<div className="flex flex-col items-start">
+				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
+					<MoveDownRight className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
+				</h2>
+				<p className="text-2xl md:text-3xl font-medium font-mono">{direction}</p>
+			</div>)
+		}else if(direction === "South"){
+			return (<div className="flex flex-col items-start">
+				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
+					<MoveDown className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
+				</h2>
+				<p className="text-2xl md:text-3xl font-medium font-mono">{direction}</p>
+			</div>)
+		}
 	}
 
 	function dataMountain() {
@@ -472,12 +542,13 @@ const ConditionsData = () => {
 									</h2>
 									<p className="text-2xl md:text-3xl font-medium font-mono">{speed !== null ? `${speed}` : "N/A"} mph</p>
 								</div>
-								<div className="flex flex-col items-start">
+								{windDirection(Number(direction))}
+								{/* <div className="flex flex-col items-start">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 										<MoveDown className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
 									</h2>
 									<p className="text-2xl md:text-3xl font-medium font-mono">North</p>
-								</div>
+								</div> */}
 								<div className="flex flex-col items-start">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 										{" "}
@@ -499,7 +570,7 @@ const ConditionsData = () => {
 										<WindArrowDown className="mr-2" strokeWidth={1.5} />
 										Barometer:{" "}
 									</h2>
-									<p className="text-2xl md:text-3xl font-medium font-mono">{pressure !== null ? `${pressure}` : "N/A"} in</p>
+									<p className="text-2xl md:text-3xl font-medium font-mono">{pressure !== 0 ? `${pressure}` : "N/A"} inHg</p>
 								</div>
 								<div className="flex flex-col items-start p-2">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
