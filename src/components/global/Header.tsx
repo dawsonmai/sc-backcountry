@@ -5,7 +5,11 @@ const Header = () => {
 	return (
 		<div className="flex sm:flex-row flex-col items-center sm:justify-between pb-5 bg-transparent">
 			<Link href="/" className="flex flex-row items-center gap-2">
-				<MountainSnow className="inline size-6" />
+				<div className="h-12 w-12" style={{
+					backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(logoTest.png)",
+					backgroundSize: "contain",
+					backgroundPosition: "center",
+				}}></div>
 				<h1 className="text-lg font-semibold">SC Backcountry</h1>
 			</Link>
 
