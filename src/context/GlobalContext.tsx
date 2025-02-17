@@ -196,7 +196,14 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 			}
 	
 			// Extract observation and forecast data
-			const observation = data.observation?.properties;
+			let observation;
+			if(selectedRange==="San Gabriel"){
+				observation = data.SGobservation?.properties;
+			}else if(selectedRange==="San Bernardino"){
+				observation = data.SBobservation?.properties;
+			}else if(selectedRange==="San Jacinto"){
+				observation = data.SJobservation?.properties;
+			}
 			const forecast = data.forecast?.properties;
 	
 			if (observation) {

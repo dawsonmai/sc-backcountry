@@ -441,10 +441,6 @@ const ConditionsData = () => {
 			);
 		}
 	}
-	console.log("KNIGHT")
-	console.log("KNIGHT 1:", forecastData)
-	console.log("KNIGHT 2:", forecastData ? forecastData[0] : "null")
-
 	return (
 		<div className="flex flex-col justify-between pb-2">
 			<div className="p-2 flex flex-col md:flex-row justify-between">
