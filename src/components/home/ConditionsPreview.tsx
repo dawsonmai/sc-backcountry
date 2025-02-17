@@ -7,7 +7,6 @@ const fadeInUp = {
 	transition: { duration: 5 },
 };
 
-
 const ConditionsPreview = () => {
 	return (
 		<div className="w-full h-[50vh] rounded-3xl p-6" style={{

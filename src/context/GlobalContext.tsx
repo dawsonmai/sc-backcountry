@@ -101,7 +101,10 @@ interface GlobalContextType {
 	setHumidity: (humidity: number | null) => void;
 
 	conditions: string;
-	setConditions: (conditions: string) => void
+	setConditions: (conditions: string) => void;
+
+	temperature: number | null;
+	setTemperature: (temp: number | null) => void;
 }
 
 // Create context with default values
@@ -134,6 +137,8 @@ const GlobalContext = createContext<GlobalContextType>({
 	humidity: null,
 	observations: [],
 	addObservation: () => {},
+	setTemperature: () => {},
+	temperature: null,
 	fetchWeatherData: async () => {},
 });
 
@@ -152,6 +157,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	const [humidity, setHumidity] = useState<number | null>(null);
 	const [pressure, setBarometer] = useState<number | null>(null);
 	const [conditions, setConditions] = useState<string>("N/A");
+	const [temperature, setTemperature] = useState<number | null>(null);
 	const [observations, setObservations] = useState<Observation[]>([
 		{
 			date: "Jan 4, 2025",
@@ -307,6 +313,8 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 		calculatedWindChill,
 		setCalculatedWindChill,
 		setForecastData,
+		setTemperature,
+		temperature,
 		forecastData,
 		setConditions,
 		conditions,

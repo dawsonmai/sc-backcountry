@@ -577,7 +577,7 @@ const ConditionsData = () => {
 										<WindArrowDown className="mr-2" strokeWidth={1.5} />
 										Barometer:{" "}
 									</h2>
-									<p className="text-2xl md:text-3xl font-medium font-mono">{pressure !== 0 ? `${pressure}` : "N/A"} inHg</p>
+									<p className="text-2xl md:text-3xl font-medium font-mono">{pressure !== null ? `${pressure}` : "N/A"} inHg</p>
 								</div>
 								<div className="flex flex-col items-start p-2">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
@@ -597,37 +597,44 @@ const ConditionsData = () => {
 							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
 							? forecastData[0].name: "N/A"}</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
-								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> Partly Cloudy
+								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> {forecastData && forecastData.length > 0 
+							? forecastData[0].shortForecast: "N/A"}
 							</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center whitespace-nowrap">
-								60&deg; F/<span className="text-gray-500">40&deg; F</span>
+							{forecastData && forecastData.length > 0  ? forecastData[0].temperature: "N/A"}&deg;F
 							</h3>
 						</div>
 						<div className="w-full border-b-2 border-gray-400 flex flex-row justify-between py-2">
-							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">Tonight</h3>
+							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
+							? forecastData[1].name: "N/A"}</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
-								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> Partly Cloudy
+								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> {forecastData && forecastData.length > 0 
+							? forecastData[1].shortForecast: "N/A"}
 							</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center whitespace-nowrap">
-								60&deg; F/<span className="text-gray-500">40&deg; F</span>
+							{forecastData && forecastData.length > 0  ? forecastData[1].temperature: "N/A"}&deg;F
 							</h3>
 						</div>
 						<div className="w-full border-b-2 border-gray-400 flex flex-row justify-between py-2">
-							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">Mon</h3>
+							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
+							? forecastData[2].name: "N/A"}</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
-								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> Partly Cloudy
+								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> {forecastData && forecastData.length > 0 
+							? forecastData[2].shortForecast: "N/A"}
 							</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center whitespace-nowrap">
-								60&deg; F/<span className="text-gray-500">40&deg; F</span>
+							{forecastData && forecastData.length > 0  ? forecastData[2].temperature: "N/A"}&deg;F
 							</h3>
 						</div>
-						<div className="w-full flex flex-row justify-between pt-2">
-							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">Tue</h3>
+						<div className="w-full border-b-2 border-gray-400 flex flex-row justify-between py-2">
+							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
+							? forecastData[3].name: "N/A"}</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
-								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> Partly Cloudy
+								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> {forecastData && forecastData.length > 0 
+							? forecastData[3].shortForecast: "N/A"}
 							</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center whitespace-nowrap">
-								60&deg; F/<span className="text-gray-500">40&deg; F</span>
+							{forecastData && forecastData.length > 0  ? forecastData[3].temperature: "N/A"}&deg;F
 							</h3>
 						</div>
 					</div>
