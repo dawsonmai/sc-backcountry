@@ -10,24 +10,34 @@ export interface ObservationProperties {
 			value: number;
 		};
 		temperature: {
-			value: number;
+			value: number | null;
 		};
 		dewpoint: {
-			value: number;
+			value: number | null;
 		};
 		windDirection: {
-			value: number;
+			value: number | null;
 		};
 		windSpeed: {
-			value: number;
+			value: number | null;
 		};
 		barometricPressure: {
-			value: number;
+			value: number | null;
 		};
 		relativeHumidity: {
-			value: number;
+			value: number | null;
 		};
 	};
+}
+
+export interface ForecastProperties {
+		number: number;
+		name: string;
+		temperature: number;
+		temperatureUnit: string;
+		windSpeed: string;
+		windDirection: string;
+		shortForecast: string;
 }
 
 export interface Observation {
@@ -36,6 +46,8 @@ export interface Observation {
 	description: string;
 	location: string;
 }
+
+
 
 interface GlobalContextType {
 	// Mountain range state
@@ -57,6 +69,9 @@ interface GlobalContextType {
 	// Snow observations state
 	observations: Observation[];
 	addObservation: (observation: Observation) => void;
+
+	forecastData: ForecastProperties[] | null;
+	setForecastData: (data: ForecastProperties[] | null) => void;
 
 	// Fetch weather data function
 	fetchWeatherData: () => Promise<void>;
@@ -110,6 +125,8 @@ const GlobalContext = createContext<GlobalContextType>({
 	setWindDirection: () => {},
 	setWindspeed: () => {},
 	setConditions: () => {},
+	setForecastData: () => {},
+	forecastData: null,
 	conditions: "N/A",
 	pressure: null,
 	speed: null,
@@ -125,6 +142,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	const [selectedRange, setSelectedRange] = useState<string>("San Gabriel");
 	const [selectedElevation, setSelectedElevation] = useState<string>("7031");
 	const [weatherData, setWeatherData] = useState<ObservationProperties | null>(null);
+	const [forecastData, setForecastData] = useState<ForecastProperties[] | null>(null);
 	const [calculatedTemp, setCalculatedTemp] = useState<number | null>(null);
 	const [calculatedHeatIndex, setCalculatedHeatIndex] = useState<number | null>(null);
 	const [calculatedFreezeLevel, setCalculatedFreezeLevel] = useState<number | null>(null);
@@ -169,22 +187,29 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 			console.log("Fetching weather data for:", selectedRange);
 			const response = await fetch(`/api/conditions?range=${encodeURIComponent(selectedRange)}`);
 			if (!response.ok) throw new Error("Failed to fetch weather data");
-			const data = await response.json();
 	
-			// Only update state if this is the latest request
+			const data = await response.json();
+			
+			// Check for the latest request before updating state
 			if (latestRequestRef.current === requestId) {
 				setWeatherData(data);
 			}
-
-			// Calculate temperature at selected elevation
-			if (data && data.properties) {
-				const { elevation, temperature, relativeHumidity, windSpeed, windDirection, barometricPressure, textDescription } = data.properties;
+	
+			// Extract observation and forecast data
+			const observation = data.observation?.properties;
+			const forecast = data.forecast?.properties;
+	
+			if (observation) {
+				const { elevation, temperature, relativeHumidity, windSpeed, windDirection, barometricPressure, textDescription } = observation;
+	
 				if (elevation?.value !== undefined && temperature?.value !== undefined) {
-					const forecastElv = Math.round(elevation.value * 3.280839895);
-					const forecastTemp = Math.round((temperature.value * 9) / 5 + 32);
-					let altitudeDiff = Math.abs(forecastElv - Number(selectedElevation));
+					const forecastElv = Math.round(elevation.value * 3.280839895); // Convert meters to feet
+					if (temperature.value!=null){
+					const forecastTemp = Math.round((temperature.value * 9) / 5 + 32); // Convert Celsius to Fahrenheit
+					console.log(forecastTemp)
+					const altitudeDiff = Math.abs(forecastElv - Number(selectedElevation));
 					const tempDif = altitudeDiff * 0.00356;
-
+	
 					let tempAtAlt = forecastTemp;
 					if (forecastElv > Number(selectedElevation)) {
 						tempAtAlt += tempDif;
@@ -192,7 +217,8 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 						tempAtAlt -= tempDif;
 					}
 					setCalculatedTemp(Math.round(tempAtAlt));
-					const humidityRatio = relativeHumidity.value / 100;
+	
+					const humidityRatio = relativeHumidity?.value / 100 || 0;
 					const feelsLike =
 						-42.397 +
 						2.04901523 * tempAtAlt +
@@ -205,34 +231,59 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 						0.00000199 * tempAtAlt ** 2 * humidityRatio ** 2;
 					setCalculatedHeatIndex(Math.round(feelsLike));
 					
-					const chill = 35.74 + 0.6215 * tempAtAlt - 35.75 * windSpeed.value ** 0.16 + 0.4275 * tempAtAlt * windSpeed.value ** 0.16;
+	
+					const chill = 35.74 + 0.6215 * tempAtAlt - 35.75 * (windSpeed?.value ** 0.16 || 0) + 0.4275 * tempAtAlt * (windSpeed?.value ** 0.16 || 0);
 					setCalculatedWindChill(Math.round(chill));
-
+	
 					const freezeAlt = ((forecastTemp - 32) * 1000) / 3.5;
 					setCalculatedFreezeLevel(Math.round(freezeAlt));
-
-					setHumidity(Math.round(relativeHumidity.value));
-					setWindDirection(Math.round(windDirection.value));
-					setBarometer(Number((barometricPressure.value/3386).toFixed(2)));
-					setWindspeed(Math.round(windSpeed.value));
-					console.log(data.properties.textDescription.value)
-					setConditions(textDescription);
-					
+				}else{
+					setCalculatedTemp(null);
+					setCalculatedFreezeLevel(null);
+					setCalculatedHeatIndex(null);
+					setCalculatedWindChill(null);
+				}
+				if(relativeHumidity.value != null){
+					setHumidity(Math.round(relativeHumidity?.value || 0));
+				}else{
+					setHumidity(null);
+				}
+				if(windDirection.value != null){
+					setWindDirection(Math.round(windDirection?.value || 0));
+				}else{
+					setWindDirection(null);
+				}
+				if(barometricPressure.value != null){
+					setBarometer(Number((barometricPressure?.value / 3386 || 0).toFixed(2))); // Convert Pa to inHg
+				}else{
+					setBarometer(null)
+				}if(windSpeed.value != null){
+					setWindspeed(Math.round(windSpeed?.value || 0));
+				}
+					setConditions(textDescription || "");
 				}
 			}
+
+			if (forecast && forecast.periods) {
+				console.log("Forecast Data:", forecast.periods);
+				setForecastData(forecast.periods);
+			}
+	
 		} catch (error) {
 			if (latestRequestRef.current === requestId) {
 				console.error("Error fetching weather data:", error);
+				setForecastData(null);
 				setWeatherData(null);
 				setCalculatedTemp(null);
 			}
 		}
 	};
-
+	
 	// Fetch weather data when range changes
 	useEffect(() => {
 		fetchWeatherData();
 	}, [selectedRange]);
+	
 	const value = {
 		selectedRange,
 		setSelectedRange,
@@ -248,6 +299,8 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 		setCalculatedHeatIndex,
 		calculatedWindChill,
 		setCalculatedWindChill,
+		setForecastData,
+		forecastData,
 		setConditions,
 		conditions,
 		speed,

@@ -45,6 +45,7 @@ const ConditionsData = () => {
 		selectedElevation: valueElv,
 		setSelectedElevation: setValueElv,
 		weatherData: weather,
+		forecastData,
 		calculatedTemp,
 		calculatedFreezeLevel,
 		calculatedHeatIndex,
@@ -199,6 +200,13 @@ const ConditionsData = () => {
 			return (<div className="flex flex-col items-start">
 				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 					<MoveDown className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
+				</h2>
+				<p className="text-2xl md:text-3xl font-medium font-mono">{direction}</p>
+			</div>)
+		}else if(direction === "Northwest"){
+			return (<div className="flex flex-col items-start">
+				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
+					<MoveDownRight className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
 				</h2>
 				<p className="text-2xl md:text-3xl font-medium font-mono">{direction}</p>
 			</div>)
@@ -433,6 +441,9 @@ const ConditionsData = () => {
 			);
 		}
 	}
+	console.log("KNIGHT")
+	console.log("KNIGHT 1:", forecastData)
+	console.log("KNIGHT 2:", forecastData ? forecastData[0] : "null")
 
 	return (
 		<div className="flex flex-col justify-between pb-2">
@@ -584,10 +595,11 @@ const ConditionsData = () => {
 					</div>
 				</div>
 				<div className="w-full md:w-1/3 rounded-3xl bg-gray-200 px-3 md:px-5 pt-5 pb-2">
-					<h2 className="font-medium text-xl text-gray-700 uppercase">4-Day Forecast</h2>
+					<h2 className="font-medium text-xl text-gray-700 uppercase">Forecast</h2>
 					<div className="flex flex-col">
 						<div className="w-full border-b-2 border-gray-400 flex flex-row justify-between py-2">
-							<h3 className="text-sm md:text-md text-gray-500 flex items-center">Sat</h3>
+							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
+							? forecastData[0].name: "N/A"}</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
 								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> Partly Cloudy
 							</h3>
@@ -596,7 +608,7 @@ const ConditionsData = () => {
 							</h3>
 						</div>
 						<div className="w-full border-b-2 border-gray-400 flex flex-row justify-between py-2">
-							<h3 className="text-sm md:text-md text-gray-500 flex items-center">Sun</h3>
+							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">Tonight</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
 								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> Partly Cloudy
 							</h3>
@@ -605,7 +617,7 @@ const ConditionsData = () => {
 							</h3>
 						</div>
 						<div className="w-full border-b-2 border-gray-400 flex flex-row justify-between py-2">
-							<h3 className="text-sm md:text-md text-gray-500 flex items-center">Mon</h3>
+							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">Mon</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
 								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> Partly Cloudy
 							</h3>
@@ -614,7 +626,7 @@ const ConditionsData = () => {
 							</h3>
 						</div>
 						<div className="w-full flex flex-row justify-between pt-2">
-							<h3 className="text-sm md:text-md text-gray-500 flex items-center">Tue</h3>
+							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">Tue</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
 								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> Partly Cloudy
 							</h3>
