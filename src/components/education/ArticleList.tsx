@@ -18,7 +18,7 @@ const ArticleList = () => {
             <Accordion type="single" collapsible className="w-full px-10">
                 <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
                     <AccordionItem value="snow-safety">
-                        <AccordionTrigger className="text-2xl font-semibold uppercase">Snow Safety</AccordionTrigger>
+                        <AccordionTrigger className="text-2xl font-semibold uppercase text-red-600">Snow Safety</AccordionTrigger>
                         <AccordionContent className="text-lg">
                             As soft and fun snow is, it poses serious hazards such as avalanches. Learn how to safely travel and avoid risks while on snow in the backcountry with the resources below.
                         </AccordionContent>

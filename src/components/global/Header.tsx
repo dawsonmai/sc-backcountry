@@ -6,7 +6,7 @@ const Header = () => {
 		<div className="flex sm:flex-row flex-col items-center sm:justify-between pb-5 bg-transparent">
 			<Link href="/" className="flex flex-row items-center gap-2">
 				<div className="h-12 w-12" style={{
-					backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(logoTest.png)",
+					backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(logoColored.png)",
 					backgroundSize: "contain",
 					backgroundPosition: "center",
 				}}></div>
