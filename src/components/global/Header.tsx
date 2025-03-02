@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { MountainSnow } from "lucide-react";
 
 const Header = () => {
 	return (
