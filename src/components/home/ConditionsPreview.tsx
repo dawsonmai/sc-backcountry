@@ -1,5 +1,6 @@
 import { Thermometer, Snowflake, Wind, MoveUpLeft, Eye, Cloudy, CloudSun, MoveDown, MoveLeft, ArrowRight} from "lucide-react";
 import { motion } from "framer-motion";
+import { useGlobalContext } from "@/context/GlobalContext";
 
 const fadeInUp = {
 	initial: { opacity: 0, y: 20 },
@@ -8,6 +9,10 @@ const fadeInUp = {
 };
 
 const ConditionsPreview = () => {
+
+	const { setSanBernardinoObs: SanBernardinoObs, setSanGabrielObs: SanGabrielObs, setSanJacintoObs: SanJacintoObs} = useGlobalContext();
+
+	console.log("SanBernardinoObs: " + SanBernardinoObs)
 	return (
 		<div className="w-full h-[50vh] rounded-3xl p-6" style={{
 			backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(ridge.jpeg)",
@@ -22,7 +27,7 @@ const ConditionsPreview = () => {
 					<div className="flex flex-row gap-3 justify-center p-3">
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
 							<Thermometer strokeWidth={1.5} className="size-5" />
-							<p>20°F</p>
+							<p>F</p>
 						</div>
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
 							<Snowflake strokeWidth={1.5} className="size-5" />
