@@ -8,7 +8,11 @@ const ExploreArea = () => {
 			</div>
 			<div className="flex flex-col md:flex-row md:w-5/6 lg:w-4/5 p-4 gap-5 lg:gap-8">
 				<div className="h-96 border-2 border-gray-400 rounded-3xl flex flex-col">
-					<div className="flex-1 bg-gray-400 rounded-2xl" />
+					<div className="flex-1 bg-gray-400 rounded-2xl" style={{
+						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(SanBernardinoMountainsAerial.jpeg)",
+						backgroundSize: "cover",
+						backgroundPosition: "bottom",
+					}} />
 					<div className="flex w-full p-3 justify-between items-center">
 						<h3 className="text-xl md:text-xl lg:text-2xl">San Bernardino Mountains</h3>
 						<a href="/routes/san-bernardino-mountains">
@@ -20,7 +24,11 @@ const ExploreArea = () => {
 				</div>
 
 				<div className="h-96 border-2 border-gray-400 rounded-3xl flex flex-col">
-					<div className="flex-1 bg-gray-400 rounded-2xl" />
+					<div className="flex-1 bg-gray-400 rounded-2xl" style={{
+						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), url(SanJacintoMountainsAerial.jpeg)",
+						backgroundSize: "cover",
+						backgroundPosition: "center",
+					}} />
 					<div className="flex w-full p-3 justify-between items-center">
 						<h3 className="text-xl md:text-xl lg:text-2xl">San Jacinto Mountains</h3>
 						<a href="/routes/san-jacinto-mountains">
@@ -32,7 +40,11 @@ const ExploreArea = () => {
 				</div>
 
 				<div className="h-96 border-2 border-gray-400 rounded-3xl flex flex-col">
-					<div className="flex-1 bg-gray-400 rounded-2xl" />
+					<div className="flex-1 bg-gray-400 rounded-2xl" style={{
+						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(SanGabrielMountainsAerial.jpeg)",
+						backgroundSize: "cover",
+						backgroundPosition: "center",
+					}} />
 					<div className="flex w-full p-3 justify-between items-center">
 						<h3 className="text-xl md:text-xl lg:text-2xl">San Gabriel Mountains</h3>
 						<a href="/routes/san-gabriel-mountains">
