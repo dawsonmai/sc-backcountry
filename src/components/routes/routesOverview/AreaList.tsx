@@ -12,7 +12,11 @@ const AreaList = () => {
     return (
         <div>
             <motion.div className="py-6 border-b-2 border-black flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"></div>
+                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl" style={{
+						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(SanGabrielAfar.jpeg)",
+						backgroundSize: "cover",
+						backgroundPosition: "right",
+					}} />
                     <div className="w-full md:px-10 flex flex-col justify-center text-center md:justify-between md:text-left">
                     <div>
                         <h3 className="text-3xl font-semibold mb-2">San Gabriel Mountains</h3>
@@ -26,7 +30,11 @@ const AreaList = () => {
                 </div>
             </motion.div>
             <motion.div className="py-6 border-b-2 border-black flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"></div>
+                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl" style={{
+						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(SanBernardinoMtns.jpeg)",
+						backgroundSize: "cover",
+						backgroundPosition: "left",
+					}} />
                     <div className="w-full md:px-10 flex flex-col justify-center text-center md:justify-between md:text-left">
                     <div>
                         <h3 className="text-3xl font-semibold mb-2">San Bernardino Mountains</h3>
@@ -40,7 +48,11 @@ const AreaList = () => {
                 </div>
             </motion.div>
             <motion.div className="py-6 flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"></div>
+                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"style={{
+						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.0.1), rgba(0, 0, 0, 0.1)), url(SanJacintoAfar.jpeg)",
+						backgroundSize: "cover",
+						backgroundPosition: "right",
+					}} />
                     <div className="w-full md:px-10 flex flex-col justify-center text-center md:justify-between md:text-left">
                     <div>
                         <h3 className="text-3xl font-semibold mb-2">San Jacinto Mountains</h3>

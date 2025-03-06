@@ -37,7 +37,11 @@ const DropdownInfo = () => {
                                         <h2 className="font-semibold text-xl uppercase">Dawson Mai</h2>
                                         <h3 className="text-lg">Founder</h3>
                                     </div>
-                                    <div className="rounded-xl bg-gray-400 h-60"></div>
+                                    <div className="rounded-xl bg-gray-400 h-60"style={{
+                                        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(Dawson.jpeg)",
+                                        backgroundSize: "cover",
+                                        backgroundPosition: "right",
+                                    }} />
                                 </div>
                                 <div className="w-3/4 px-6 flex flex-col items-end">
                                     <p className="py-2">Lorem ipsum odor amet, consectetuer adipiscing elit. Id aliquam facilisi sed sit feugiat venenatis montes magna nulla. Massa fermentum nullam venenatis id a mus leo habitant. Himenaeos eu per placerat elementum proin neque? Fames dictum erat fames, at non consectetur. Dictum egestas integer sollicitudin molestie cras; consectetur augue. Parturient neque fusce ligula vulputate faucibus auctor. Tempor augue cras nostra primis netus ad. Aliquet odio mi nostra inceptos tristique; cubilia nec.</p>
