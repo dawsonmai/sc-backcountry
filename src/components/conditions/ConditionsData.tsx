@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { Info, ChevronDown, CloudSun, MountainSnow, MoveVertical, Wind, MoveDown, MoveUp, MoveLeft, MoveRight, MoveDownRight, MoveDownLeft, MoveUpRight, MoveUpLeft, WindArrowDown, Droplets, Eye, Thermometer, Radio, Check, ThermometerSnowflake } from "lucide-react";
+import { Info, ChevronDown, CloudSun, Cloud, CloudFog, CloudRainWind, CloudSnow, Sun, CloudAlert, MountainSnow, MoveVertical, Wind, MoveDown, MoveUp, MoveLeft, MoveRight, MoveDownRight, MoveDownLeft, MoveUpRight, MoveUpLeft, WindArrowDown, Droplets, Eye, Thermometer, Radio, Check, ThermometerSnowflake } from "lucide-react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
@@ -80,60 +80,23 @@ const ConditionsData = () => {
 		}
 	}, [valueRange, fetchWeatherData]);
 
-	function tempChange(data: ObservationProperties): number | null {
-		if (data && data.properties) {
-			const { elevation, temperature } = data.properties;
 
-			// Make sure both elevation and temperature values are defined
-			if (elevation?.value !== undefined && temperature?.value !== undefined) {
-				const forecastElv = Math.round(elevation.value * 3.280839895); // Convert elevation to feet
-				const forecastTemp = Math.round((temperature.value * 9) / 5 + 32); // Convert temperature to °F
-
-				let altitudeDiff = Math.abs(forecastElv - Number(valueElv)); // Ensure difference is positive
-				const tempDif = altitudeDiff * 0.00356; // Calculate temperature difference per altitude
-
-				let tempAtAlt = forecastTemp;
-				if (forecastElv > Number(valueElv)) {
-					tempAtAlt += tempDif; // If forecast elevation is higher, increase temp
-				} else {
-					tempAtAlt -= tempDif; // If forecast elevation is lower, decrease temp
-				}
-
-				console.log("Temperature at " + valueElv + " is " + tempAtAlt);
-				return Math.round(tempAtAlt); // Return the calculated temperature
-			}
+	function weatherIcon(description: string){
+		if (description === "Sunny" || description === "Clear"){
+			return (<Sun strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+		}else if (description === "Mostly Cloudy" || description==="Partly Cloudy" || description==="Mostly Clear"){
+			return (<CloudSun strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+		}else if (description ==="Cloudy"){
+			return (<Cloud strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+		}else if (description ==="Rain" || description==="Showers"){
+			return (<CloudRainWind strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+		}else if (description==="Snow"){
+			return (<CloudSnow strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+		}else if (description==="Fog"){
+			return (<CloudFog strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+		}else{
+			return (<CloudAlert strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
 		}
-		return null;
-	}
-	
-
-	function heatIndex(temp: number, humidity: number) {
-		const humidityRatio = humidity / 100;
-		const feelsLike =
-			-42.397 +
-			2.04901523 * temp +
-			10.14333127 * humidityRatio -
-			0.22475541 * temp * humidityRatio -
-			0.00683783 * temp ** 2 -
-			0.05481717 * humidityRatio ** 2 +
-			0.00122874 * temp ** 2 * humidityRatio +
-			0.00085282 * temp * humidityRatio ** 2 -
-			0.00000199 * temp ** 2 * humidityRatio ** 2;
-		return (
-			<p className="text-md text-gray-600">
-				Feels Like: <span className="font-mono">{Math.round(Number(feelsLike))}&deg;F</span>
-			</p>
-		);
-	}
-
-	function windChill(temp: number, windspeed: number) {
-		const chill = 35.74 + 0.6215 * temp - 35.75 * windspeed ** 0.16 + 0.4275 * temp * windspeed ** 0.16;
-		return Math.round(chill);
-	}
-
-	function freezingLevel(temp: number, tempElv: number) {
-		const freezeAlt = ((temp - 32) * 1000) / 3.5;
-		return Math.round(freezeAlt);
 	}
 
 	function windDirection(angle: number){
@@ -292,155 +255,6 @@ const ConditionsData = () => {
 			setValueElv(elevations[1]?.value || elevations[0]?.value || "");
 		}
 	}, [valueRange]);
-	
-
-	function Conditions() {
-		if (valueRange === "San Gabriel") {
-			return (
-				<>
-					<div className="w-1/2 flex flex-col justify-between">
-						<div className="flex flex-col items-start">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<Wind className="mr-2" strokeWidth={1.5} /> Wind Speed:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{speed !== null ? `${speed}` : "N/A"} mph</p>
-						</div>
-						<div className="flex flex-col items-start">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<MoveDown className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">North</p>
-						</div>
-						<div className="flex flex-col items-start">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								{" "}
-								<Thermometer className="mr-2" strokeWidth={1.5} /> Wind Chill:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{calculatedWindChill !== null ? `${calculatedWindChill}` : "N/A"}&deg;F</p>
-						</div>
-					</div>
-					<div className="w-1/2 flex flex-col justify-between">
-						<div className="flex flex-col items-start p-2">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<ThermometerSnowflake className="mr-2" strokeWidth={1.5} />
-								Freezing Level:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{calculatedFreezeLevel !== null ? `${calculatedFreezeLevel}` : "N/A"} ft</p>
-						</div>
-						<div className="flex flex-col items-start p-2">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<WindArrowDown className="mr-2" strokeWidth={1.5} />
-								Barometer:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{pressure !== null ? `${pressure}` : "N/A"} in</p>
-						</div>
-						<div className="flex flex-col items-start p-2">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<Droplets className="mr-2" strokeWidth={1.5} /> Humidity:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{humidity !== null ? `${humidity}` : "N/A"}%</p>
-						</div>
-					</div>
-				</>
-			);
-		} else if (valueRange === "San Jacinto") {
-			return (
-				<>
-					<div className="w-1/2 flex flex-col justify-between">
-						<div className="flex flex-col items-start">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<Wind className="mr-2" strokeWidth={1.5} /> Wind Speed:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{speed !== null ? `${speed}` : "N/A"} mph</p>
-						</div>
-						<div className="flex flex-col items-start">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<MoveDown className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">North</p>
-						</div>
-						<div className="flex flex-col items-start">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								{" "}
-								<Thermometer className="mr-2" strokeWidth={1.5} /> Wind Chill:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{calculatedWindChill !== null ? `${calculatedWindChill}` : "N/A"}&deg;F</p>
-						</div>
-					</div>
-					<div className="w-1/2 flex flex-col justify-between">
-						<div className="flex flex-col items-start p-2">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<ThermometerSnowflake className="mr-2" strokeWidth={1.5} />
-								Freezing Level:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{calculatedFreezeLevel !== null ? `${calculatedFreezeLevel}` : "N/A"} ft</p>
-						</div>
-						<div className="flex flex-col items-start p-2">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<WindArrowDown className="mr-2" strokeWidth={1.5} />
-								Barometer:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{pressure !== null ? `${pressure}` : "N/A"} in</p>
-						</div>
-						<div className="flex flex-col items-start p-2">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<Droplets className="mr-2" strokeWidth={1.5} /> Humidity:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{humidity !== null ? `${humidity}` : "N/A"}%</p>
-						</div>
-					</div>
-				</>
-			);
-		} else if (valueRange === "San Bernardino") {
-			return (
-				<>
-					<div className="w-1/2 flex flex-col justify-between">
-						<div className="flex flex-col items-start">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<Wind className="mr-2" strokeWidth={1.5} /> Wind Speed:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{speed !== null ? `${speed}` : "N/A"} mph</p>
-						</div>
-						<div className="flex flex-col items-start">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<MoveDown className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">North</p>
-						</div>
-						<div className="flex flex-col items-start">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								{" "}
-								<Thermometer className="mr-2" strokeWidth={1.5} /> Wind Chill:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{calculatedWindChill !== null ? `${calculatedWindChill}` : "N/A"}&deg;F</p>
-						</div>
-					</div>
-					<div className="w-1/2 flex flex-col justify-between">
-						<div className="flex flex-col items-start p-2">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<ThermometerSnowflake className="mr-2" strokeWidth={1.5} />
-								Freezing Level:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{calculatedFreezeLevel !== null ? `${calculatedFreezeLevel}` : "N/A"} ft</p>
-						</div>
-						<div className="flex flex-col items-start p-2">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<WindArrowDown className="mr-2" strokeWidth={1.5} />
-								Barometer:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{pressure !== null ? `${pressure}` : "N/A"} in</p>
-						</div>
-						<div className="flex flex-col items-start p-2">
-							<h2 className="flex justify-center text-xl text-gray-600">
-								<Droplets className="mr-2" strokeWidth={1.5} /> Humidity:{" "}
-							</h2>
-							<p className="text-3xl font-medium font-mono">{humidity !== null ? `${humidity}` : "N/A"}%</p>
-						</div>
-					</div>
-				</>
-			);
-		}
-	}
 	return (
 		<div className="flex flex-col justify-between pb-2">
 			<div className="p-2 flex flex-col md:flex-row justify-between">
@@ -490,8 +304,8 @@ const ConditionsData = () => {
 							</p>
 						</div>
 						<div className="flex flex-col justify-center items-center px-4 md:px-10">
-							<CloudSun strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />
-							<h3 className="text-sm md:text-md text-gray-600">{conditions !== "N/A" ? `${conditions}` : "N/A"}</h3>
+							{weatherIcon(conditions !== "Unknown" ? `${conditions}` : "Unknown")}
+							<h3 className="text-sm md:text-md text-gray-600">{conditions !== "Unknown" ? `${conditions}` : "Unknown"}</h3>
 						</div>
 					</div>
 				</div>

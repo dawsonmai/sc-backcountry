@@ -242,11 +242,6 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	
 			if (observation) {
 				const { elevation, temperature, relativeHumidity, windSpeed, windDirection, barometricPressure, textDescription } = observation;
-				
-				setSGPressure(SanGabrielObs.pressure.value)
-				setSGTemp(SanGabrielObs.temperature.value)
-				setSGWindspeed(SanGabrielObs.windspeed.value)
-				setSGWindDirection(SanGabrielObs.windDirection.value)
 
 				if (elevation?.value !== undefined && temperature?.value !== undefined) {
 					const forecastElv = Math.round(elevation.value * 3.280839895); // Convert meters to feet
@@ -280,7 +275,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	
 					const chill = 35.74 + 0.6215 * tempAtAlt - 35.75 * (windSpeed?.value ** 0.16 || 0) + 0.4275 * tempAtAlt * (windSpeed?.value ** 0.16 || 0);
 					setCalculatedWindChill(Math.round(chill));
-	
+					
 					const freezeAlt = ((forecastTemp - 32) * 1000) / 3.5;
 					setCalculatedFreezeLevel(Math.round(freezeAlt));
 				}else{
@@ -306,7 +301,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 				}if(windSpeed.value != null){
 					setWindspeed(Math.round(windSpeed?.value || 0));
 				}
-					setConditions(textDescription || "");
+					setConditions(textDescription || "Unknown");
 				}
 			}
 
