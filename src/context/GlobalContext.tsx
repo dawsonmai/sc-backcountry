@@ -84,6 +84,18 @@ interface GlobalContextType {
 	calculatedWindChill: number | null;
 	setCalculatedWindChill: (windChill: number | null) => void;
 
+	SGTemp: number | null;
+	setSGTemp: (temp: number | null) => void;
+
+	SGWindspeed: number | null;
+	setSGWindspeed: (speed: number | null) => void;
+
+	SGPressure: number | null;
+	setSGPressure: (pressure: number | null) => void;
+
+	SGWindDirection: number | null;
+	setSGWindDirection: (direction: number | null) => void;
+
 	//Calculated freezing level state
 	calculatedFreezeLevel: number | null;
 	setCalculatedFreezeLevel: (freezeLevel: number | null) => void;
@@ -123,6 +135,14 @@ const GlobalContext = createContext<GlobalContextType>({
 	setCalculatedWindChill: () => {},
 	calculatedFreezeLevel: null,
 	setCalculatedFreezeLevel: () => {},
+	setSGPressure: () => {},
+	setSGTemp: () => {},
+	setSGWindDirection: () => {},
+	setSGWindspeed: () => {},
+	SGPressure: null,
+	SGTemp: null,
+	SGWindDirection: null,
+	SGWindspeed: null,
 	setBarometer: () => {},
 	setHumidity: () => {},
 	setWindDirection: () => {},
@@ -158,6 +178,10 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	const [pressure, setBarometer] = useState<number | null>(null);
 	const [conditions, setConditions] = useState<string>("N/A");
 	const [temperature, setTemperature] = useState<number | null>(null);
+	const [SGTemp, setSGTemp] = useState<number | null>(null);
+	const [SGWindspeed, setSGWindspeed] = useState<number | null>(null);
+	const [SGWindDirection, setSGWindDirection] = useState<number | null>(null);
+	const [SGPressure, setSGPressure] = useState<number | null>(null);
 	const [observations, setObservations] = useState<Observation[]>([
 		{
 			date: "Jan 4, 2025",
@@ -208,17 +232,22 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 			let SanJacintoObs = data.SJobservation?.properties;
 				
 			if(selectedRange==="San Gabriel"){
-				observation = data.SGobservation?.properties;
+				observation = SanGabrielObs;
 			}else if(selectedRange==="San Bernardino"){
-				observation = data.SBobservation?.properties;
+				observation = SanBernardinoObs;
 			}else if(selectedRange==="San Jacinto"){
-				observation = data.SJobservation?.properties;
+				observation = SanJacintoObs;
 			}
 			const forecast = data.forecast?.properties;
 	
 			if (observation) {
 				const { elevation, temperature, relativeHumidity, windSpeed, windDirection, barometricPressure, textDescription } = observation;
-	
+				
+				setSGPressure(SanGabrielObs.pressure.value)
+				setSGTemp(SanGabrielObs.temperature.value)
+				setSGWindspeed(SanGabrielObs.windspeed.value)
+				setSGWindDirection(SanGabrielObs.windDirection.value)
+
 				if (elevation?.value !== undefined && temperature?.value !== undefined) {
 					const forecastElv = Math.round(elevation.value * 3.280839895); // Convert meters to feet
 					if (temperature.value!=null){
@@ -298,8 +327,17 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	
 	// Fetch weather data when range changes
 	useEffect(() => {
-		fetchWeatherData();
-	}, [selectedRange]);
+		fetchWeatherData(); // Fetch data initially
+
+		const intervalId = setInterval(() => {
+			fetchWeatherData(); // Fetch every 5 minutes
+		}, 300000); // 5 minutes in milliseconds
+
+		// Cleanup interval on component unmount
+		return () => {
+			clearInterval(intervalId);
+		};
+	}, []);
 	
 	const value = {
 		selectedRange,
@@ -314,6 +352,14 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 		setCalculatedFreezeLevel,
 		calculatedHeatIndex,
 		setCalculatedHeatIndex,
+		setSGPressure,
+		setSGTemp,
+		setSGWindDirection,
+		setSGWindspeed,
+		SGTemp,
+		SGWindDirection,
+		SGWindspeed,
+		SGPressure,
 		calculatedWindChill,
 		setCalculatedWindChill,
 		setForecastData,
@@ -337,6 +383,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 
 	return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>;
 };
+
 
 // Custom hook to use the global context
 export const useGlobalContext = () => {

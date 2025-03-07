@@ -1,4 +1,4 @@
-import { Thermometer, Snowflake, Wind, MoveUpLeft, Eye, Cloudy, CloudSun, MoveDown, MoveLeft, ArrowRight} from "lucide-react";
+import { MountainSnow, ChartArea, Map, MapPinned, ArrowRight} from "lucide-react";
 import { motion } from "framer-motion";
 import { useGlobalContext } from "@/context/GlobalContext";
 
@@ -9,38 +9,34 @@ const fadeInUp = {
 };
 
 const ConditionsPreview = () => {
-
+	
 	return (
-		<div className="w-full h-[50vh] rounded-3xl p-6" style={{
+		<div className="w-full h-[50vh] rounded-3xl pb-3 pt-6 px-6" style={{
 			backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(ridge.jpeg)",
 			backgroundSize: "cover",
 			backgroundPosition: "center",
 		  }}>
-			<h2 className="uppercase font-medium text-4xl text-white">Conditions</h2>
+			<h2 className="uppercase font-medium text-4xl text-white">Conditions & Data</h2>
 			
 			<motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
 				<div className="items-center text-center text-white pb-1">
 					<h3 className="font-medium text-xl">San Gabriel Mountains</h3>
 					<div className="flex flex-row gap-3 justify-center p-3">
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Thermometer strokeWidth={1.5} className="size-5" />
-							<p>F</p>
+							<MountainSnow strokeWidth={1.5} className="size-5" />
+							<p>Tallest Peak: Mt. San Antonio</p>
 						</div>
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Snowflake strokeWidth={1.5} className="size-5" />
-							<p>Snowing</p>
+							<ChartArea strokeWidth={1.5} className="size-5" />
+							<p>Highest Elevation: 10,064 ft</p>
 						</div>
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Wind strokeWidth={1.5} className="size-5" />
-							<p>20 mph windspeed</p>
+							<Map strokeWidth={1.5} className="size-5" />
+							<p>970 mi<sup>2</sup></p>
 						</div>
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<MoveUpLeft strokeWidth={1.5} className="size-5" />
-							<p>SE wind direction</p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Eye strokeWidth={1.5} className="size-5" />
-							<p>0.5 mi visiblity</p>
+							<MapPinned strokeWidth={1.5} className="size-5" />
+							<p>Nearest City: Los Angeles</p>
 						</div>
 					</div>
 				</div>
@@ -49,52 +45,44 @@ const ConditionsPreview = () => {
 				<div className="items-center text-center text-white py-1">
 					<h3 className="font-medium text-xl">San Jacinto Mountains</h3>
 					<div className="flex flex-row gap-3 justify-center p-3">
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Thermometer strokeWidth={1.5} className="size-5" />
-							<p>35°F</p>
+					<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
+							<MountainSnow strokeWidth={1.5} className="size-5" />
+							<p>Tallest Peak: Mt. San Jacinto</p>
 						</div>
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Cloudy strokeWidth={1.5} className="size-5" />
-							<p>Cloudy</p>
+							<ChartArea strokeWidth={1.5} className="size-5" />
+							<p>Highest Elevation: 10,834 ft</p>
 						</div>
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Wind strokeWidth={1.5} className="size-5" />
-							<p>8 mph windspeed</p>
+							<Map strokeWidth={1.5} className="size-5" />
+							<p>1,455 mi<sup>2</sup></p>
 						</div>
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<MoveDown strokeWidth={1.5} className="size-5" />
-							<p>N wind direction</p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Eye strokeWidth={1.5} className="size-5" />
-							<p>7 mi visiblity</p>
+							<MapPinned strokeWidth={1.5} className="size-5" />
+							<p>Nearest City: Palm Springs</p>
 						</div>
 					</div>
 				</div>
 			</motion.div>
 			<motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-				<div className="items-center text-center text-white py-1">
+				<div className="items-center text-center text-white pt-1">
 					<h3 className="font-medium text-xl">San Bernardino Mountains</h3>
 					<div className="flex flex-row gap-3 justify-center p-3">
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Thermometer strokeWidth={1.5} className="size-5" />
-							<p>42°F</p>
+					<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
+							<MountainSnow strokeWidth={1.5} className="size-5" />
+							<p>Tallest Peak: Mt. San Gorgonio</p>
 						</div>
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<CloudSun strokeWidth={1.5} className="size-5" />
-							<p>Partly Cloudy</p>
+							<ChartArea strokeWidth={1.5} className="size-5" />
+							<p>Highest Elevation: 11,503 ft</p>
 						</div>
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Wind strokeWidth={1.5} className="size-5" />
-							<p>3 mph windspeed</p>
+							<Map strokeWidth={1.5} className="size-5" />
+							<p>2,063 mi<sup>2</sup></p>
 						</div>
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<MoveLeft strokeWidth={1.5} className="size-5" />
-							<p>E wind direction</p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Eye strokeWidth={1.5} className="size-5" />
-							<p>10 mi visiblity</p>
+							<MapPinned strokeWidth={1.5} className="size-5" />
+							<p>Nearest City: San Bernardino</p>
 						</div>
 					</div>
 				</div>
