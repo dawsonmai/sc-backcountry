@@ -10,9 +10,6 @@ const fadeInUp = {
 
 const ConditionsPreview = () => {
 
-	const { setSanBernardinoObs: SanBernardinoObs, setSanGabrielObs: SanGabrielObs, setSanJacintoObs: SanJacintoObs} = useGlobalContext();
-
-	console.log("SanBernardinoObs: " + SanBernardinoObs)
 	return (
 		<div className="w-full h-[50vh] rounded-3xl p-6" style={{
 			backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(ridge.jpeg)",

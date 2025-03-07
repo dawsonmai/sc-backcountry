@@ -73,15 +73,6 @@ interface GlobalContextType {
 	forecastData: ForecastProperties[] | null;
 	setForecastData: (data: ForecastProperties[] | null) => void;
 
-	SanGabrielObs: Observation[];
-	setSanGabrielObs: (data: Observation) => void;
-
-	SanBernardinoObs: Observation[];
-	setSanBernardinoObs: (data: Observation) => void;
-
-	SanJacintoObs: Observation[];
-	setSanJacintoObs: (data: Observation) => void;
-
 	// Fetch weather data function
 	fetchWeatherData: () => Promise<void>;
 
@@ -122,12 +113,6 @@ const GlobalContext = createContext<GlobalContextType>({
 	setSelectedRange: () => {},
 	selectedElevation: "7031",
 	setSelectedElevation: () => {},
-	setSanBernardinoObs: () => {},
-	setSanJacintoObs: () => {},
-	setSanGabrielObs: () => {},
-	SanGabrielObs: [],
-	SanJacintoObs: [],
-	SanBernardinoObs: [],
 	weatherData: null,
 	setWeatherData: () => {},
 	calculatedTemp: null,
@@ -163,9 +148,6 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	const [selectedElevation, setSelectedElevation] = useState<string>("7031");
 	const [weatherData, setWeatherData] = useState<ObservationProperties | null>(null);
 	const [forecastData, setForecastData] = useState<ForecastProperties[] | null>(null);
-	const [SanBernardinoObs, setSanBernardinoObs] = useState<ObservationProperties | null>(null);
-	const [SanGabrielObs, setSanGabrielObs] = useState<ObservationProperties | null>(null);
-	const [SanJacintoObs, setSanJacintoObs] = useState<ObservationProperties | null>(null);
 	const [calculatedTemp, setCalculatedTemp] = useState<number | null>(null);
 	const [calculatedHeatIndex, setCalculatedHeatIndex] = useState<number | null>(null);
 	const [calculatedFreezeLevel, setCalculatedFreezeLevel] = useState<number | null>(null);
@@ -224,9 +206,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 			let SanGabrielObs = data.SGobservation?.properties;
 			let SanBernardinoObs = data.SBobservation?.properties;
 			let SanJacintoObs = data.SJobservation?.properties;
-			setSanBernardinoObs(SanBernardinoObs)
-			setSanJacintoObs(SanJacintoObs)
-			setSanGabrielObs(SanGabrielObs)
+				
 			if(selectedRange==="San Gabriel"){
 				observation = data.SGobservation?.properties;
 			}else if(selectedRange==="San Bernardino"){
@@ -243,6 +223,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 					const forecastElv = Math.round(elevation.value * 3.280839895); // Convert meters to feet
 					if (temperature.value!=null){
 					const forecastTemp = Math.round((temperature.value * 9) / 5 + 32); // Convert Celsius to Fahrenheit
+					console.log(forecastTemp)
 					const altitudeDiff = Math.abs(forecastElv - Number(selectedElevation));
 					const tempDif = altitudeDiff * 0.00356;
 	
@@ -301,6 +282,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 			}
 
 			if (forecast && forecast.periods) {
+				console.log("Forecast Data:", forecast.periods);
 				setForecastData(forecast.periods);
 			}
 	
@@ -324,9 +306,6 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 		setSelectedRange,
 		selectedElevation,
 		setSelectedElevation,
-		setSanBernardinoObs,
-		setSanGabrielObs,
-		setSanJacintoObs,
 		weatherData,
 		setWeatherData,
 		calculatedTemp,
@@ -354,9 +333,6 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 		observations,
 		addObservation,
 		fetchWeatherData,
-		SanJacintoObs,
-		SanBernardinoObs,
-		SanGabrielObs
 	};
 
 	return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>;
