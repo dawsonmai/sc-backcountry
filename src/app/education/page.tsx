@@ -5,7 +5,7 @@ import ArticleList from "@/components/education/ArticleList";
 import Footer from "@/components/global/Footer";
 import { motion } from "framer-motion";
 
-const education = () => {
+const Education = () => {
 	return (
 		<div>
 			<div className="flex flex-col p-5">
@@ -22,4 +22,4 @@ const education = () => {
 	);
 };
 
-export default education;
+export default Education;

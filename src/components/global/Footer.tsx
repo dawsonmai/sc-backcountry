@@ -9,7 +9,7 @@ const Footer = () => {
 				<Link href="/routes">Routes</Link>
 				<Link href="/conditions">Conditions</Link>
 				<Link href="/education">Education</Link>
-                <h2>Contact</h2>
+                <Link href="/contact">Contact</Link>
             </div>
             <h3 className="text-center text-xl text-black font-light px-56 py-12">Lorem ipsum odor amet, consectetuer adipiscing elit. Id aliquam facilisi sed sit feugiat venenatis montes magna nulla. </h3>
             <div className="flex flex-row justify-center items-center gap-6">
