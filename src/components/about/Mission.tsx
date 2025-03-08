@@ -17,7 +17,7 @@ const Mission = () => {
                 viewport={{ margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.2 }}>
                 <h3 className="text-3xl sm:text-4xl">
-                    Making the Southern California mountains safer by spreading information and educating the population. 
+                    To raise awareness, educate, and prepare adventurers for Southern California&apos;s vast and snowy winter backcountry
                 </h3>
             </motion.div>
 		</div>
