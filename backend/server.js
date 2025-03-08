@@ -13,7 +13,6 @@ app.post("/send-email", async (req, res) => {
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-            type: "OAuth2"
             user: process.env.EMAIL_USER, // Your Gmail address
             pass: process.env.EMAIL_PASS, // App password
         },
@@ -22,8 +21,8 @@ app.post("/send-email", async (req, res) => {
     const mailOptions = {
         from: email,
         to: process.env.EMAIL_USER, // Your receiving email
-        subject: `New Contact Form Submission from ${name}`,
-        text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
+        subject: `SC Backcountry message from ${name}`,
+        text: `Name: ${name}\n\nEmail: ${email}\n\nMessage:\n\n${message}`,
     };
 
     try {
@@ -35,5 +34,5 @@ app.post("/send-email", async (req, res) => {
     }
 });
 
-const PORT = 5000;
+const PORT = 5001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

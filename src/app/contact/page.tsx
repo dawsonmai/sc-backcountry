@@ -7,10 +7,10 @@ import ContactForm from "@/components/contact/ContactForm";
 const Contact = () => {
     return (
         <div>
-            <div className="flex flex-col p-10">
-                <div className="flex flex-col min-h-[calc(100dvh)] pb-10">
+            <div className="flex flex-col p-5">
+                <div className="flex flex-col p-5">
                     <Header />
-                    <div className="flex flex-row pt-10">
+                    <div className="flex flex-col md:flex-row pt-10">
                         <ContactInfo />
                         <ContactForm />
                     </div>
