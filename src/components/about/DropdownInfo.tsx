@@ -21,8 +21,8 @@ const DropdownInfo = () => {
                     <AccordionItem value="history">
                         <AccordionTrigger className="text-2xl font-semibold uppercase">Our History</AccordionTrigger>
                         <AccordionContent className="text-lg">
-                            <p className="py-2">
-                                In the spring of 2023, after the Southern Californian mountains received the most snow they had in multiple decades, SoCal Backcountry founder Dawson Mai planned a mountaineering trip up Mt. San Antonio, also known as Mt. Baldy. He realized that there was a lack of resources documenting the conditions and weather of the mountain, leading to a confusing and much longer than usual planning process. Fortunately, Dawson knew of numerous online resources that, when combined, provided a vague summary of what to expect. But the thought of a newer, less experienced climber, facing the same issues worried him. 
+                            <p className="py-2 text-center md:text-start">
+                                In the spring of 2023, after the Southern Californian mountains received the most snow they had in decades, SoCal Backcountry founder Dawson Mai planned a mountaineering trip up Mt. San Antonio, also known as Mt. Baldy. He realized that there was a lack of resources documenting the conditions and weather of the mountain, leading to a confusing and much longer than usual planning process. Fortunately, Dawson knew of numerous online resources that, when combined, provided a vague summary of what to expect. But the thought of a newer, less experienced climber, facing the same issues worried him. 
                                 <br />
                                 Dawson knew of numerous online resources that, when combined, provided a vague summary of what to expect. But the thought of a newer, less experienced climber, facing the same issues worried him. 
                                 <br />
@@ -39,11 +39,11 @@ const DropdownInfo = () => {
                     <AccordionItem value="team">
                         <AccordionTrigger className="text-2xl font-semibold uppercase">Our Team</AccordionTrigger>
                         <AccordionContent className="text-lg">
-                            <div className="flex flex-row">
-                                <div className="w-1/4 flex flex-col justify-between">
+                            <div className="flex flex-col md:flex-row">
+                                <div className="w-full md:w-1/4 flex flex-col justify-between">
                                     <div>
-                                        <h2 className="font-semibold text-xl uppercase">Dawson Mai</h2>
-                                        <h3 className="text-lg">Founder</h3>
+                                        <h2 className="font-semibold text-xl uppercase text-center md:text-start">Dawson Mai</h2>
+                                        <h3 className="text-lg text-center md:text-start">Founder</h3>
                                     </div>
                                     <div className="rounded-xl bg-gray-400 h-60"style={{
                                         backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(Dawson.jpeg)",
@@ -51,8 +51,8 @@ const DropdownInfo = () => {
                                         backgroundPosition: "right",
                                     }} />
                                 </div>
-                                <div className="w-3/4 px-6 flex flex-col items-end">
-                                    <p className="py-2">
+                                <div className="w-full md:w-3/4 px-6 flex flex-col items-end">
+                                    <p className="py-2 text-center md:text-start">
                                         Dawson Mai is currently a high school student passionate in skiing and mountaineering. He founded SoCal Backcountry in 2024 hoping to make his local mountains a safer place. Ever since he was 12, he was fascinated by the mountains and has climbed various mountains since then, including Mt. Baldy in the winter, Mt. Adams, Mt. Shasta, and Mt. Baker. He has also completed the AIARE Level 1 course and is plans to pursue Level 2 in the near future.
                                         <br />
                                         Through SoCal Backcountry, Dawson hopes to be able to connect his academic interest toward STEM and his outdoor passion to impact his local climbing community. He also hopes to share the knowledge he has gained over the years in the mountains to other aspiring climbers and skiers in the area.
