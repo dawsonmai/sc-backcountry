@@ -258,7 +258,7 @@ const ConditionsData = () => {
 	return (
 		<div className="flex flex-col justify-between pb-2">
 			<div className="p-2 flex flex-col md:flex-row justify-between">
-				<div className="w-full md:w-2/3 flex flex-col justify-between px-2 md:px-5 mb-4 md:mb-0">
+				<div className="w-full md:w-2/3 lg:w-2/3 flex flex-col justify-between px-2 md:px-5 mb-4 md:mb-0">
 					<div>
 						<Popover open={openRange} onOpenChange={setOpenRange}>
 							<PopoverTrigger asChild>
@@ -309,7 +309,7 @@ const ConditionsData = () => {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-col w-full md:w-1/3 items-start rounded-3xl bg-gray-200 p-3 md:p-5">
+				<div className="flex flex-col w-full md:w-1/3 lg:w-1/3 items-start rounded-3xl bg-gray-200 p-3 md:p-5">
 					<h2 className="font-medium text-lg md:text-xl text-gray-700 uppercase">Elevation</h2>
 					<div className="flex flex-row flex-grow items-center gap-5">
 						<div className="flex flex-row items-center justify-center py-3 md:py-6">
@@ -318,7 +318,7 @@ const ConditionsData = () => {
 						</div>
 						<Popover open={openElv} onOpenChange={setOpenElv}>
 							<PopoverTrigger asChild>
-								<Button variant="outline" role="combobox" aria-expanded={openElv} className="justify-start text-2xl md:text-3xl font-medium pr-2 pl-1">
+								<Button variant="outline" role="combobox" aria-expanded={openElv} className="justify-start text-xl md:text-2xl pr-2 pl-1 w-full">
 									{valueElv ? elevations.find((elevation) => elevation.value === valueElv)?.label : "Select Elevation"}
 									<ChevronDown className="opacity-50" />
 								</Button>
@@ -364,12 +364,6 @@ const ConditionsData = () => {
 									<p className="text-2xl md:text-3xl font-medium font-mono">{speed !== null ? `${speed}` : "N/A"} mph</p>
 								</div>
 								{windDirection(Number(direction))}
-								{/* <div className="flex flex-col items-start">
-									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
-										<MoveDown className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
-									</h2>
-									<p className="text-2xl md:text-3xl font-medium font-mono">North</p>
-								</div> */}
 								<div className="flex flex-col items-start">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 										{" "}

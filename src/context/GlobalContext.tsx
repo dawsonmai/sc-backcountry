@@ -183,24 +183,6 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 	const [SGWindDirection, setSGWindDirection] = useState<number | null>(null);
 	const [SGPressure, setSGPressure] = useState<number | null>(null);
 	const [observations, setObservations] = useState<Observation[]>([
-		{
-			date: "Jan 4, 2025",
-			title: "Avalanche",
-			description: "Slide spotted off Baldy Bowl!",
-			location: "Mt. Baldy",
-		},
-		{
-			date: "Jan 2, 2025",
-			title: "Snow Pack",
-			description: "Weak layer detected",
-			location: "Mt. Baden Powell",
-		},
-		{
-			date: "Dec 30, 2024",
-			title: "Wind Slab",
-			description: "High winds forming slabs",
-			location: "Mt. Whitney",
-		},
 	]);
 
 	const addObservation = (observation: Observation) => {

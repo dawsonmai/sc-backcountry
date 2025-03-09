@@ -14,7 +14,7 @@ const Footer = () => {
             <h3 className="text-center text-xl text-black font-light px-56 py-12">Raising awareness, educating, and preparing adventurers for Southern California&apos;s vast and snowy winter backcountry</h3>
             <div className="flex flex-row justify-center items-center gap-6">
                 <div className="h-14 w-14" style={{
-                        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(logoDark.png)",
+                        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(../logoDark.png)",
                         backgroundSize: "contain",
                         backgroundPosition: "center",
                     }}></div>
