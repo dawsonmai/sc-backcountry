@@ -81,29 +81,54 @@ const ConditionsData = () => {
 	}, [valueRange, fetchWeatherData]);
 
 
-	function weatherIcon(description: string){
-		if (description === "Sunny" || description === "Clear"){
-			return (<Sun strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+	function weatherIcon(description: string, purpose: string){
+		let strokeWidth = 0;
+		let size = 0;
+		let className = ""
+		if(purpose==="Conditions"){
+			strokeWidth = 1.5
+			size = 50
+			className="md:h-[70px] md:w-[70px]"
+		}else if (purpose==="Forecast"){
+			strokeWidth = 1.2
+			size = 2
+			className="md:h-[50px] md:w-[50px] mr-1"
+		}
+
+		if (description === "Sunny" || description === "Clear" || description === "Mostly Sunny"){
+			return (<Sun strokeWidth={strokeWidth} size={size} className={className} />)
 		}else if (description === "Mostly Cloudy" || description==="Partly Cloudy" || description==="Mostly Clear"){
-			return (<CloudSun strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+			return (<CloudSun strokeWidth={strokeWidth} size={size} className={className} />)
 		}else if (description ==="Cloudy"){
-			return (<Cloud strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+			return (<Cloud strokeWidth={strokeWidth} size={size} className={className} />)
 		}else if (description ==="Rain" || description==="Showers"){
-			return (<CloudRainWind strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+			return (<CloudRainWind strokeWidth={strokeWidth} size={size} className={className} />)
 		}else if (description==="Snow"){
-			return (<CloudSnow strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+			return (<CloudSnow strokeWidth={strokeWidth} size={size} className={className} />)
 		}else if (description==="Fog"){
-			return (<CloudFog strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+			return (<CloudFog strokeWidth={strokeWidth} size={size} className={className} />)
 		}else{
-			return (<CloudAlert strokeWidth={1.5} size={50} className="md:h-[70px] md:w-[70px]" />)
+			if(purpose==="Conditions"){
+				return (<CloudAlert strokeWidth={strokeWidth} size={size} className={className} />)
+			}else if (purpose==="Forecast"){
+				return ("")
+			}
 		}
 	}
 
 	function windDirection(angle: number){
 		const directions = ["North", "Northeast", "East", "Southeast", "South", "Southwest", "West", "Northwest", "North"];
+		
     	let index = Math.round(angle / 45) % 8;
 		let direction = directions[index];
-		if(direction === "North"){
+		if((speed !== null ? `${speed}` : "N/A") == "N/A" || (speed !== null ? `${speed}` : "N/A") == "0"){
+			return (<div className="flex flex-col items-start">
+				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
+					<MoveUp className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
+				</h2>
+				<p className="text-2xl md:text-3xl font-medium font-mono">N/A</p>
+			</div>)
+		}else if(direction === "North"){
 			return (<div className="flex flex-col items-start">
 				<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 					<MoveDown className="mr-2" strokeWidth={1.5} /> Wind Direction:{" "}
@@ -304,7 +329,7 @@ const ConditionsData = () => {
 							</p>
 						</div>
 						<div className="flex flex-col justify-center items-center px-4 md:px-10">
-							{weatherIcon(conditions !== "Unknown" ? `${conditions}` : "Unknown")}
+							{weatherIcon(conditions !== "Unknown" ? `${conditions}` : "Unknown", "Conditions")}
 							<h3 className="text-sm md:text-md text-gray-600">{conditions !== "Unknown" ? `${conditions}` : "Unknown"}</h3>
 						</div>
 					</div>
@@ -405,7 +430,7 @@ const ConditionsData = () => {
 							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
 							? forecastData[0].name: "N/A"}</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
-								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> {forecastData && forecastData.length > 0 
+								{weatherIcon(forecastData && forecastData.length > 0 ? forecastData[0].shortForecast: "N/A", "Forecast")} {forecastData && forecastData.length > 0 
 							? forecastData[0].shortForecast: "N/A"}
 							</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center whitespace-nowrap">
@@ -416,7 +441,7 @@ const ConditionsData = () => {
 							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
 							? forecastData[1].name: "N/A"}</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
-								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> {forecastData && forecastData.length > 0 
+							{weatherIcon(forecastData && forecastData.length > 0 ? forecastData[1].shortForecast: "N/A", "Forecast")} {forecastData && forecastData.length > 0 
 							? forecastData[1].shortForecast: "N/A"}
 							</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center whitespace-nowrap">
@@ -427,7 +452,7 @@ const ConditionsData = () => {
 							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
 							? forecastData[2].name: "N/A"}</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
-								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> {forecastData && forecastData.length > 0 
+							{weatherIcon(forecastData && forecastData.length > 0 ? forecastData[2].shortForecast: "N/A", "Forecast")} {forecastData && forecastData.length > 0 
 							? forecastData[2].shortForecast: "N/A"}
 							</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center whitespace-nowrap">
@@ -438,7 +463,7 @@ const ConditionsData = () => {
 							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
 							? forecastData[3].name: "N/A"}</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center">
-								<CloudSun size={35} className="md:h-[50px] md:w-[50px] mr-1" strokeWidth={1.2} /> {forecastData && forecastData.length > 0 
+							{weatherIcon(forecastData && forecastData.length > 0 ? forecastData[3].shortForecast: "N/A", "Forecast")} {forecastData && forecastData.length > 0 
 							? forecastData[3].shortForecast: "N/A"}
 							</h3>
 							<h3 className="text-sm md:text-md flex justify-center items-center whitespace-nowrap">
