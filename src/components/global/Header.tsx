@@ -17,7 +17,7 @@ const Header = () => {
 				<Link href="/routes">Routes</Link>
 				<Link href="/conditions">Conditions</Link>
 				<Link href="/education">Education</Link>
-				<Link href="/href=“mailto:socalbackcountry@gmail.com" className="bg-stone-800 text-white px-4 py-1 rounded-full">Contact</Link>
+				<Link href="mailto:socalbackcountry@gmail.com" className="bg-stone-800 text-white px-4 py-1 rounded-full">Contact</Link>
 			</div>
 		</div>
 	);
