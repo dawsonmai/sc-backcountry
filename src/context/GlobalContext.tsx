@@ -258,7 +258,7 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
 					const chill = 35.74 + 0.6215 * tempAtAlt - 35.75 * (windSpeed?.value ** 0.16 || 0) + 0.4275 * tempAtAlt * (windSpeed?.value ** 0.16 || 0);
 					setCalculatedWindChill(Math.round(chill));
 					
-					const freezeAlt = ((forecastTemp - 32) * 1000) / 3.5;
+					const freezeAlt = forecastElv - ((32 - forecastTemp) * 1000) / 3.5;
 					setCalculatedFreezeLevel(Math.round(freezeAlt));
 				}else{
 					setCalculatedTemp(null);
