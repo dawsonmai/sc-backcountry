@@ -9,7 +9,7 @@ const Header = () => {
 					backgroundSize: "contain",
 					backgroundPosition: "center",
 				}}></div>
-				<h1 className="text-lg font-semibold">SC Backcountry</h1>
+				<h1 className="text-lg font-semibold">SoCal Backcountry</h1>
 			</Link>
 
 			<div className=" flex text-sm gap-5 items-center">
@@ -17,7 +17,7 @@ const Header = () => {
 				<Link href="/routes">Routes</Link>
 				<Link href="/conditions">Conditions</Link>
 				<Link href="/education">Education</Link>
-				<Link href="/contact" className="bg-stone-800 text-white px-4 py-1 rounded-full">Contact</Link>
+				<Link href="/href=“mailto:socalbackcountry@gmail.com" className="bg-stone-800 text-white px-4 py-1 rounded-full">Contact</Link>
 			</div>
 		</div>
 	);

@@ -15,15 +15,15 @@ const SnowProfile = () => {
 	 function setProfileChart(){
 		if(valueRange === "San Gabriel"){
 			return(
-				<div className="w-full h-[50vh] md:h-screen bg-gray-400">San Gabriel Chart</div>
+				<div className="w-full h-[50vh] md:h-screen items-center flex justify-center text-3xl">No Data</div>
 			);
 		}else if(valueRange === "San Bernardino"){
 			return(
-				<div className="w-full h-[50vh] md:h-screen bg-gray-400">San Bernardino Chart</div>
+				<div className="w-full h-[50vh] md:h-screen items-center flex justify-center text-3xl">No Data</div>
 			);
 		}else if(valueRange === "San Jacinto"){
 			return(
-				<div className="w-full h-[50vh] md:h-screen bg-gray-400">San Jacinto Chart</div>
+				<div className="w-full h-[50vh] md:h-screen items-center flex justify-center text-3xl">No Data</div>
 			);
 		}
 	 }
@@ -31,15 +31,15 @@ const SnowProfile = () => {
 	 function setNotes(){
 		if(valueRange === "San Gabriel"){
 			return(
-				<p className="text-base md:text-lg">No notes</p>
+				<p className="text-base md:text-lg">Recent snowfall and cold conditions. Watch for deep snow, icy conditions, and beware of avalanches!</p>
 			);
 		}else if(valueRange === "San Bernardino"){
 			return(
-				<p className="text-base md:text-lg">No notes</p>
+				<p className="text-base md:text-lg">Recent snowfall and cold conditions. Watch for deep snow, icy conditions, and beware of avalanches!</p>
 			);
 		}else if(valueRange === "San Jacinto"){
 			return(
-				<p className="text-base md:text-lg">No notes</p>
+				<p className="text-base md:text-lg">Recent snowfall and cold conditions. Watch for deep snow, icy conditions, and beware of avalanches!</p>
 			);
 		}
 	 }

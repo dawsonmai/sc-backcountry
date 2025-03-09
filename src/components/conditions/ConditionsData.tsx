@@ -381,7 +381,7 @@ const ConditionsData = () => {
 					<div className="bg-gray-200 rounded-3xl px-3 md:px-5 pt-5 pb-2">
 						<h2 className="text-xl text-gray-700 font-medium pb-3 uppercase">Conditions</h2>
 						<div className="flex flex-col md:flex-row justify-center gap-4 md:gap-0">
-							<div className="w-full md:w-1/2 flex flex-col justify-between space-y-4 md:space-y-0">
+							<div className="w-full md:w-1/2 flex flex-col justify-between space-y-4 md:space-y-0 items-center md:items-start">
 								<div className="flex flex-col items-start">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 										<Wind className="mr-2" strokeWidth={1.5} /> Wind Speed:{" "}
@@ -397,22 +397,22 @@ const ConditionsData = () => {
 									<p className="text-2xl md:text-3xl font-medium font-mono">{calculatedWindChill !== null ? `${calculatedWindChill}` : "N/A"}&deg;F</p>
 								</div>
 							</div>
-							<div className="w-full md:w-1/2 flex flex-col justify-between space-y-4 md:space-y-0">
-								<div className="flex flex-col items-start p-2">
+							<div className="w-full md:w-1/2 flex flex-col justify-between space-y-4 md:space-y-0 items-center md:items-start">
+								<div className="flex flex-col items-start md:p-2">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 										<ThermometerSnowflake className="mr-2" strokeWidth={1.5} />
 										Freezing Level:{" "}
 									</h2>
 									<p className="text-2xl md:text-3xl font-medium font-mono">{calculatedFreezeLevel !== null ? `${calculatedFreezeLevel}` : "N/A"} ft</p>
 								</div>
-								<div className="flex flex-col items-start p-2">
+								<div className="flex flex-col items-start md:p-2">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 										<WindArrowDown className="mr-2" strokeWidth={1.5} />
 										Barometer:{" "}
 									</h2>
 									<p className="text-2xl md:text-3xl font-medium font-mono">{pressure !== null ? `${pressure}` : "N/A"} inHg</p>
 								</div>
-								<div className="flex flex-col items-start p-2">
+								<div className="flex flex-col items-start md:p-2">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 										<Droplets className="mr-2" strokeWidth={1.5} /> Humidity:{" "}
 									</h2>
