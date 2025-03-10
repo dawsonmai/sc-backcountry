@@ -52,7 +52,7 @@ const ArticleList = () => {
                     <AccordionItem value="gear-guides">
                         <AccordionTrigger className="text-2xl font-semibold uppercase">Gear Guides</AccordionTrigger>
                         <AccordionContent className="text-lg">
-                            Gear is essential for keeping you safe and having fun. Learn how to properly pick and use gear for your backcountry travel plans wih the resources below. 
+                            Gear is essential for keeping you safe and having fun. Learn how to properly pick and use gear for your backcountry travel plans with the resources below. 
                         </AccordionContent>
                     </AccordionItem>
                 </motion.div>
