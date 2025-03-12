@@ -420,7 +420,7 @@ const ConditionsData = () => {
 								</div>
 							</div>
 						</div>
-						<p className="flex flex row justify-end text-sm text-light text-gray-600">Last updated at 12:46 pm</p>
+						<p className="flex flex row justify-end text-sm text-light text-gray-600"> </p>
 					</div>
 				</div>
 				<div className="w-full md:w-1/3 rounded-3xl bg-gray-200 px-3 md:px-5 pt-5 pb-5">
