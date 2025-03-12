@@ -423,13 +423,13 @@ const ConditionsData = () => {
 						<p className="flex flex row justify-end text-sm text-light text-gray-600">Last updated at 12:46 pm</p>
 					</div>
 				</div>
-				<div className="w-full md:w-1/3 rounded-3xl bg-gray-200 px-3 md:px-5 pt-5 pb-2">
+				<div className="w-full md:w-1/3 rounded-3xl bg-gray-200 px-3 md:px-5 pt-5 pb-5">
 					<h2 className="font-medium text-xl text-gray-700 uppercase">Forecast</h2>
-					<div className="flex flex-col">
-						<div className="w-full border-b-2 border-gray-400 flex flex-row justify-between py-2">
+					<div className="flex flex-col debug h-full">
+						<div className="w-full h-1/4 border-b-2 border-gray-400 flex flex-row justify-between py-2">
 							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
 							? forecastData[0].name: "N/A"}</h3>
-							<h3 className="text-sm md:text-md flex justify-center items-center">
+							<h3 className="text-sm md:text-sm flex justify-center items-center">
 								{weatherIcon(forecastData && forecastData.length > 0 ? forecastData[0].shortForecast: "N/A", "Forecast")} {forecastData && forecastData.length > 0 
 							? forecastData[0].shortForecast: "N/A"}
 							</h3>
@@ -437,10 +437,10 @@ const ConditionsData = () => {
 							{forecastData && forecastData.length > 0  ? forecastData[0].temperature: "N/A"}&deg;F
 							</h3>
 						</div>
-						<div className="w-full border-b-2 border-gray-400 flex flex-row justify-between py-2">
+						<div className="w-full h-1/4 border-b-2 border-gray-400 flex flex-row justify-between py-2">
 							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
 							? forecastData[1].name: "N/A"}</h3>
-							<h3 className="text-sm md:text-md flex justify-center items-center">
+							<h3 className="text-sm md:text-sm flex justify-center items-center">
 							{weatherIcon(forecastData && forecastData.length > 0 ? forecastData[1].shortForecast: "N/A", "Forecast")} {forecastData && forecastData.length > 0 
 							? forecastData[1].shortForecast: "N/A"}
 							</h3>
@@ -448,10 +448,10 @@ const ConditionsData = () => {
 							{forecastData && forecastData.length > 0  ? forecastData[1].temperature: "N/A"}&deg;F
 							</h3>
 						</div>
-						<div className="w-full border-b-2 border-gray-400 flex flex-row justify-between py-2">
+						<div className="w-full h-1/4 border-b-2 border-gray-400 flex flex-row justify-between py-2">
 							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
 							? forecastData[2].name: "N/A"}</h3>
-							<h3 className="text-sm md:text-md flex justify-center items-center">
+							<h3 className="text-sm md:text-sm flex justify-center items-center">
 							{weatherIcon(forecastData && forecastData.length > 0 ? forecastData[2].shortForecast: "N/A", "Forecast")} {forecastData && forecastData.length > 0 
 							? forecastData[2].shortForecast: "N/A"}
 							</h3>
@@ -459,10 +459,10 @@ const ConditionsData = () => {
 							{forecastData && forecastData.length > 0  ? forecastData[2].temperature: "N/A"}&deg;F
 							</h3>
 						</div>
-						<div className="w-full border-b-2 border-gray-400 flex flex-row justify-between py-2">
+						<div className="w-full h-1/4 flex flex-row justify-between py-2">
 							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
 							? forecastData[3].name: "N/A"}</h3>
-							<h3 className="text-sm md:text-md flex justify-center items-center">
+							<h3 className="text-sm md:text-sm flex justify-center items-center">
 							{weatherIcon(forecastData && forecastData.length > 0 ? forecastData[3].shortForecast: "N/A", "Forecast")} {forecastData && forecastData.length > 0 
 							? forecastData[3].shortForecast: "N/A"}
 							</h3>
