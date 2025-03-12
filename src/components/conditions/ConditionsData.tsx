@@ -425,7 +425,7 @@ const ConditionsData = () => {
 				</div>
 				<div className="w-full md:w-1/3 rounded-3xl bg-gray-200 px-3 md:px-5 pt-5 pb-5">
 					<h2 className="font-medium text-xl text-gray-700 uppercase">Forecast</h2>
-					<div className="flex flex-col debug h-full">
+					<div className="flex flex-col h-full">
 						<div className="w-full h-1/4 border-b-2 border-gray-400 flex flex-row justify-between py-2">
 							<h3 className="text-sm md:text-md text-gray-500 flex items-center w-1/6">{forecastData && forecastData.length > 0 
 							? forecastData[0].name: "N/A"}</h3>
