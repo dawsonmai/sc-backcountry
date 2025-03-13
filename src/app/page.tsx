@@ -6,6 +6,7 @@ import ExploreArea from "@/components/home/ExploreArea";
 import ConditionsPreview from "@/components/home/ConditionsPreview";
 import Footer from "@/components/global/Footer";
 import { motion } from "framer-motion";
+import { Analytics } from "@vercel/analytics/react"
 
 const fadeInUp = {
 	initial: { opacity: 0, y: 20 },
@@ -39,6 +40,7 @@ export default function Home() {
 				</motion.div>
 			</div>
 			<Footer />
+			<Analytics />
 		</div>
 	);
 }
