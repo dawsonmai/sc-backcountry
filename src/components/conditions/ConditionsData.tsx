@@ -380,7 +380,7 @@ const ConditionsData = () => {
 				<div className="w-full md:w-2/3 md:pr-4">
 					<div className="bg-gray-200 rounded-3xl px-3 md:px-5 pt-5 pb-2">
 						<h2 className="text-xl text-gray-700 font-medium pb-3 uppercase">Conditions</h2>
-						<div className="flex flex-col md:flex-row justify-center gap-4 md:gap-0">
+						<div className="flex flex-row justify-center gap-4 md:gap-0">
 							<div className="w-full md:w-1/2 flex flex-col justify-between space-y-4 md:space-y-0 items-center md:items-start">
 								<div className="flex flex-col items-start">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">

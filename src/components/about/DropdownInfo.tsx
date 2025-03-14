@@ -19,7 +19,7 @@ const DropdownInfo = () => {
             <Accordion type="single" collapsible className="w-full px-10">
                 <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
                     <AccordionItem value="history">
-                        <AccordionTrigger className="text-2xl font-semibold uppercase">Our History</AccordionTrigger>
+                        <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-semibold uppercase">Our History</AccordionTrigger>
                         <AccordionContent className="text-lg">
                             <p className="py-2 text-center md:text-start">
                                 In the spring of 2023, after the Southern Californian mountains received the most snow they had in decades, SoCal Backcountry founder Dawson Mai planned a mountaineering trip up Mt. San Antonio, also known as Mt. Baldy. He realized that there was a lack of resources documenting the conditions and weather of the mountain, leading to a confusing and much longer than usual planning process. Fortunately, Dawson knew of numerous online resources that, when combined, provided a vague summary of what to expect. But the thought of a newer, less experienced climber, facing the same issues worried him. 
@@ -37,7 +37,7 @@ const DropdownInfo = () => {
                 </motion.div>
                 <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
                     <AccordionItem value="team">
-                        <AccordionTrigger className="text-2xl font-semibold uppercase">Our Team</AccordionTrigger>
+                        <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-semibold uppercase">Our Team</AccordionTrigger>
                         <AccordionContent className="text-lg">
                             <div className="flex flex-col md:flex-row">
                                 <div className="w-full md:w-1/4 flex flex-col justify-between">
@@ -66,7 +66,7 @@ const DropdownInfo = () => {
                 </motion.div>
                 <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
                     <AccordionItem value="report">
-                        <AccordionTrigger className="text-2xl font-semibold uppercase">Season Report</AccordionTrigger>
+                        <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-semibold uppercase">Season Report</AccordionTrigger>
                         <AccordionContent className="text-lg">
                             Each season, we release a report documenting our impact and other important statistics. Since this is our first season in operation, we have yet to publish a report.
                         </AccordionContent>

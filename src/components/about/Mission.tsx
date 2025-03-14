@@ -16,7 +16,7 @@ const Mission = () => {
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.2 }}>
-                <h3 className="text-3xl sm:text-4xl">
+                <h3 className="text-xl md:text-3xl lg:text-4xl">
                     To raise awareness, educate, and prepare adventurers for Southern California&apos;s vast and snowy winter backcountry
                 </h3>
             </motion.div>

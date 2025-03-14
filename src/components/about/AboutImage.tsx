@@ -5,7 +5,7 @@ const AboutImage = () => {
 			backgroundSize: "cover",
 			backgroundPosition: "center",
 		  }}>
-			<h1 className="inline text-6xl sm:text-6xl md:text-7xl font-medium text-white hyphens-manual lg:hyphens-none">
+			<h1 className="inline text-4xl sm:text-6xl md:text-7xl font-medium text-white hyphens-manual lg:hyphens-none">
 				About Us
 			</h1>
 		</div>
