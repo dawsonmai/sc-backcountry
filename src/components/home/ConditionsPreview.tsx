@@ -16,11 +16,11 @@ const ConditionsPreview = () => {
 			backgroundSize: "cover",
 			backgroundPosition: "center",
 		  }}>
-			<h2 className="uppercase font-medium text-4xl text-white">Conditions & Data</h2>
+			<h2 className="uppercase font-medium text-2xl md:text-3xl lg:text-4xl text-white">Conditions & Data</h2>
 			
 			<motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
 				<div className="items-center text-center text-white pb-1">
-					<h3 className="font-medium text-xl">San Gabriel Mountains</h3>
+					<h3 className="font-medium text-md lg:text-xl">San Gabriel Mountains</h3>
 					<div className="flex flex-col md:flex-row gap-3 justify-center p-3">
 						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
 							<MountainSnow strokeWidth={1.5} className="size-5" />
@@ -43,7 +43,7 @@ const ConditionsPreview = () => {
 			</motion.div>
 			<motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
 				<div className="items-center text-center text-white py-1">
-					<h3 className="font-medium text-xl">San Jacinto Mountains</h3>
+					<h3 className="font-medium text-md lg:text-xl">San Jacinto Mountains</h3>
 					<div className="flex flex-col md:flex-row gap-3 justify-center p-3">
 					<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
 							<MountainSnow strokeWidth={1.5} className="size-5" />
@@ -66,7 +66,7 @@ const ConditionsPreview = () => {
 			</motion.div>
 			<motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
 				<div className="items-center text-center text-white pt-1">
-					<h3 className="font-medium text-xl">San Bernardino Mountains</h3>
+					<h3 className="font-medium text-md lg:text-xl">San Bernardino Mountains</h3>
 					<div className="flex flex-col md:flex-row gap-3 justify-center p-3">
 					<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
 							<MountainSnow strokeWidth={1.5} className="size-5" />

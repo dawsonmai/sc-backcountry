@@ -34,7 +34,7 @@ const AreaData = () => {
 					<h2 className="uppercase font-semibold text-lg sm:text-xl tracking-wider">Explore The Area</h2>
 				</div>
 				<div className="w-full md:w-2/3 h-full">
-					<h3 className="text-3xl sm:text-4xl">
+					<h3 className="text-xl md:text-3xl lg:text-4xl">
 						Southern California may be know for its warm weather and beautiful beaches, but during its winter, the SoCal backcountry receives tons of snow, allowing for perfect climbing
 						and skiing conditions.
 					</h3>
