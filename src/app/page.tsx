@@ -5,6 +5,7 @@ import AreaData from "@/components/home/AreaData";
 import ExploreArea from "@/components/home/ExploreArea";
 import ConditionsPreview from "@/components/home/ConditionsPreview";
 import Footer from "@/components/global/Footer";
+import Footer2 from "@/components/global/Footer2";
 import { motion } from "framer-motion";
 import { Analytics } from "@vercel/analytics/react"
 
@@ -39,7 +40,7 @@ export default function Home() {
 					</div>
 				</motion.div>
 			</div>
-			<Footer />
+			<Footer2 />
 			<Analytics />
 		</div>
 	);
