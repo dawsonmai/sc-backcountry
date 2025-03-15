@@ -2,7 +2,7 @@
 import EducationImage from "@/components/education/EducationImage";
 import Header from "@/components/global/Header";
 import ArticleList from "@/components/education/ArticleList";
-import Footer from "@/components/global/Footer";
+import Footer2 from "@/components/global/Footer2";
 import { motion } from "framer-motion";
 
 const Education = () => {
@@ -17,7 +17,7 @@ const Education = () => {
 				</motion.div>
 				<ArticleList />
 			</div>
-			<Footer />
+			<Footer2 />
 		</div>
 	);
 };

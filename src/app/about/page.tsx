@@ -3,7 +3,7 @@ import Header from "@/components/global/Header";
 import AboutImage from "@/components/about/AboutImage";
 import Mission from "@/components/about/Mission";
 import DropdownInfo from "@/components/about/DropdownInfo";
-import Footer from "@/components/global/Footer";
+import Footer2 from "@/components/global/Footer2";
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -19,7 +19,7 @@ const About = () => {
 				<Mission />
 				<DropdownInfo />
 			</div>
-			<Footer />
+			<Footer2 />
 		</div>
 	);
 };

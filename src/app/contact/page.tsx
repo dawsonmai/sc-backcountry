@@ -3,6 +3,7 @@ import Header from "@/components/global/Header";
 import Footer from "@/components/global/Footer";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactForm from "@/components/contact/ContactForm";
+import Footer2 from "@/components/global/Footer2";
 import { motion } from "framer-motion";
 const fadeInUp = {
 	initial: { opacity: 0, y: 20 },
@@ -22,7 +23,7 @@ const Contact = () => {
                     </motion.div>
                 </div>
             </div>
-            <Footer />
+            <Footer2 />
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import Header from "@/components/global/Header";
 import ConditionsData from "@/components/conditions/ConditionsData";
 import SnowProfile from "@/components/conditions/SnowProfile";
-import Footer from "@/components/global/Footer";
+import Footer2 from "@/components/global/Footer2";
 const Conditions = () => {
 	return (
 		<div>
@@ -10,7 +10,7 @@ const Conditions = () => {
 				<ConditionsData />
 				<SnowProfile />
 			</div>
-			<Footer />
+			<Footer2 />
 		</div>
 	);
 };

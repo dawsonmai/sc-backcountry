@@ -2,7 +2,7 @@
 import Header from "@/components/global/Header";
 import AreaMap from "@/components/routes/routesOverview/AreaMap";
 import AreaList from "@/components/routes/routesOverview/AreaList";
-import Footer from "@/components/global/Footer";
+import Footer2 from "@/components/global/Footer2";
 import { motion } from "framer-motion";
 
 const route = () => {
@@ -17,7 +17,7 @@ const route = () => {
 			</motion.div>
 			<AreaList />
 			</div>
-		<Footer />
+		<Footer2 />
 		</div>
 	);
 };
