@@ -6,6 +6,8 @@ import {
     AccordionTrigger,
   } from "@/components/ui/accordion"
 import { motion } from "framer-motion";
+import { Button } from "../ui/button";
+import Link from "next/link";
 const fadeInUp = {
 	initial: { opacity: 0, y: 20 },
 	animate: { opacity: 1, y: 0 },
@@ -44,7 +46,24 @@ const ArticleList = () => {
                     <AccordionItem value="resources">
                         <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-semibold uppercase">Resources</AccordionTrigger>
                         <AccordionContent className="text-lg">
-                            Find other backcountry tools and resources as well as learn how to navigate our website here.
+                            <p className="mb-4">Find other backcountry tools and resources as well as learn how to navigate our website here.</p>
+                            <div className="rounded-2xl bg-gray-200 p-6 flex flex-row">
+                                <div className="h-56 w-64 mr-10 rounded-2xl" style={{
+                                    backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(WeatherStation.jpg)",
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                }} />
+                                <div className="w-2/3 flex flex-col justify-between items-start">
+                                    <div>
+                                        <h2 className="text-2xl font-medium">Weather & Forecast Resources</h2>
+                                        <h3 className="text-lg italic">Weather</h3>
+                                        <p className="text-lg font-light">Find different resources for checking weather, conditions, and forecasts based on area.</p>
+                                    </div>
+                                    <Button asChild className="rounded-full text-black bg-gray-200 border-2 border-black hover:bg-black hover:text-white" variant="outline">
+                                        <Link href="/education/weather-resources">Read More</Link>
+                                    </Button>
+                                </div>
+                            </div>
                         </AccordionContent>
                     </AccordionItem>
                 </motion.div>

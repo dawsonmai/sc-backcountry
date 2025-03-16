@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 const Header = () => {
 	return (
@@ -12,12 +13,24 @@ const Header = () => {
 				<h1 className="text-lg font-semibold">SoCal Backcountry</h1>
 			</Link>
 
-			<div className=" flex text-sm gap-5 items-center">
-				<Link href="/about">About</Link>
-				<Link href="/routes">Routes</Link>
-				<Link href="/conditions">Conditions</Link>
-				<Link href="/education">Education</Link>
-				<Link href="mailto:scbackcountry@gmail.com" className="bg-stone-800 text-white px-4 py-1 rounded-full">Contact</Link>
+			<div className="flex text-sm gap-3 items-center h-full">
+				<Button variant="ghost" className="px-2 font-normal" asChild>
+					<Link href="/about">About</Link>
+				</Button>
+				<Button variant="ghost" className="px-2 font-normal" asChild>
+					<Link href="/routes">Routes</Link>
+				</Button>
+				<Button variant="ghost" className="px-2 font-normal" asChild>
+					<Link href="/conditions">Conditions</Link>
+				</Button>
+				<Button variant="ghost" className="px-2 font-normal" asChild>
+					<Link href="/education">Education</Link>
+				</Button>
+				
+				<Button asChild className="bg-stone-800 text-white p-0 rounded-full">
+					<Link href="mailto:scbackcountry@gmail.com" className="px-4 py-0">Contact</Link>
+				</Button>
+
 			</div>
 		</div>
 	);
