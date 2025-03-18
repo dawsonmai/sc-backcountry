@@ -17,45 +17,115 @@ const WeatherForecastResources = () => {
             </p>
 
             <h2 className="font-semibold text-2xl mb-2">San Gabriel Mountains</h2>
-            <ul className="flex flex-col justify-start items-start mb-6">
-                <Button asChild variant="link" className="text-xl font-normal">
-                    <Link target="_blank" rel="noopener noreferrer" href="https://www.mountain-forecast.com/peaks/Mount-Baldy-San-Gabriel/forecasts/3068">Mountain Forecast for Mt. San Antonio (Mt. Baldy)</Link>
-                </Button>
-                <Button asChild variant="link" className="text-xl font-normal">
-                    <Link target="_blank" rel="noopener noreferrer" href="https://www.mountain-forecast.com/peaks/Mount-Baden-Powell/forecasts/2867">Mountain Forecast for Mt. Baden Powell</Link>
-                </Button>
-                <Button asChild variant="link" className="text-xl font-normal">
-                    <Link target="_blank" rel="noopener noreferrer" href="https://www.mtbaldyresort.com/mountain-report">Mt. Baldy Ski Resort Forecast</Link>
-                </Button>
-                <Button asChild variant="link" className="text-xl font-normal">
-                    <Link target="_blank" rel="noopener noreferrer" href="https://www.mthigh.com/site/trails-and-conditions/conditions/snow-and-weather-report/@@snow-and-weather-report">Mountain High Ski Resort Forecast</Link>
-                </Button>
+            <ul className="flex flex-col justify-start items-start mb-6 w-full max-w-full pl-6 gap-2">
+                <li className="text-xl font-normal text-left w-full overflow-x-auto whitespace-normal">
+                    <Link 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        href="https://www.mountain-forecast.com/peaks/Mount-Baldy-San-Gabriel/forecasts/3068"
+                        className="hover:underline"
+                    >
+                        Mountain Forecast for Mt. San Antonio (Mt. Baldy)
+                    </Link>
+                </li>
+                <li className="text-xl font-normal text-left w-full overflow-x-auto whitespace-normal">
+                    <Link 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        href="https://www.mountain-forecast.com/peaks/Mount-Baden-Powell/forecasts/2867"
+                        className="hover:underline"
+                    >
+                        Mountain Forecast for Mt. Baden Powell
+                    </Link>
+                </li>
+                <li className="text-xl font-normal text-left w-full overflow-x-auto whitespace-normal">
+                    <Link 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        href="https://www.mtbaldyresort.com/mountain-report"
+                        className="hover:underline"
+                    >
+                        Mt. Baldy Ski Resort Forecast
+                    </Link>
+                </li>
+                <li className="text-xl font-normal text-left w-full overflow-x-auto whitespace-normal">
+                    <Link 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        href="https://www.mthigh.com/site/trails-and-conditions/conditions/snow-and-weather-report/@@snow-and-weather-report"
+                        className="hover:underline"
+                    >
+                        Mountain High Ski Resort Forecast
+                    </Link>
+                </li>
             </ul>
 
             <h2 className="font-semibold text-2xl mb-2">San Bernardino Mountains</h2>
-            <ul className="flex flex-col justify-start items-start mb-6">
-                <Button asChild variant="link" className="text-xl font-normal">
-                    <Link target="_blank" rel="noopener noreferrer" href="https://www.mountain-forecast.com/peaks/San-Gorgonio/forecasts/3505">Mountain Forecast for Mt. San Gorgonio</Link>
-                </Button>
-                <Button asChild variant="link" className="text-xl font-normal">
-                    <Link target="_blank" rel="noopener noreferrer" href="https://www.bigbearmountainresort.com/mountain-information">Big Bear Mountain Resorts Forecast</Link>
-                </Button>
-                <Button asChild variant="link" className="text-xl font-normal">
-                    <Link target="_blank" rel="noopener noreferrer" href="https://www.bensweather.com/">Ben&apos;s Weather</Link>
-                </Button>
+            <ul className="flex flex-col justify-start items-start mb-6 w-full max-w-full pl-6 gap-2">
+                <li className="text-xl font-normal text-left w-full overflow-x-auto whitespace-normal">
+                    <Link 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        href="https://www.www-forecast.com/peaks/Mount-Baldy-San-Gabriel/forecasts/3068"
+                        className="hover:underline"
+                    >
+                        Mountain Forecast for Mt. San Gorgonio
+                    </Link>
+                </li>
+                <li className="text-xl font-normal text-left w-full overflow-x-auto whitespace-normal">
+                    <Link 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        href="https://www.bigbearmountainresort.com/mountain-information"
+                        className="hover:underline"
+                    >
+                        Big Bear Mountain Resorts Forecast
+                    </Link>
+                </li>
+                <li className="text-xl font-normal text-left w-full overflow-x-auto whitespace-normal">
+                    <Link 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        href="https://www.bensweather.com/"
+                        className="hover:underline"
+                    >
+                       Ben&apos;s Weather
+                    </Link>
+                </li>
             </ul>
 
             <h2 className="font-semibold text-2xl mb-2">San Jacinto Mountains</h2>
-            <ul className="flex flex-col justify-start items-start">
-                <Button asChild variant="link" className="text-xl font-normal">
-                    <Link target="_blank" rel="noopener noreferrer" href="https://www.mountain-forecast.com/peaks/Mount-San-Jacinto-Peak/forecasts/3293">Mountain Forecast for Mt. San Jacinto</Link>
-                </Button>
-                <Button asChild variant="link" className="text-xl font-normal">
-                    <Link target="_blank" rel="noopener noreferrer" href="https://pstramway.com/weather/">Palm Springs Aerial Tramway Forecast</Link>
-                </Button>
-                <Button asChild variant="link" className="text-xl font-normal">
-                    <Link target="_blank" rel="noopener noreferrer" href="https://sanjacjon.com/">San Jacinto Trail Report</Link>
-                </Button>
+            <ul className="flex flex-col justify-start items-start mb-6 w-full max-w-full pl-6 gap-2">
+                <li className="text-xl font-normal text-left w-full overflow-x-auto whitespace-normal">
+                    <Link 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        href="https://www.mountain-forecast.com/peaks/Mount-San-Jacinto-Peak/forecasts/3293"
+                        className="hover:underline"
+                    >
+                        Mountain Forecast for Mt. San Jacinto
+                    </Link>
+                </li>
+                <li className="text-xl font-normal text-left w-full overflow-x-auto whitespace-normal">
+                    <Link 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        href="https://pstramway.com/weather/"
+                        className="hover:underline"
+                    >
+                        Palm Springs Aerial Tramway Forecast
+                    </Link>
+                </li>
+                <li className="text-xl font-normal text-left w-full overflow-x-auto whitespace-normal">
+                    <Link 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        href="https://sanjacjon.com/"
+                        className="hover:underline"
+                    >
+                        San Jacinto Trail Report
+                    </Link>
+                </li>
             </ul>
         </div>
     )
