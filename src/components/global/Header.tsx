@@ -13,7 +13,7 @@ const Header = () => {
 				<h1 className="text-lg font-semibold">SoCal Backcountry</h1>
 			</Link>
 
-			<div className="flex text-sm gap-3 items-center h-full">
+			<div className="flex text-sm gap-0 md:gap-3 items-center h-full">
 				<Button variant="ghost" className="px-2 font-normal" asChild>
 					<Link href="/about">About</Link>
 				</Button>
