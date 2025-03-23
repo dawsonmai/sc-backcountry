@@ -31,15 +31,15 @@ const SnowProfile = () => {
 	 function setNotes(){
 		if(valueRange === "San Gabriel"){
 			return(
-				<p className="text-base md:text-lg">Recent snowfall and cold conditions. Watch for deep snow, icy conditions, and beware of avalanches!</p>
+				<p className="text-base md:text-lg">No notes</p>
 			);
 		}else if(valueRange === "San Bernardino"){
 			return(
-				<p className="text-base md:text-lg">Recent snowfall and cold conditions. Watch for deep snow, icy conditions, and beware of avalanches!</p>
+				<p className="text-base md:text-lg">No notes</p>
 			);
 		}else if(valueRange === "San Jacinto"){
 			return(
-				<p className="text-base md:text-lg">Recent snowfall and cold conditions. Watch for deep snow, icy conditions, and beware of avalanches!</p>
+				<p className="text-base md:text-lg">No notes</p>
 			);
 		}
 	 }
