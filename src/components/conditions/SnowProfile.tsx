@@ -53,7 +53,7 @@ const SnowProfile = () => {
 				{setProfileChart()}
 			</div>
 			<div className="w-full md:w-1/3 flex flex-col gap-4">
-				<div className="bg-gray-200 rounded-3xl p-3 md:p-5 h-[40vh] md:h-2/3">
+				<div className="bg-gray-200 rounded-3xl p-3 md:p-5 h-[40vh] md:h-2/3 shadow-lg shadow-neutral-300">
 					<h2 className="uppercase font-medium text-gray-700 text-lg md:text-xl mb-2">Observations</h2>
 					<ScrollArea className="h-[calc(100%-2rem)] pb-4">
 						<div className="space-y-3">
@@ -72,7 +72,7 @@ const SnowProfile = () => {
 						</div>
 					</ScrollArea>
 				</div>
-				<div className="rounded-3xl bg-gray-200 h-[20vh] md:h-1/3 p-3 md:p-5">
+				<div className="rounded-3xl bg-gray-200 h-[20vh] md:h-1/3 p-3 md:p-5 shadow-lg shadow-neutral-300">
 					<h2 className="uppercase font-medium text-gray-700 text-lg md:text-xl mb-2">Notes</h2>
 					{setNotes()}
 				</div>

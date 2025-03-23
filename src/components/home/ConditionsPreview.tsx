@@ -11,7 +11,7 @@ const fadeInUp = {
 const ConditionsPreview = () => {
 	
 	return (
-		<div className="w-full rounded-3xl pb-3 pt-6 px-6" style={{
+		<div className="w-full rounded-3xl pb-3 pt-6 px-6 shadow-lg shadow-neutral-400" style={{
 			backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(ridge.jpeg)",
 			backgroundSize: "cover",
 			backgroundPosition: "center",

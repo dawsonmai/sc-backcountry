@@ -334,7 +334,7 @@ const ConditionsData = () => {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-col w-full md:w-1/3 lg:w-1/3 items-start rounded-3xl bg-gray-200 p-3 md:p-5">
+				<div className="flex flex-col w-full md:w-1/3 lg:w-1/3 items-start rounded-3xl bg-gray-200 p-3 md:p-5 shadow-lg shadow-neutral-300">
 					<h2 className="font-medium text-lg md:text-xl text-gray-700 uppercase">Elevation</h2>
 					<div className="flex flex-row flex-grow items-center gap-5">
 						<div className="flex flex-row items-center justify-center py-3 md:py-6">
@@ -378,7 +378,7 @@ const ConditionsData = () => {
 			</div>
 			<div className="p-2 flex flex-col md:flex-row gap-4 md:gap-0">
 				<div className="w-full md:w-2/3 md:pr-4">
-					<div className="bg-gray-200 rounded-3xl px-3 md:px-5 pt-5 pb-2">
+					<div className="bg-gray-200 rounded-3xl px-3 md:px-5 pt-5 pb-2 shadow-lg shadow-neutral-300 h-full">
 						<h2 className="text-xl text-gray-700 font-medium pb-3 uppercase">Conditions</h2>
 						<div className="flex flex-row justify-center gap-4 md:gap-0">
 							<div className="w-full md:w-1/2 flex flex-col justify-between space-y-4 md:space-y-0 items-start">
@@ -422,7 +422,7 @@ const ConditionsData = () => {
 						<p className="flex flex row justify-end text-sm text-light text-gray-600"> </p>
 					</div>
 				</div>
-				<div className="w-full md:w-1/3 rounded-3xl bg-gray-200 px-3 md:px-5 pt-5 pb-5">
+				<div className="w-full md:w-1/3 rounded-3xl bg-gray-200 px-3 md:px-5 pt-5 pb-5 shadow-lg shadow-neutral-300">
 					<h2 className="font-medium text-xl text-gray-700 uppercase">Forecast</h2>
 					<div className="flex flex-col h-full">
 						<div className="w-full h-1/4 border-b-2 border-gray-400 flex flex-row justify-between py-2">

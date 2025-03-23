@@ -40,7 +40,7 @@ const DropdownInfo = () => {
                         <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-semibold uppercase">Our Team</AccordionTrigger>
                         <AccordionContent className="text-lg">
                             <div className="flex flex-col md:flex-row">
-                                <div className="w-full md:w-1/4 flex flex-col justify-between items-center">
+                                <div className="w-full md:w-1/4 flex flex-col justify-between items-center md:items-start">
                                     <div>
                                         <h2 className="font-semibold text-xl uppercase text-center md:text-start">Dawson Mai</h2>
                                         <h3 className="text-lg text-center md:text-start">Founder</h3>

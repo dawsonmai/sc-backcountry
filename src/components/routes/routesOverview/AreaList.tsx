@@ -12,7 +12,7 @@ const AreaList = () => {
     return (
         <div>
             <motion.div className="py-6 border-b-2 border-black flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl" style={{
+                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl shadow-lg shadow-neutral-500" style={{
 						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(SanGabrielAfar.jpeg)",
 						backgroundSize: "cover",
 						backgroundPosition: "right",
@@ -30,7 +30,7 @@ const AreaList = () => {
                 </div>
             </motion.div>
             <motion.div className="py-6 border-b-2 border-black flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl" style={{
+                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl shadow-lg shadow-neutral-500" style={{
 						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(SanBernardinoMtns.jpeg)",
 						backgroundSize: "cover",
 						backgroundPosition: "left",
@@ -48,7 +48,7 @@ const AreaList = () => {
                 </div>
             </motion.div>
             <motion.div className="py-6 flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl"style={{
+                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl shadow-lg shadow-neutral-500"style={{
 						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(SanJacintoAfar.jpeg)",
 						backgroundSize: "cover",
 						backgroundPosition: "right",
