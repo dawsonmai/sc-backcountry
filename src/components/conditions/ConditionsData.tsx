@@ -92,7 +92,7 @@ const ConditionsData = () => {
 		}else if (purpose==="Forecast"){
 			strokeWidth = 1.2
 			size = 2
-			className="md:h-[50px] md:w-[50px] mr-1"
+			className="h-[50px] w-[50px] mr-1"
 		}
 
 		if (description === "Sunny" || description === "Clear" || description === "Mostly Sunny"){
@@ -381,7 +381,7 @@ const ConditionsData = () => {
 					<div className="bg-gray-200 rounded-3xl px-3 md:px-5 pt-5 pb-2">
 						<h2 className="text-xl text-gray-700 font-medium pb-3 uppercase">Conditions</h2>
 						<div className="flex flex-row justify-center gap-4 md:gap-0">
-							<div className="w-full md:w-1/2 flex flex-col justify-between space-y-4 md:space-y-0 items-center md:items-start">
+							<div className="w-full md:w-1/2 flex flex-col justify-between space-y-4 md:space-y-0 items-start">
 								<div className="flex flex-col items-start">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
 										<Wind className="mr-2" strokeWidth={1.5} /> Wind Speed:{" "}
@@ -391,7 +391,6 @@ const ConditionsData = () => {
 								{windDirection(Number(direction))}
 								<div className="flex flex-col items-start">
 									<h2 className="flex justify-center text-lg md:text-xl text-gray-600">
-										{" "}
 										<Thermometer className="mr-2" strokeWidth={1.5} /> Wind Chill:{" "}
 									</h2>
 									<p className="text-2xl md:text-3xl font-medium font-mono">{calculatedWindChill !== null ? `${calculatedWindChill}` : "N/A"}&deg;F</p>

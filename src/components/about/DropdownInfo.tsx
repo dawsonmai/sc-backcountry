@@ -40,12 +40,12 @@ const DropdownInfo = () => {
                         <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-semibold uppercase">Our Team</AccordionTrigger>
                         <AccordionContent className="text-lg">
                             <div className="flex flex-col md:flex-row">
-                                <div className="w-full md:w-1/4 flex flex-col justify-between">
+                                <div className="w-full md:w-1/4 flex flex-col justify-between items-center">
                                     <div>
                                         <h2 className="font-semibold text-xl uppercase text-center md:text-start">Dawson Mai</h2>
                                         <h3 className="text-lg text-center md:text-start">Founder</h3>
                                     </div>
-                                    <div className="rounded-xl bg-gray-400 h-60"style={{
+                                    <div className="rounded-xl bg-gray-400 w-full sm:w-1/2 md:w-full h-60 2xl:h-96" style={{
                                         backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(Dawson.jpeg)",
                                         backgroundSize: "cover",
                                         backgroundPosition: "right",
