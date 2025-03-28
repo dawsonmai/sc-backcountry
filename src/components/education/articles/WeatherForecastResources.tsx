@@ -13,7 +13,7 @@ const WeatherForecastResources = () => {
             The weather in the mountains is constantly changing and it&apos;s important that you are updated with forecasts before you embark on your trip. Unfortunately, it&apos;s impossible to always predict what conditions to expect accurately, since there are so many factors that go into mountain weather. You should consult multiple weather forecasts from different forecast providers for the area you plan to travel to in order to gain a good understanding of what you might expect. Since different providers use different data, models, and sources, each forecast may be a little different. For example, one provider may forecast strong wings, while another forecasts low temperatures. Track the data and analyze patterns and inconsistencies, treat conditions that show up more often as more likely to happen. You should always prepare for the worst.
             </p>
             <p className="text-xl mb-8">
-            Below are a couple of other weather resources, in addition to our <span><Button variant="link" asChild className="p-0 text-xl font-semibold"><Link href="/conditions">Conditions</Link></Button></span> page, based on area that you should analyze before traveling into the SoCal backcountry:
+            Below are a couple of other weather resources, in addition to our <span><Link href="/conditions" className="hover:underline font-bold">Conditions</Link></span> page, based on area that you should analyze before traveling into the SoCal backcountry:
             </p>
 
             <h2 className="font-semibold text-2xl mb-2">San Gabriel Mountains</h2>

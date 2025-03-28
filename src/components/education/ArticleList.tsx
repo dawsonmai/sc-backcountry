@@ -47,7 +47,7 @@ const ArticleList = () => {
                         <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-semibold uppercase">Resources</AccordionTrigger>
                         <AccordionContent className="text-lg">
                             <p className="mb-4">Find other backcountry tools and resources as well as learn how to navigate our website here.</p>
-                            <div className="rounded-2xl bg-gray-200 p-6 flex flex-col sm:flex-row">
+                            <div className="rounded-2xl bg-gray-200 p-6 flex flex-col sm:flex-row mb-4">
                                 <div className="h-56 w-full sm:w-64 mr-10 rounded-2xl" style={{
                                     backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(WeatherStation.jpg)",
                                     backgroundSize: "cover",
@@ -61,6 +61,23 @@ const ArticleList = () => {
                                     </div>
                                     <Button asChild className="rounded-full text-black bg-gray-200 border-2 border-black hover:bg-black hover:text-white" variant="outline">
                                         <Link href="/education/weather-resources">Read More</Link>
+                                    </Button>
+                                </div>
+                            </div>
+                            <div className="rounded-2xl bg-gray-200 p-6 flex flex-col sm:flex-row">
+                                <div className="h-56 w-full sm:w-64 mr-10 rounded-2xl" style={{
+                                    backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(snowDataCollection.jpg)",
+                                    backgroundSize: "cover",
+                                    backgroundPosition: "center",
+                                }} />
+                                <div className="w-full sm:w-2/3 flex flex-col justify-between items-center text-center sm:text-start sm:items-start">
+                                    <div>
+                                        <h2 className="text-xl md:text-2xl font-medium">Snow Depth and Snow Pack Resources</h2>
+                                        <h3 className="text-md md:text-lg italic">Snow</h3>
+                                        <p className="text-md md:text-lg font-light">Find resources for checking snow depth and snow pack.</p>
+                                    </div>
+                                    <Button asChild className="rounded-full text-black bg-gray-200 border-2 border-black hover:bg-black hover:text-white" variant="outline">
+                                        <Link href="/education/snow-resources">Read More</Link>
                                     </Button>
                                 </div>
                             </div>
