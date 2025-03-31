@@ -5,6 +5,14 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Info } from "lucide-react";
 import * as React from "react";
 import { useGlobalContext } from "@/context/GlobalContext";
+import {
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+  } from "@/components/ui/carousel"
+  
 
 const SnowProfile = () => {
 	const { observations,
@@ -15,15 +23,48 @@ const SnowProfile = () => {
 	 function setProfileChart(){
 		if(valueRange === "San Gabriel"){
 			return(
-				<div className="w-full h-[50vh] md:h-screen items-center flex justify-center text-3xl">No Data</div>
+				<div className="w-full h-screen items-center flex justify-center text-3xl">No Data</div>
 			);
 		}else if(valueRange === "San Bernardino"){
 			return(
-				<div className="w-full h-[50vh] md:h-screen items-center flex justify-center text-3xl">No Data</div>
+				<div className="w-full h-screen items-center flex justify-center text-3xl">No Data</div>
 			);
 		}else if(valueRange === "San Jacinto"){
 			return(
-				<div className="w-full h-[50vh] md:h-screen items-center flex justify-center text-3xl">No Data</div>
+				<div className="flex justify-center">
+					<div className="w-5/6">
+						<Carousel>
+						<CarouselContent>
+						<CarouselItem>
+							<div className="w-full h-screen items-center flex justify-center text-3xl" style={{
+								backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/san-jacinto-report-3-30-25/san-jacinto-report-overview.png)",
+								backgroundSize: "contain",
+								backgroundPosition: "center",
+								backgroundRepeat: "no-repeat",
+							}} />
+						</CarouselItem>
+						<CarouselItem>
+							<div className="w-full h-screen items-center flex justify-center text-3xl" style={{
+								backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/san-jacinto-report-3-30-25/round-valley-profile.png)",
+								backgroundSize: "contain",
+								backgroundPosition: "center",
+								backgroundRepeat: "no-repeat",
+							}} />
+							</CarouselItem>
+						<CarouselItem>
+						<div className="w-full h-screen items-center flex justify-center text-3xl" style={{
+								backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/san-jacinto-report-3-30-25/high-trail-profile.png)",
+								backgroundSize: "contain",
+								backgroundPosition: "center",
+								backgroundRepeat: "no-repeat",
+							}} />
+						</CarouselItem>
+						</CarouselContent>
+						<CarouselPrevious />
+						<CarouselNext />
+					</Carousel>
+				</div>
+			</div>
 			);
 		}
 	 }
