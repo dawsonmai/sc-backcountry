@@ -12,6 +12,8 @@ import {
 	CarouselNext,
 	CarouselPrevious,
   } from "@/components/ui/carousel"
+import { Button } from "../ui/button";
+import Link from "next/link";
   
 
 const SnowProfile = () => {
@@ -31,8 +33,8 @@ const SnowProfile = () => {
 			);
 		}else if(valueRange === "San Jacinto"){
 			return(
-				<div className="flex justify-center">
-					<div className="w-5/6">
+				<div className="flex flex-col items-center justify-center">
+					<div className="w-5/6 mb-2">
 						<Carousel>
 						<CarouselContent>
 						<CarouselItem>
@@ -64,6 +66,9 @@ const SnowProfile = () => {
 						<CarouselNext />
 					</Carousel>
 				</div>
+				<Button asChild className="rounded-full text-black bg-transparent border-2 border-black hover:bg-black hover:text-white" variant="outline">
+                	<Link href="/conditions/san-jacinto-report">Read Full Report</Link>
+                </Button>
 			</div>
 			);
 		}
@@ -91,7 +96,7 @@ const SnowProfile = () => {
 				<h2 className="uppercase font-medium text-gray-700 text-lg md:text-xl pb-2 flex flex-row items-center">
 					Snow Data <Info size={18} className="ml-2" />
 				</h2>
-				{setProfileChart()}
+				{setProfileChart()}		
 			</div>
 			<div className="w-full md:w-1/3 flex flex-col gap-4">
 				<div className="bg-gray-200 rounded-3xl p-3 md:p-5 h-[40vh] md:h-2/3 shadow-lg shadow-neutral-300">
