@@ -14,7 +14,7 @@ const SanJacintoReport = () => {
                     <h3 className="text-2xl font-semibold">March 30, 2025</h3>
                 </div>
                 <p className="text-xl mb-6">
-                    Despite April arriving soon, hazardous alpine conditions still exist in the San Jacinto backcountry. There is still over 2 ft of snow on trails, so traction devices such as microspikes or snowshoes are recommended. Cold temperatures and snow showers are in the forecast in the upcoming week, so expect a couple of inches of new snow. This report covers the east &#40;Tramway&#41; side of Mt. San Jacinto.
+                    Despite April arriving soon, hazardous alpine conditions still exist in the San Jacinto backcountry. There is still over 2 ft of snow on trails, so traction devices such as microspikes or snowshoes are recommended. Cold temperatures and snow showers are in the forecast in the upcoming week, expect a couple of inches of new snow. This report covers the east &#40;Tramway&#41; side of Mt. San Jacinto.
                 </p>
                 <div className="w-full h-[65vh] sm:h-[80vh] lg:h-screen mb-6" style={{
 								backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/san-jacinto-report-3-30-25/san-jacinto-report-overview.png)",
@@ -45,7 +45,7 @@ const SanJacintoReport = () => {
                     <p className="text-md w-full md:w-1/2 text-center">North-facing slopes are completely snow covered while south-facing slopes have only snow patches.</p>
                 </div>
                 <p className="text-xl mb-6">
-                    The snow on the trail is firm, but not icy, with reliable footings in the snow. Traction devices are always recommended, but it may not be necessary with these conditions if you remain on the main trail. The trail remains well tracked at lower elevations, but as you travel higher, it becomes more difficult to navigate. Ensure that you are familiar with the area or have some sort of navigation method, such as a map and compass or GPS device. There is still around 60&#8211;95 cm (~2&#8211;3 ft) of snow on the trail, and this measurement remains consistent even at higher elevations (see above image for detailed snow depths), but due to the firm conditions, postholing should not be an issue. If you decide to go off-trail, expect to posthole more frequently due to the deeper and sometimes softer snow.
+                    The snow on the trail is firm, but not icy, with reliable footings in the snow. Traction devices are always recommended, but they may not be necessary with these conditions if you remain on the main trail. The trail remains well tracked at lower elevations, but as you travel higher, it becomes more difficult to navigate. Ensure that you are familiar with the area or have some sort of navigation method, such as a map and compass or GPS device. There is still around 60&#8211;95 cm (~2&#8211;3 ft) of snow on the trail, and this measurement remains consistent even at higher elevations (see above image for detailed snow depth measurements), but due to the firm conditions, postholing should not be an issue. If you decide to go off-trail, expect to posthole more frequently due to the deeper and sometimes softer snow.
                 </p>
 
                 <h2 className="font-semibold text-2xl mb-2">Snow Conditions</h2>
