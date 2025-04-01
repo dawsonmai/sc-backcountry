@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 // metadata
 export const metadata: Metadata = {
 	title: "SoCal Backcountry",
-	description: "Southern California Backcountry Conditions",
+	description: "SoCal Backcountry is dedicated to backcountry skiing and mountaineering safety in the Southern California winter backcountry. Updated and detailed condition reports, weather forecasts, backcountry resources, and information on Southern California's most popular backcountry skiing and mountaineering routes are provided.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
