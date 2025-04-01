@@ -1,6 +1,5 @@
 import Header from "@/components/global/Header";
 import Footer2 from "@/components/global/Footer2";
-import Footer from "@/components/global/Footer";
 import { Calendar } from "lucide-react";
 
 const SanJacintoReport = () => {

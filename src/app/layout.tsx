@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 // metadata
 export const metadata: Metadata = {
-	title: "SC Backcountry",
+	title: "SoCal Backcountry",
 	description: "Southern California Backcountry Conditions",
 };
 
