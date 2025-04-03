@@ -13,7 +13,7 @@ const AboutImage = () => {
 			/>
 			
 			{/* Overlay */}
-			<div className="absolute inset-0 bg-black/30 rounded-3xl"></div>
+			<div className="absolute inset-0 bg-black/25 rounded-3xl"></div>
 
 			{/* Text */}
 			<h1 className="relative text-4xl sm:text-6xl md:text-7xl font-medium text-white hyphens-manual lg:hyphens-none">

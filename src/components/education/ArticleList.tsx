@@ -8,6 +8,7 @@ import {
 import { motion } from "framer-motion";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import Image from "next/image";
 const fadeInUp = {
 	initial: { opacity: 0, y: 20 },
 	animate: { opacity: 1, y: 0 },
@@ -48,11 +49,20 @@ const ArticleList = () => {
                         <AccordionContent className="text-lg">
                             <p className="mb-4">Find other backcountry tools and resources as well as learn how to navigate our website here.</p>
                             <div className="rounded-2xl bg-gray-200 p-6 flex flex-col sm:flex-row mb-4">
-                                <div className="h-56 w-full sm:w-64 mr-10 rounded-2xl" style={{
-                                    backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(WeatherStation.jpg)",
-                                    backgroundSize: "cover",
-                                    backgroundPosition: "center",
-                                }} />
+                            <div className="relative h-56 w-full sm:w-64 mr-10 rounded-2xl">
+                                {/* Background Image */}
+                                <Image
+                                    src="/WeatherStation.jpg"
+                                    alt="Weather Station"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    objectPosition="center"
+                                    className="rounded-2xl"
+                                />
+
+                                {/* Gradient Overlay */}
+                                <div className="absolute inset-0 bg-black/0 rounded-2xl"></div>
+                            </div>
                                 <div className="w-full sm:w-2/3 flex flex-col justify-between items-center text-center sm:text-start sm:items-start">
                                     <div>
                                         <h2 className="text-xl md:text-2xl font-medium">Weather & Forecast Resources</h2>
@@ -65,11 +75,20 @@ const ArticleList = () => {
                                 </div>
                             </div>
                             <div className="rounded-2xl bg-gray-200 p-6 flex flex-col sm:flex-row">
-                                <div className="h-56 w-full sm:w-64 mr-10 rounded-2xl" style={{
-                                    backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(snowDataCollection.jpg)",
-                                    backgroundSize: "cover",
-                                    backgroundPosition: "center",
-                                }} />
+                            <div className="relative h-56 w-full sm:w-64 mr-10 rounded-2xl">
+                                {/* Background Image */}
+                                <Image
+                                    src="/snowDataCollection.jpg"
+                                    alt="Snow Data Collection"
+                                    layout="fill"
+                                    objectFit="cover"
+                                    objectPosition="center"
+                                    className="rounded-2xl"
+                                />
+
+                                {/* Gradient Overlay */}
+                                <div className="absolute inset-0 bg-black/0 rounded-2xl"></div>
+                            </div>
                                 <div className="w-full sm:w-2/3 flex flex-col justify-between items-center text-center sm:text-start sm:items-start">
                                     <div>
                                         <h2 className="text-xl md:text-2xl font-medium">Snow Depth and Snow Pack Resources</h2>
