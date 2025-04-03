@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const fadeInUp = {
 	initial: { opacity: 0, y: 20 },
@@ -14,11 +15,20 @@ const AreaList = () => {
     return (
         <div>
             <motion.div className="py-6 border-b-2 border-black flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl shadow-lg shadow-neutral-500 mb-3 md:mb-0" style={{
-						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(SanGabrielAfar.jpeg)",
-						backgroundSize: "cover",
-						backgroundPosition: "right",
-					}} />
+                <div className="relative bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl shadow-lg shadow-neutral-500 mb-3 md:mb-0">
+                    {/* Background Image */}
+                    <Image
+                        src="/SanGabrielAfar.jpeg"
+                        alt="San Gabriel Mountains"
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition="left"
+                        className="rounded-2xl"
+                    />
+
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-black/0 rounded-2xl"></div>
+                </div>
                     <div className="w-full md:px-10 flex flex-col justify-center text-center items-center md:justify-between md:items-start md:text-left">
                     <div>
                         <h3 className="text-2xl md:text-3xl font-semibold mb-2">San Gabriel Mountains</h3>
@@ -32,11 +42,20 @@ const AreaList = () => {
                 </div>
             </motion.div>
             <motion.div className="py-6 border-b-2 border-black flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl shadow-lg shadow-neutral-500 mb-3 md:mb-0" style={{
-						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(SanBernardinoMtns.jpeg)",
-						backgroundSize: "cover",
-						backgroundPosition: "left",
-					}} />
+                <div className="relative bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl shadow-lg shadow-neutral-500 mb-3 md:mb-0">
+                        {/* Background Image */}
+                        <Image
+                            src="/SanBernardinoMtns.jpeg"
+                            alt="San Bernardino Mountains"
+                            layout="fill"
+                            objectFit="cover"
+                            objectPosition="left"
+                            className="rounded-2xl"
+                        />
+
+                        {/* Gradient Overlay */}
+                        <div className="absolute inset-0 bg-black/0 rounded-2xl"></div>
+                    </div>
                     <div className="w-full md:px-10 flex flex-col justify-center text-center items-center md:justify-between md:items-start md:text-left">
                     <div>
                         <h3 className="text-2xl md:text-3xl font-semibold mb-2">San Bernardino Mountains</h3>
@@ -50,11 +69,20 @@ const AreaList = () => {
                 </div>
             </motion.div>
             <motion.div className="py-6 flex flex-col md:flex-row" initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-                <div className="bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl shadow-lg shadow-neutral-500 mb-3 md:mb-0"style={{
-						backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(sanjacintosnow.jpeg)",
-						backgroundSize: "cover",
-						backgroundPosition: "right",
-					}} />
+                <div className="relative bg-gray-700 h-72 w-full md:w-6/12 rounded-2xl shadow-lg shadow-neutral-500 mb-3 md:mb-0">
+                    {/* Background Image */}
+                    <Image
+                        src="/sanjacintosnow.jpeg"
+                        alt="San Jacinto Mountains"
+                        layout="fill"
+                        objectFit="cover"
+                        objectPosition="left"
+                        className="rounded-2xl"
+                    />
+
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-black/0 rounded-2xl"></div>
+                </div>
                    <div className="w-full md:px-10 flex flex-col justify-center text-center items-center md:justify-between md:items-start md:text-left">
                     <div>
                         <h3 className="text-2xl md:text-3xl font-semibold mb-2">San Jacinto Mountains</h3>
