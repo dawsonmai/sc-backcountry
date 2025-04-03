@@ -14,7 +14,7 @@ import {
   } from "@/components/ui/carousel"
 import { Button } from "../ui/button";
 import Link from "next/link";
-  
+import Image from "next/image";
 
 const SnowProfile = () => {
 	const { observations,
@@ -38,28 +38,43 @@ const SnowProfile = () => {
 						<Carousel>
 						<CarouselContent>
 						<CarouselItem>
-							<div className="w-full h-screen items-center flex justify-center text-3xl" style={{
-								backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/san-jacinto-report-3-30-25/san-jacinto-report-overview.png)",
-								backgroundSize: "contain",
-								backgroundPosition: "center",
-								backgroundRepeat: "no-repeat",
-							}} />
+							<div className="relative w-full h-screen flex justify-center items-center text-3xl">
+								{/* Background Image */}
+								<Image
+									src="/san-jacinto-report-3-30-25/san-jacinto-report-overview.png"
+									alt="San Jacinto Report Overview"
+									layout="fill"
+									objectFit="contain"
+									objectPosition="center"
+									className="absolute inset-0"
+								/>
+							</div>
 						</CarouselItem>
 						<CarouselItem>
-							<div className="w-full h-screen items-center flex justify-center text-3xl" style={{
-								backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/san-jacinto-report-3-30-25/round-valley-profile.png)",
-								backgroundSize: "contain",
-								backgroundPosition: "center",
-								backgroundRepeat: "no-repeat",
-							}} />
+							<div className="relative w-full h-screen flex justify-center items-center text-3xl">
+									{/* Background Image */}
+									<Image
+										src="/san-jacinto-report-3-30-25/round-valley-profile.png"
+										alt="San Jacinto Report Overview"
+										layout="fill"
+										objectFit="contain"
+										objectPosition="center"
+										className="absolute inset-0"
+									/>
+							</div>
 							</CarouselItem>
 						<CarouselItem>
-						<div className="w-full h-screen items-center flex justify-center text-3xl" style={{
-								backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(/san-jacinto-report-3-30-25/high-trail-profile.png)",
-								backgroundSize: "contain",
-								backgroundPosition: "center",
-								backgroundRepeat: "no-repeat",
-							}} />
+							<div className="relative w-full h-screen flex justify-center items-center text-3xl">
+										{/* Background Image */}
+										<Image
+											src="/san-jacinto-report-3-30-25/round-valley-profile.png"
+											alt="San Jacinto Report Overview"
+											layout="fill"
+											objectFit="contain"
+											objectPosition="center"
+											className="absolute inset-0"
+										/>
+							</div>
 						</CarouselItem>
 						</CarouselContent>
 						<CarouselPrevious />
