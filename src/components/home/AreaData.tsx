@@ -1,6 +1,7 @@
 import { motion, useInView, animate, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { ArrowRight, Snowflake } from "lucide-react";
+import { Button } from "../ui/button";
 
 const AnimatedNumber = ({ value }: { value: number }) => {
 	const ref = useRef(null);
@@ -40,15 +41,17 @@ const AreaData = () => {
 					</h3>
 				</div>
 			</div>
-			<div className="flex flex-row w-full items-center gap-5">
+			<div className="flex flex-row w-full items-end gap-5">
 				<div className="h-full w-1/6 items-center flex justify-start">
 					<Snowflake strokeWidth={1} className="inline size-12" />
 				</div>
-				<a href="/routes" className="h-full w-5/6 flex items-center flex justify-end w-full h-2/3 font-medium text-3xl p-3 border-b-[1.5px] border-black">
-					<button>
-						<ArrowRight className="text-black size-10" />
-					</button>
-				</a>
+				<div className="h-full w-5/6 flex items-center flex justify-end font-medium border-b-[1.5px] border-black">
+					<a href="/routes" className="w-full h-full">
+						<Button variant="ghost" className="h-12 w-full flex flex-row justify-end">
+							<ArrowRight className="text-black w-12 h-12" />
+						</Button>
+					</a>
+				</div>
 			</div>
 			<div className="flex flex-col sm:flex-row w-full py-12 px-6 justify-center items-center gap-10 sm:gap-5 lg:gap-24">
 				<motion.div

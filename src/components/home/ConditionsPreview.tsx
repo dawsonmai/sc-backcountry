@@ -2,6 +2,7 @@ import { MountainSnow, ChartArea, Map, MapPinned, ArrowRight} from "lucide-react
 import { motion } from "framer-motion";
 import { useGlobalContext } from "@/context/GlobalContext";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 const fadeInUp = {
 	initial: { opacity: 0, y: 20 },
@@ -78,7 +79,9 @@ const ConditionsPreview = () => {
 		  {/* Arrow Button */}
 		  <div className="flex justify-end">
 			<a href="/conditions">
-			  <ArrowRight className="size-9 text-black bg-white rounded-full p-2" />
+			  <Button variant="outline" className="text-black hover:text-white border-white bg-white hover:bg-black rounded-full p-3 py-5">
+			  	<ArrowRight className="size-9" />
+			  </Button>
 			</a>
 		  </div>
 		</div>

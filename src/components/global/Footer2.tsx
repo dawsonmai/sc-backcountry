@@ -33,9 +33,9 @@ const Footer2 = () => {
                             <Link href="mailto:scbackcountry@gmail.com">Contact Us</Link>
                         </Button>
                         <a href="https://apac01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.instagram.com%2Fscbackcountry%3Figsh%3DNTc4MTIwNjQ2YQ%253D%253D%26utm_source%3Dqr&data=05%7C02%7C%7Ce2b905c965fe425c686708dd708e377f%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638790478301747394%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=xkdHFlaNfwzTHoyWW0dcfuaexJ2DySBXvgLW%2FmHH4%2BA%3D&reserved=0">
-                            <div className="bg-gray-200 rounded-full w-9 h-9 flex flex-row justify-center items-center">
+                            <Button className="bg-gray-200 rounded-full w-9 h-9 flex flex-row justify-center items-center text-black hover:text-white">
                                 <Instagram strokeWidth={1.5} className="size-5" />
-                            </div>
+                            </Button>
                         </a>
                     </div>
                     <p className="p-3 font-light text-gray-600 text-sm text-end">&copy;2025 SC Backcountry</p>

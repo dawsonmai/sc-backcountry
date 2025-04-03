@@ -1,5 +1,6 @@
 import { ArrowRight, CircleAlert, MountainSnow } from "lucide-react";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 const IntroImage = () => {
 	return (
@@ -25,9 +26,9 @@ const IntroImage = () => {
 			<div className="bg-white rounded-full w-full md:w-96 py-2 flex items-center justify-between pl-6 pr-2">
 			  <h2 className="text-black font-medium text-left uppercase sm:text-lg">Explore</h2>
 			  <a href="/routes">
-				<button className="bg-black rounded-full text-white p-3 justify-center items-center text-center font-semibold text-xl">
-				  <ArrowRight color="white" size={26} />
-				</button>
+				<Button variant="outline" className="bg-black border-2 border-black rounded-full text-white hover:text-black p-3 py-5 justify-center items-center text-center font-semibold text-xl">
+				  <ArrowRight size={26} />
+				</Button>
 			  </a>
 			</div>
   
