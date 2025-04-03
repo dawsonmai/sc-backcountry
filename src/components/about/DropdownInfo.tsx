@@ -11,7 +11,7 @@ const fadeInUp = {
 	animate: { opacity: 1, y: 0 },
 	transition: { duration: 1.2 },
 };
-
+import Image from "next/image";
 
 const DropdownInfo = () => {
     return (
@@ -45,11 +45,20 @@ const DropdownInfo = () => {
                                         <h2 className="font-semibold text-xl uppercase text-center md:text-start">Dawson Mai</h2>
                                         <h3 className="text-lg text-center md:text-start">Founder</h3>
                                     </div>
-                                    <div className="rounded-xl bg-gray-400 w-full sm:w-1/2 md:w-full h-60 2xl:h-96" style={{
-                                        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(Dawson.jpeg)",
-                                        backgroundSize: "cover",
-                                        backgroundPosition: "right",
-                                    }} />
+                                    <div className="relative rounded-xl bg-gray-400 w-full sm:w-1/2 md:w-full h-60 2xl:h-96">
+                                    {/* Background Image */}
+                                    <Image
+                                        src="/Dawson.jpeg"
+                                        alt="Dawson"
+                                        layout="fill"
+                                        objectFit="cover"
+                                        objectPosition="right"
+                                        className="rounded-xl"
+                                    />
+
+                                    {/* Gradient Overlay */}
+                                    <div className="absolute inset-0 bg-black/5 rounded-xl" />
+                                    </div>
                                 </div>
                                 <div className="w-full md:w-3/4 px-6 flex flex-col items-end">
                                     <p className="py-2 text-center md:text-start">
