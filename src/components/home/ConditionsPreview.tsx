@@ -1,6 +1,7 @@
 import { MountainSnow, ChartArea, Map, MapPinned, ArrowRight} from "lucide-react";
 import { motion } from "framer-motion";
 import { useGlobalContext } from "@/context/GlobalContext";
+import Image from "next/image";
 
 const fadeInUp = {
 	initial: { opacity: 0, y: 20 },
@@ -11,88 +12,77 @@ const fadeInUp = {
 const ConditionsPreview = () => {
 	
 	return (
-		<div className="w-full rounded-3xl pb-3 pt-6 px-6 shadow-lg shadow-neutral-400" style={{
-			backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(ridge.jpeg)",
-			backgroundSize: "cover",
-			backgroundPosition: "center",
-		  }}>
-			<h2 className="uppercase font-medium text-2xl md:text-3xl lg:text-4xl text-white">Conditions & Data</h2>
-			
-			<motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-				<div className="items-center text-center text-white pb-1">
-					<h3 className="font-medium text-md lg:text-xl">San Gabriel Mountains</h3>
-					<div className="flex flex-col md:flex-row gap-3 justify-center p-3">
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<MountainSnow strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">Tallest Peak: Mt. San Antonio</p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<ChartArea strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">Highest Elevation: 10,064 ft</p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Map strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">970 mi<sup>2</sup></p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<MapPinned strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">Nearest City: Los Angeles</p>
-						</div>
+		<div className="relative w-full rounded-3xl pb-3 pt-6 px-6 shadow-lg shadow-neutral-400 overflow-hidden">
+		{/* Background Image */}
+		<Image
+		  src="/ridge.jpeg"  // Ensure the image is inside /public or use a full path
+		  alt="Ridge"
+		  layout="fill"
+		  objectFit="cover"
+		  objectPosition="center"
+		  priority
+		  className="absolute inset-0"
+		/>
+  
+		{/* Gradient Overlay */}
+		<div className="absolute inset-0 bg-black/50" />
+  
+		{/* Content */}
+		<div className="relative z-10 text-white">
+		  <h2 className="uppercase font-medium text-2xl md:text-3xl lg:text-4xl">Conditions & Data</h2>
+  
+		  {/* Mountain Sections */}
+		  {[
+			{
+			  name: "San Gabriel Mountains",
+			  tallestPeak: "Mt. San Antonio",
+			  highestElevation: "10,064 ft",
+			  area: "970 mi²",
+			  nearestCity: "Los Angeles",
+			},
+			{
+			  name: "San Jacinto Mountains",
+			  tallestPeak: "Mt. San Jacinto",
+			  highestElevation: "10,834 ft",
+			  area: "1,455 mi²",
+			  nearestCity: "Palm Springs",
+			},
+			{
+			  name: "San Bernardino Mountains",
+			  tallestPeak: "Mt. San Gorgonio",
+			  highestElevation: "11,503 ft",
+			  area: "2,063 mi²",
+			  nearestCity: "San Bernardino",
+			},
+		  ].map((mountain, index) => (
+			<motion.div key={index} initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
+			  <div className="text-center py-1">
+				<h3 className="font-medium text-md lg:text-xl">{mountain.name}</h3>
+				<div className="flex flex-col md:flex-row gap-3 justify-center p-3">
+				  {[
+					{ icon: <MountainSnow strokeWidth={1.5} className="size-5" />, text: `Tallest Peak: ${mountain.tallestPeak}` },
+					{ icon: <ChartArea strokeWidth={1.5} className="size-5" />, text: `Highest Elevation: ${mountain.highestElevation}` },
+					{ icon: <Map strokeWidth={1.5} className="size-5" />, text: `${mountain.area}` },
+					{ icon: <MapPinned strokeWidth={1.5} className="size-5" />, text: `Nearest City: ${mountain.nearestCity}` },
+				  ].map((item, idx) => (
+					<div key={idx} className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
+					  {item.icon}
+					  <p className="w-full text-center text-sm md:text-md">{item.text}</p>
 					</div>
+				  ))}
 				</div>
+			  </div>
 			</motion.div>
-			<motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-				<div className="items-center text-center text-white py-1">
-					<h3 className="font-medium text-md lg:text-xl">San Jacinto Mountains</h3>
-					<div className="flex flex-col md:flex-row gap-3 justify-center p-3">
-					<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<MountainSnow strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">Tallest Peak: Mt. San Jacinto</p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<ChartArea strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">Highest Elevation: 10,834 ft</p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Map strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">1,455 mi<sup>2</sup></p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<MapPinned strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">Nearest City: Palm Springs</p>
-						</div>
-					</div>
-				</div>
-			</motion.div>
-			<motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
-				<div className="items-center text-center text-white pt-1">
-					<h3 className="font-medium text-md lg:text-xl">San Bernardino Mountains</h3>
-					<div className="flex flex-col md:flex-row gap-3 justify-center p-3">
-					<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<MountainSnow strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">Tallest Peak: Mt. San Gorgonio</p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<ChartArea strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">Highest Elevation: 11,503 ft</p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<Map strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">2,063 mi<sup>2</sup></p>
-						</div>
-						<div className="flex flex-row border border-white rounded-full px-2.5 py-1 gap-2 items-center">
-							<MapPinned strokeWidth={1.5} className="size-5" />
-							<p className="w-full text-center text-sm md:text-md">Nearest City: San Bernardino</p>
-						</div>
-					</div>
-				</div>
-			</motion.div>
-			<div className="flex justify-end">
-				<a href="/conditions">
-					<ArrowRight className="size-9 text-black bg-white rounded-full p-2" />
-				</a>
-			</div>
+		  ))}
+  
+		  {/* Arrow Button */}
+		  <div className="flex justify-end">
+			<a href="/conditions">
+			  <ArrowRight className="size-9 text-black bg-white rounded-full p-2" />
+			</a>
+		  </div>
 		</div>
+	  </div>
 	);
 };
 

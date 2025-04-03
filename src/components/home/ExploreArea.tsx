@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const ExploreArea = () => {
 	return (
@@ -12,11 +13,18 @@ const ExploreArea = () => {
 				<div className="grid grid-cols-2 sm:grid-cols-3 md:p-4 gap-5 lg:gap-8 w-full">
 					<div className="h-72 md:h-80 lg:h-96 rounded-3xl flex flex-col justify-between w-full shadow-lg shadow-neutral-300 bg-neutral-50 p-3">
 						<div className="h-3/4">
-							<div className="bg-gray-400 rounded-2xl h-3/4" style={{
-								backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(SanBernardinoMountainsAerial.jpeg)",
-								backgroundSize: "cover",
-								backgroundPosition: "bottom",
-							}} />
+							<div className="relative rounded-2xl h-3/4 overflow-hidden">
+								<Image
+									src="/SanBernardinoMountainsAerial.jpeg"
+									alt="San Bernardino Mountains Aerial"
+									layout="fill"
+									objectFit="cover"
+									objectPosition="bottom"
+									priority
+									className="absolute inset-0"
+								/>
+								<div className="absolute inset-0 bg-gradient-to-t from-black/0 to-black/0" />
+							</div>
 							<h3 className="sm:text-md md:text-lg lg:text-xl p-2 w-full">San Bernardino Mountains</h3>
 						</div>
 						<div className="flex justify-end">
@@ -27,11 +35,18 @@ const ExploreArea = () => {
 					</div>
 					<div className="h-72 md:h-80 lg:h-96 rounded-3xl flex flex-col justify-between w-full shadow-lg shadow-neutral-300 bg-neutral-50 p-3">
 						<div className="h-3/4">
-							<div className="bg-gray-400 rounded-2xl h-3/4" style={{
-								backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(SanGabrielMountainsAerial.jpeg)",
-								backgroundSize: "cover",
-								backgroundPosition: "bottom",
-							}} />
+							<div className="relative rounded-2xl h-3/4 overflow-hidden">
+									<Image
+										src="/SanGabrielMountainsAerial.jpeg"
+										alt="San Gabriel Mountains Aerial"
+										layout="fill"
+										objectFit="cover"
+										objectPosition="center"
+										priority
+										className="absolute inset-0"
+									/>
+									<div className="absolute inset-0 bg-gradient-to-t from-black/0 to-black/0" />
+								</div>
 							<h3 className="sm:text-md md:text-lg lg:text-xl p-2 w-full">San Gabriel Mountains</h3>
 						</div>
 						<div className="flex justify-end">
@@ -43,11 +58,18 @@ const ExploreArea = () => {
 
 					<div className="h-72 md:h-80 lg:h-96 rounded-3xl flex flex-col justify-between w-full shadow-lg shadow-neutral-300 bg-neutral-50 p-3">
 						<div className="h-3/4">
-							<div className="bg-gray-400 rounded-2xl h-3/4" style={{
-								backgroundImage: "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(SanJacintoMountainsAerial.jpeg)",
-								backgroundSize: "cover",
-								backgroundPosition: "bottom",
-							}} />
+							<div className="relative rounded-2xl h-3/4 overflow-hidden">
+								<Image
+									src="/SanJacintoMountainsAerial.jpeg"
+									alt="San Jacinto Mountains Aerial"
+									layout="fill"
+									objectFit="cover"
+									objectPosition="center"
+									priority
+									className="absolute inset-0"
+								/>
+								<div className="absolute inset-0 bg-gradient-to-t from-black/0 to-black/0" />
+							</div>
 							<h3 className="sm:text-md md:text-lg lg:text-xl p-2 w-full">San Jacinto Mountains</h3>
 						</div>
 						<div className="flex justify-end">
