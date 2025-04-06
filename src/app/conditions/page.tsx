@@ -1,18 +1,13 @@
-import Header from "@/components/global/Header";
-import ConditionsData from "@/components/conditions/ConditionsData";
-import SnowProfile from "@/components/conditions/SnowProfile";
-import Footer2 from "@/components/global/Footer2";
-const Conditions = () => {
-	return (
-		<div>
-			<div className="flex flex-col p-5">
-				<Header />
-				<ConditionsData />
-				<SnowProfile />
-			</div>
-			<Footer2 />
-		</div>
-	);
+import { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+const Conditions = dynamic(() => import("@/components/pages/Conditions"), { ssr: false });
+
+export const metadata: Metadata = {
+  title: "Conditions | SoCal Backcountry",
+  description: "Stay informed with up-to-date backcountry conditions for Southern California's mountain ranges. View current weather, forecasts, and snow conditions for the San Bernardino, San Gabriel, and San Jacinto ranges to help you plan your next adventure safely.",
 };
 
-export default Conditions;
+export default function AboutPage() {
+  return <Conditions />;
+}

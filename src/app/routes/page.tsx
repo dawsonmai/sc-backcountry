@@ -1,25 +1,13 @@
-"use client";
-import Header from "@/components/global/Header";
-import AreaMap from "@/components/routes/routesOverview/AreaMap";
-import AreaList from "@/components/routes/routesOverview/AreaList";
-import Footer2 from "@/components/global/Footer2";
-import { motion } from "framer-motion";
+import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
-const route = () => {
-	return (
-		<div>
-			<div className="flex flex-col p-5">
-				<motion.div className="flex flex-col min-h-[calc(100dvh)] pb-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
-				<Header />
-				<motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="flex flex-grow">
-					<AreaMap />
-				</motion.div>
-			</motion.div>
-			<AreaList />
-			</div>
-		<Footer2 />
-		</div>
-	);
+const Routes = dynamic(() => import("@/components/pages/Routes"), { ssr: false });
+
+export const metadata: Metadata = {
+  title: "Routes | SoCal Backcountry",
+  description: "Explore detailed routes for backcountry skiing and mountaineering across Southern California's most iconic mountain ranges. Select from the San Bernardino, San Gabriel, and San Jacinto ranges to discover the best routes, conditions, and essential information for your next adventure.",
 };
 
-export default route;
+export default function AboutPage() {
+  return <Routes />;
+}
