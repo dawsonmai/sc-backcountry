@@ -91,7 +91,7 @@ const ArticleList = () => {
                             </div>
                                 <div className="w-full sm:w-2/3 flex flex-col justify-between items-center text-center sm:text-start sm:items-start">
                                     <div>
-                                        <h2 className="text-xl md:text-2xl font-medium">Snow Depth and Snow Pack Resources</h2>
+                                        <h2 className="text-xl md:text-2xl font-medium">Snow Conditions Resources</h2>
                                         <h3 className="text-md md:text-lg italic">Snow</h3>
                                         <p className="text-md md:text-lg font-light">Find resources for checking snow depth and snow pack.</p>
                                     </div>

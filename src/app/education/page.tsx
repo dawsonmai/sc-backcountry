@@ -8,6 +8,6 @@ export const metadata: Metadata = {
   description: "Access valuable resources and expert advice on backcountry safety. Explore articles covering essential topics like weather forecasting, gear selection, avalanche terrain assessment, and understanding snow profile graphs to enhance your knowledge and make informed decisions in the backcountry.",
 };
 
-export default function AboutPage() {
+export default function EducationPage() {
   return <Education />;
 }

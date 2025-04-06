@@ -1,16 +1,13 @@
-import Header from "@/components/global/Header";
-import WorkInProgress from "@/components/routes/routesOverview/WorkInProgress";
-const sanGabriel = () => {
-    return (
-        <div className="flex flex-col px-5">
-            <div className="flex flex-col min-h-[calc(100dvh-20px)] pt-5">
-				<Header />
-				<div className="flex flex-grow">
-					<WorkInProgress />
-				</div>
-			</div>
-        </div>
-    );
+import { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+const SanGabrielMtns = dynamic(() => import("@/components/pages/route-pages/SanGabrielMtns"), { ssr: false });
+
+export const metadata: Metadata = {
+  title: "San Gabriel Mountains | SoCal Backcountry",
+  description: "Explore the wide range of winter mountaineering and backcountry skiing routes and lines in the iconic San Gabriel Mountains, only a few miles north of LA.",
 };
 
-export default sanGabriel;
+export default function SanGabrielMountainsPage() {
+  return <SanGabrielMtns />;
+}

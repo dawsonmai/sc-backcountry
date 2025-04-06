@@ -1,16 +1,13 @@
-import Header from "@/components/global/Header";
-import WorkInProgress from "@/components/routes/routesOverview/WorkInProgress";
-const sanBernardino = () => {
-    return (
-        <div className="flex flex-col px-5">
-            <div className="flex flex-col min-h-[calc(100dvh-20px)] pt-5">
-				<Header />
-				<div className="flex flex-grow">
-					<WorkInProgress />
-				</div>
-			</div>
-        </div>
-    );
+import { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+const SanBernardinoMtns = dynamic(() => import("@/components/pages/route-pages/SanBernardinoMtns"), { ssr: false });
+
+export const metadata: Metadata = {
+  title: "San Bernardino Mountains | SoCal Backcountry",
+  description: "Explore the wide range of winter mountaineering and backcountry skiing routes and lines in the iconic San Bernardino Mountains, home to SoCal's tallest mountains.",
 };
 
-export default sanBernardino;
+export default function SanBernardinoMountainsPage() {
+  return <SanBernardinoMtns />;
+}
