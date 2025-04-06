@@ -14,7 +14,7 @@ const SanJacintoReport = () => {
                     <h3 className="text-2xl font-semibold">March 30, 2025</h3>
                 </div>
                 <p className="text-xl mb-6">
-                    Despite April arriving soon, hazardous alpine conditions still exist in the San Jacinto backcountry. There is still over 2 ft of snow on trails, so traction devices such as microspikes or snowshoes are recommended. Cold temperatures and snow showers are in the forecast in the upcoming week, expect a couple of inches of new snow. This report covers the east &#40;Tramway&#41; side of Mt. San Jacinto.
+                    Despite April arriving soon, hazardous alpine conditions still exist in the San Jacinto backcountry. There is still over 2 ft of snow on trails, so traction devices such as microspikes or snowshoes are recommended. This report covers the east &#40;Tramway&#41; side of Mt. San Jacinto and data was collected on March 30.
                 </p>
                 <div className="w-full h-[65vh] sm:h-[80vh] lg:h-screen mb-6 relative">
                     <Image
