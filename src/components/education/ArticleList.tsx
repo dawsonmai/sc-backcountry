@@ -23,7 +23,33 @@ const ArticleList = () => {
                     <AccordionItem value="snow-safety">
                         <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-semibold uppercase text-red-600">Snow Safety</AccordionTrigger>
                         <AccordionContent className="text-lg">
-                            As soft and fun snow is, it poses serious hazards such as avalanches. Learn how to safely travel and avoid risks while on snow in the backcountry with the resources below.
+                            <p className="mb-4"> As soft and fun snow is, it poses serious hazards such as avalanches. Learn how to safely travel and avoid risks while on snow in the backcountry with the resources below.</p>
+                            <div className="rounded-2xl bg-gray-200 p-6 flex flex-col sm:flex-row mb-4">
+                                <div className="relative h-56 w-full sm:w-64 mr-10 rounded-2xl">
+                                    {/* Background Image */}
+                                    <Image
+                                        src="/article-images/how-to-read-snow-profile-graph/SnowProfile.jpeg"
+                                        alt="Snow Pit Profiles"
+                                        layout="fill"
+                                        objectFit="cover"
+                                        objectPosition="center"
+                                        className="rounded-2xl"
+                                    />
+
+                                    {/* Gradient Overlay */}
+                                    <div className="absolute inset-0 bg-black/0 rounded-2xl"></div>
+                                </div>
+                                <div className="w-full sm:w-2/3 flex flex-col justify-between items-center text-center sm:text-start sm:items-start">
+                                    <div>
+                                        <h2 className="text-xl md:text-2xl font-medium">How to Read a Snow Profile Graph</h2>
+                                        <h3 className="text-md md:text-lg italic">Snow Data</h3>
+                                        <p className="text-md md:text-lg font-light">Learn how to read and interpret a snow profile graph.</p>
+                                    </div>
+                                    <Button asChild className="rounded-full text-black bg-gray-200 border-2 border-black hover:bg-black hover:text-white" variant="outline">
+                                        <Link href="/education/reading-snow-profile-graphs">Read More</Link>
+                                    </Button>
+                                </div>
+                            </div>
                         </AccordionContent>
                     </AccordionItem>
                 </motion.div>
@@ -49,20 +75,20 @@ const ArticleList = () => {
                         <AccordionContent className="text-lg">
                             <p className="mb-4">Find other backcountry tools and resources as well as learn how to navigate our website here.</p>
                             <div className="rounded-2xl bg-gray-200 p-6 flex flex-col sm:flex-row mb-4">
-                            <div className="relative h-56 w-full sm:w-64 mr-10 rounded-2xl">
-                                {/* Background Image */}
-                                <Image
-                                    src="/WeatherStation.jpg"
-                                    alt="Weather Station"
-                                    layout="fill"
-                                    objectFit="cover"
-                                    objectPosition="center"
-                                    className="rounded-2xl"
-                                />
+                                <div className="relative h-56 w-full sm:w-64 mr-10 rounded-2xl">
+                                    {/* Background Image */}
+                                    <Image
+                                        src="/WeatherStation.jpg"
+                                        alt="Weather Station"
+                                        layout="fill"
+                                        objectFit="cover"
+                                        objectPosition="center"
+                                        className="rounded-2xl"
+                                    />
 
-                                {/* Gradient Overlay */}
-                                <div className="absolute inset-0 bg-black/0 rounded-2xl"></div>
-                            </div>
+                                    {/* Gradient Overlay */}
+                                    <div className="absolute inset-0 bg-black/0 rounded-2xl"></div>
+                                </div>
                                 <div className="w-full sm:w-2/3 flex flex-col justify-between items-center text-center sm:text-start sm:items-start">
                                     <div>
                                         <h2 className="text-xl md:text-2xl font-medium">Weather & Forecast Resources</h2>
@@ -75,20 +101,20 @@ const ArticleList = () => {
                                 </div>
                             </div>
                             <div className="rounded-2xl bg-gray-200 p-6 flex flex-col sm:flex-row">
-                            <div className="relative h-56 w-full sm:w-64 mr-10 rounded-2xl">
-                                {/* Background Image */}
-                                <Image
-                                    src="/snowDataCollection.jpg"
-                                    alt="Snow Data Collection"
-                                    layout="fill"
-                                    objectFit="cover"
-                                    objectPosition="center"
-                                    className="rounded-2xl"
-                                />
+                                <div className="relative h-56 w-full sm:w-64 mr-10 rounded-2xl">
+                                    {/* Background Image */}
+                                    <Image
+                                        src="/snowDataCollection.jpg"
+                                        alt="Snow Data Collection"
+                                        layout="fill"
+                                        objectFit="cover"
+                                        objectPosition="center"
+                                        className="rounded-2xl"
+                                    />
 
-                                {/* Gradient Overlay */}
-                                <div className="absolute inset-0 bg-black/0 rounded-2xl"></div>
-                            </div>
+                                    {/* Gradient Overlay */}
+                                    <div className="absolute inset-0 bg-black/0 rounded-2xl"></div>
+                                </div>
                                 <div className="w-full sm:w-2/3 flex flex-col justify-between items-center text-center sm:text-start sm:items-start">
                                     <div>
                                         <h2 className="text-xl md:text-2xl font-medium">Snow Conditions Resources</h2>
