@@ -97,7 +97,7 @@ const ConditionsData = () => {
 
 		if (description === "Sunny" || description === "Clear" || description === "Mostly Sunny"){
 			return (<Sun strokeWidth={strokeWidth} size={size} className={className} />)
-		}else if (description === "Mostly Cloudy" || description==="Partly Cloudy" || description==="Mostly Clear"){
+		}else if (description === "Mostly Cloudy" || description==="Partly Cloudy" || description==="Mostly Clear" || description==="Partly Sunny"){
 			return (<CloudSun strokeWidth={strokeWidth} size={size} className={className} />)
 		}else if (description ==="Cloudy"){
 			return (<Cloud strokeWidth={strokeWidth} size={size} className={className} />)

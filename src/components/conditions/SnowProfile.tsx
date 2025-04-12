@@ -109,7 +109,7 @@ const SnowProfile = () => {
 		<div className="flex flex-col md:flex-row justify-between gap-4 md:gap-0">
 			<div className="w-full md:w-2/3 px-2 md:px-5">
 				<h2 className="uppercase font-medium text-gray-700 text-lg md:text-xl pb-2 flex flex-row items-center">
-					Snow Data <Info size={18} className="ml-2" />
+					Snow Data <Link href="/education/reading-snow-profile-graphs"><Info size={18} className="ml-2" /></Link>
 				</h2>
 				{setProfileChart()}		
 			</div>
