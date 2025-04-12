@@ -37,7 +37,7 @@ const DropdownInfo = () => {
                 </motion.div>
                 <motion.div initial="initial" whileInView="animate" viewport={{ once: true }} variants={fadeInUp}>
                     <AccordionItem value="team">
-                        <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-semibold uppercase">Our Team</AccordionTrigger>
+                        <AccordionTrigger className="text-lg md:text-xl lg:text-2xl font-semibold uppercase">Our Founder</AccordionTrigger>
                         <AccordionContent className="text-lg">
                             <div className="flex flex-col md:flex-row">
                                 <div className="w-full md:w-1/4 flex flex-col justify-between items-center md:items-start">
