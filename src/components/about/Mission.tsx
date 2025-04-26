@@ -17,7 +17,7 @@ const Mission = () => {
                 viewport={{ margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.2 }}>
                 <h3 className="text-xl md:text-3xl lg:text-4xl">
-                    To raise awareness, educate, and prepare adventurers for Southern California&apos;s vast and snowy winter backcountry
+                    To build a trusted, up-to-date resource for conditions, outdoor education, and route exploration, supporting mountaineers and backcountry skiers across Southern California.
                 </h3>
             </motion.div>
 		</div>
