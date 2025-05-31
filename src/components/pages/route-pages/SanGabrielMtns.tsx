@@ -1,14 +1,16 @@
 import Header from "@/components/global/Header";
-import WorkInProgress from "@/components/routes/routesOverview/WorkInProgress";
+import SanGabrielImage from "@/components/routes/SanGabrielMtns/SanGabrielImage"
+import SanGabrielRouteList from "@/components/routes/SanGabrielMtns/SanGabrielRouteList";
 const SanGabrielMtns = () => {
     return (
-        <div className="flex flex-col px-5">
-            <div className="flex flex-col min-h-[calc(100dvh-20px)] pt-5">
+        <div className="flex flex-col p-5">
+            <div className="flex flex-col min-h-[calc(100dvh-20px)] pb-5">
 				<Header />
 				<div className="flex flex-grow">
-					<WorkInProgress />
+					<SanGabrielImage />
 				</div>
 			</div>
+            <SanGabrielRouteList />
         </div>
     );
 };
