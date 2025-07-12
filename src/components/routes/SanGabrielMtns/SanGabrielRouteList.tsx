@@ -128,7 +128,7 @@ const SanGabrielRouteList = () => {
             });
     }, []);
 
-    function windDirection(angle){
+    function windDirection(angle: any){
 		const directions = ["North", "Northeast", "East", "Southeast", "South", "Southwest", "West", "Northwest", "North"];
 		
     	let index = Math.round(angle / 45) % 8;
